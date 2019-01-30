@@ -1,0 +1,9 @@
+# Python Artifacts
+*/__pycache__
+*.py[abc]
+
+# Visual Studio Code
+.vscode/
+
+# Sandbox
+sandbox.py

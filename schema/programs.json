@@ -1,0 +1,63 @@
+{
+    "schema": [{
+            "field": "program_provider",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "program_name",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "program_code",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "program_description",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "program_status",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "program_fees",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "geographic_areas",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "program_address",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "eligibility_criteria",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "credential_earned",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "program_potential_outcome",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "program_url",
+            "type": "string",
+            "required": "true"
+        }
+    ]
+}
