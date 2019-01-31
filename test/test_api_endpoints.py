@@ -12,7 +12,7 @@ client = app.test_client()
 def _():
     @it('Should return all programs')
     def get_all_programs():
-        response = client.get('/programs')
+        response = client.get('/programs', headers={'x-api-version': 'v1.0'})
         expect(response.status_code).to(be(200))
 
     @it('Should return all credentials')
