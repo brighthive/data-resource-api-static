@@ -11,7 +11,7 @@
         },
         {
             "field": "program_code",
-            "type": "string",
+            "type": "integer",
             "required": "true"
         },
         {
@@ -51,13 +51,73 @@
         },
         {
             "field": "program_potential_outcome",
-            "type": "string",
+            "type": "integer",
             "required": "true"
         },
         {
             "field": "program_url",
             "type": "string",
             "required": "true"
+        },
+        {
+            "field": "program_contact_phone",
+            "type": "string",
+            "required": "false"
+        },
+        {
+            "field": "program_contact_email",
+            "type": "string",
+            "required": "false"
+        },
+        {
+            "field": "languages",
+            "type": "string",
+            "required": "false"
+        },
+        {
+            "field": "current_intake_capacity",
+            "type": "integer",
+            "required": "false"
+        },
+        {
+            "field": "program_offering_model",
+            "type": "integer",
+            "required": "false"
+        },
+        {
+            "field": "program_length_hours",
+            "type": "integer",
+            "required": "false"
+        },
+        {
+            "field": "program_length_weeks",
+            "type": "integer",
+            "required": "false"
+        },
+        {
+            "field": "prerequisites",
+            "type": "integer",
+            "required": "false"
+        },
+        {
+            "field": "program_soc",
+            "type": "integer",
+            "required": "false"
+        },
+        {
+            "field": "funding_sources",
+            "type": "integer",
+            "required": "false"
+        },
+        {
+            "field": "on_etpl",
+            "type": "string",
+            "required": "false"
+        },
+        {
+            "field": "cost_of_books_and_supplies",
+            "type": "float",
+            "required": "false"
         }
     ]
 }

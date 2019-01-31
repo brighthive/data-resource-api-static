@@ -1,0 +1,69 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "e748f81bfce6376100264bde31caa45923e30aeb8b247530ba3134555748c9c6"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.7"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {},
+    "develop": {
+        "autopep8": {
+            "hashes": [
+                "sha256:33d2b5325b7e1afb4240814fe982eea3a92ebea712869bfd08b3c0393404248c"
+            ],
+            "index": "pypi",
+            "version": "==1.4.3"
+        },
+        "click": {
+            "hashes": [
+                "sha256:cc6a19da8ebff6e7074f731447ef7e112bd23adf3de5c597cf9989f2fd8defe9",
+                "sha256:fcf697e1fd4b567d817c69dab10a4035937fe6af175c05fd6806b69f74cbc6c4"
+            ],
+            "version": "==6.6"
+        },
+        "colored": {
+            "hashes": [
+                "sha256:5e989801175c98123e0fd49745347ff537400c3004e2e6ac4a09400dd13ec43a"
+            ],
+            "version": "==1.2.2"
+        },
+        "expects": {
+            "hashes": [
+                "sha256:419902ccafe81b7e9559eeb6b7a07ef9d5c5604eddb93000f0642b3b2d594f4c"
+            ],
+            "index": "pypi",
+            "version": "==0.9.0"
+        },
+        "pocha": {
+            "hashes": [
+                "sha256:4350ba0287abdf362f3a96ef2c8354f76cb751dbfd495b878a4cc9ed62eaf923"
+            ],
+            "index": "pypi",
+            "version": "==0.14.0"
+        },
+        "pycodestyle": {
+            "hashes": [
+                "sha256:95a2219d12372f05704562a14ec30bc76b05a5b297b21a5dfe3f6fac3491ae56",
+                "sha256:e40a936c9a450ad81df37f549d676d127b1b66000a6c500caa2b085bc0ca976c"
+            ],
+            "index": "pypi",
+            "version": "==2.5.0"
+        },
+        "robber": {
+            "hashes": [
+                "sha256:87f705c1630e2eb622c0e7f7b940303a519392167d3d2ba707e97e3c58001ecb"
+            ],
+            "version": "==1.0.1"
+        }
+    }
+}

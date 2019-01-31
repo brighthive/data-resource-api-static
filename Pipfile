@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 
 [dev-packages]
+pycodestyle = "*"
+expects = "*"
+"autopep8" = "*"
+pocha = "*"
 
 [requires]
 python_version = "3.7"
