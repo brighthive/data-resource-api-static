@@ -1,0 +1,58 @@
+{
+    "schema": [{
+            "field": "participant_id",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "program_code",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "program_provider",
+            "type": "integer",
+            "required": "true"
+        },
+        {
+            "field": "entry_date",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "exit_date",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "exit_type",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "exit_reason",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "program_name",
+            "type": "string",
+            "required": "false"
+        },
+        {
+            "field": "service_location",
+            "type": "string",
+            "required": "false"
+        },
+        {
+            "field": "funding_sources",
+            "type": "string",
+            "required": "false"
+        },
+        {
+            "field": "wioa_participant",
+            "type": "string",
+            "required": "false"
+        }
+    ]
+}
