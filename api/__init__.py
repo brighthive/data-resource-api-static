@@ -1,2 +1,3 @@
-from api.v1_0_0 import ProgramsResource, ParticipantsResource,\
-    CredentialsResource
+from api.programs import ProgramsResource
+from api.participants import ParticipantsResource
+from api.credentials import CredentialsResource
