@@ -1,5 +1,7 @@
 """ API Version 1.0 Programs Handler """
 
+from db import Program
+
 
 class ProgramsHandler(object):
     def get_all_programs(self):

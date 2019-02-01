@@ -1,6 +1,6 @@
 """ API Version 1.0 Credentials Handler """
 
-from db import Credentials
+from db import Credential
 
 
 class CredentialsHandler(object):

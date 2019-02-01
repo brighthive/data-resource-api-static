@@ -1,5 +1,7 @@
 """ API Version 1.0 Participants Handler """
 
+from db import Participant
+
 
 class ParticipantsHandler(object):
     def get_all_participants(self):
