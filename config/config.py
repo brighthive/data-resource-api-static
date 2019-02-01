@@ -5,6 +5,8 @@ import json
 
 
 class Config(object):
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
     @staticmethod
     def get_api_version():
         api_version = None
