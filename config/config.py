@@ -6,6 +6,7 @@ import json
 
 class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = 'postgresql://test_user:test_password@localhost:5432/tpot_programs'
 
     @staticmethod
     def get_api_version():
