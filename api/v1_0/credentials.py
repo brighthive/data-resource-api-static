@@ -1,5 +1,7 @@
 """ API Version 1.0 Credentials Handler """
 
+from db import Credentials
+
 
 class CredentialsHandler(object):
     def get_all_credentials(self):
