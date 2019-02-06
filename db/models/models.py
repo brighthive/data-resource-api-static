@@ -5,6 +5,9 @@ from app.app import db
 class Provider(db.Model):
     __tablename__ = 'providers'
     provider_id = db.Column(db.Integer, primary_key=True)
+    provider_name = db.Column(db.String(100), nullable=False)
+    provider_alternate_name = db.Column(db.String(100), nullable=False)
+    # entity type id
     optional_fields = db.Column(JSONB)
     user_provided_fields = db.Column(JSONB)
 
