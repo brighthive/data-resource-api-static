@@ -61,11 +61,41 @@ class ProgramCategory(db.Model):
     __tablename__ = 'program_category'
     category_cip = db.Column(db.String(12), primary_key=True)
     category_name = db.Column(db.String(200))
-    # TODO finish building out
 
 
 class Program(db.Model):
     __tablename__ = 'program'
+    '''
+    Required Fields
+    ---------------
+    program_provider
+    program_name
+    program_code
+    program_description
+    program_status
+    program_fees
+    geographic_areas
+    program_address
+    eligibility_criteria
+    credential_earned
+    program_potential_outcome
+    program_url
+
+    Recommended Fields
+    ------------------
+    program_contact_phone
+    program_contact_email
+    languages
+    current_intake_capacity
+    program_offering_model
+    program_length_hours
+    program_length_weeks
+    prerequisites
+    program_soc
+    funding_sources
+    on_etpl
+    cost_of_books_and_supples
+    '''
 
     # required fields
     program_id = db.Column(db.Integer, primary_key=True)
@@ -102,5 +132,6 @@ class Credential(db.Model):
 class Participant(db.Model):
     __tablename__ = 'participant'
     participant_id = db.Column(db.Integer, primary_key=True)
+    program_code = db.Column(db.Integer, nullable=False)
     optional_fields = db.Column(JSONB)
     user_provided_fields = db.Column(JSONB)

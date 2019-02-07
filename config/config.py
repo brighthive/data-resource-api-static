@@ -6,7 +6,21 @@ import json
 
 class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_DATABASE_URI = 'postgresql://test_user:test_password@localhost:5432/tpot_programs'
+    USER = 'test_user'
+    PASSWORD = 'test_password'
+    DATABASE = 'tpot_programs'
+    HOSTNAME = 'localhost'
+    PORT = 5432
+    SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@{}:{}/{}'.format(
+        USER,
+        PASSWORD,
+        HOSTNAME,
+        PORT,
+        DATABASE
+    )
+    DEFAULT_VALIDATOR_HOME = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), '../schema')
+    VALIDATOR_HOME = os.getenv('VALIDATOR_HOME', DEFAULT_VALIDATOR_HOME)
 
     @staticmethod
     def get_api_version():

@@ -9,6 +9,7 @@ import json
 import os
 import re
 from datetime import datetime
+from config import Config
 from validator.util import ValidatorNotFoundError, SchemaFormatError, \
     EMAIL_REGEX, URL_REGEX
 
@@ -212,3 +213,35 @@ class Validator(object):
                 raise(SchemaFormatError(
                     'Schema format error detected in schema {}'.format(
                         self.schema_path)))
+
+
+class CredentialValidator(Validator):
+    def __init__(self):
+        config = Config()
+        validator_file = os.path.join(
+            config.VALIDATOR_HOME, 'credentials.json')
+        super(CredentialValidator, self).__init__(validator_file)
+
+
+class ParticipantValidator(Validator):
+    def __init__(self):
+        config = Config()
+        validator_file = os.path.join(
+            config.VALIDATOR_HOME, 'participants.json')
+        super(ParticipantValidator, self).__init__(validator_file)
+
+
+class ProgramValidator(Validator):
+    def __init__(self):
+        config = Config()
+        validator_file = os.path.join(
+            config.VALIDATOR_HOME, 'programs.json')
+        super(ProgramValidator, self).__init__(validator_file)
+
+
+class ProviderValidator(Validator):
+    def __init__(self):
+        config = Config()
+        validator_file = os.path.join(
+            config.VALIDATOR_HOME, 'providers.json')
+        super(ProviderValidator, self).__init__(validator_file)
