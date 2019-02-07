@@ -13,8 +13,8 @@ TEST_DATA = {
     'participant_id': '123456789',
     'program_code': '124ABC',
     'program_provider': 12345,
-    'entry_date': '01/01/2019',
-    'exit_date': '01/01/2019',
+    'entry_date': '20190101',
+    'exit_date': '20190101',
     'exit_type': 'Withdrew',
     'exit_reason': 'Personal'
 }
@@ -27,10 +27,12 @@ TEST_VALID_FIELDS = [
     {'good': 1.5, 'bad': 'i am a bad float', 'type': 'float'},
     {'good': 'http://www.amazon.com', 'bad': 123456, 'type': 'url'},
     {'good': 'https://localhost:5000', 'bad': 'i am not a url', 'type': 'url'},
-    {'good': '50.203.100.1', 'bad': 10.4, 'type': 'url'},
+    {'good': '50.203.100.1:8080', 'bad': 10.4, 'type': 'url'},
     {'good': '20190101', 'bad': '20190134', 'type': 'date'},
     {'good': 20190101, 'bad': 2012222.4, 'type': 'date'},
-    {'good': 20200104, 'bad': 'not a good date', 'type': 'date'}
+    {'good': 20200104, 'bad': 'not a good date', 'type': 'date'},
+    {'good': 'me@nowhere.com', 'bad': 'user_at_nowhere.com', 'type': 'email'},
+    {'good': 'me@nowhere.info', 'bad': 123.456, 'type': 'email'},
 ]
 
 
@@ -52,6 +54,55 @@ def _():
             elif field['type'] == 'date':
                 expect(validator.is_valid_date(field['good'])).to(be(True))
                 expect(validator.is_valid_date(field['bad'])).to(be(False))
+            elif field['type'] == 'url':
+                expect(validator.is_valid_url(field['good'])).to(be(True))
+                expect(validator.is_valid_url(field['bad'])).to(be(False))
+            elif field['type'] == 'email':
+                expect(validator.is_valid_email(field['good'])).to(be(True))
+                expect(validator.is_valid_email(field['bad'])).to(be(False))
+
+    @it('Should handle user-defined regex patterns for strings')
+    def test_string_pattern():
+        validator = Validator(None)
+        value = 'I am as happy as a Clownfish'
+        pattern_1 = "I am as happy as a [A-Za-z]+"
+        pattern_2 = "I enjoy music and [A-Z]+"
+        expect(validator.is_valid_string(value, pattern_1)).to(be(True))
+        expect(validator.is_valid_string(value, pattern_2)).to(be(False))
+
+    @it('Should handle user-defined date formats')
+    def test_date_format():
+        validator = Validator(None)
+        date_1 = '2019-01-01'
+        date_2 = '2019-06-05 05:45'
+        pattern_1 = '%Y-%m-%d'
+        pattern_2 = '%Y-%m-%d %H:%M'
+        expect(validator.is_valid_date(date_1, pattern_1)).to(be(True))
+        expect(validator.is_valid_date(date_1, pattern_2)).to(be(False))
+        expect(validator.is_valid_date(date_2, pattern_2)).to(be(True))
+        expect(validator.is_valid_date(date_2, pattern_1)).to(be(False))
+
+    @it('Should handle user-defined minimum and maximum for integers')
+    def test_min_max_int():
+        validator = Validator(None)
+        number = 5
+        min = 0
+        max = 10
+        expect(validator.is_valid_integer(number, min, max)).to(be(True))
+        expect(validator.is_valid_integer(number, min=min)).to(be(True))
+        expect(validator.is_valid_integer(number, max=max)).to(be(True))
+        expect(validator.is_valid_integer(number, max, min)).to(be(False))
+
+    @it('Should handle user-defined minimum and maximum for floats')
+    def _():
+        validator = Validator(None)
+        number = 5.25
+        min = 0.65
+        max = 10.2345
+        expect(validator.is_valid_float(number, min, max)).to(be(True))
+        expect(validator.is_valid_float(number, min=min)).to(be(True))
+        expect(validator.is_valid_float(number, max=max)).to(be(True))
+        expect(validator.is_valid_float(number, max, min)).to(be(False))
 
     @it('Should throw a "ValidatorNotFound" error if the validator does not ' +
         'exist')
@@ -77,10 +128,9 @@ def _():
         expect(lambda: validator.validate(TEST_DATA)).to(
             raise_error(SchemaFormatError))
 
-    # @it('Should successfully validate a properly formed document')
-    # def validate_document():
-    #     schema = os.path.join(TEST_SCHEMA_PATH, 'schema.json')
-    #     validator = Validator(schema)
-    #     result = validator.validate(TEST_DATA)
-    #     expect(len(result)).to(equal(0))
-        # print(result)
+    @it('Should successfully validate a properly formed document')
+    def validate_document():
+        schema = os.path.join(TEST_SCHEMA_PATH, 'schema.json')
+        validator = Validator(schema)
+        result = validator.validate(TEST_DATA)
+        expect(len(result)).to(equal(0))

@@ -7,8 +7,10 @@ files to validate data provided by API consumers.
 
 import json
 import os
+import re
 from datetime import datetime
-from validator.util import ValidatorNotFoundError, SchemaFormatError
+from validator.util import ValidatorNotFoundError, SchemaFormatError, \
+    EMAIL_REGEX, URL_REGEX
 
 
 class Validator(object):
@@ -37,42 +39,81 @@ class Validator(object):
     def is_valid_string(self, text, pattern=None):
         """ Determine if an item is a valid string. """
         is_valid = False
-        if isinstance(text, str):
-            is_valid = True
+        try:
+            if isinstance(text, str):
+                is_valid = True
+                if pattern is not None:
+                    matcher = re.compile(pattern)
+                    if matcher.match(text):
+                        is_valid = True
+                    else:
+                        is_valid = False
+        except Exception:
+            is_valid = False
         return is_valid
 
     def is_valid_integer(self, text, min=None, max=None):
         """ Determine if an item is a valid string. """
         is_valid = False
-        if isinstance(text, int):
-            is_valid = True
+        try:
+            if isinstance(text, int):
+                is_valid = True
+                if is_valid and min is not None:
+                    if int(text) < int(min):
+                        is_valid = False
+                if is_valid and max is not None:
+                    if int(text) > int(max):
+                        is_valid = False
+        except Exception:
+            is_valid = False
         return is_valid
 
     def is_valid_float(self, text, min=None, max=None):
-        """ Determine if an item is a valid string. """
+        """ Determine if an item is a valid float. """
         is_valid = False
-        if isinstance(text, float):
-            is_valid = True
+        try:
+            if isinstance(text, float):
+                is_valid = True
+                if is_valid and min is not None:
+                    if float(text) < float(min):
+                        is_valid = False
+                if is_valid and max is not None:
+                    if float(text) > float(max):
+                        is_valid = False
+        except Exception:
+            is_valid = False
         return is_valid
 
     def is_valid_url(self, text):
         """ Determine if an item is a valid string. """
         is_valid = False
+        try:
+            if URL_REGEX.match(text):
+                is_valid = True
+        except Exception:
+            pass
         return is_valid
 
     def is_valid_email(self, text):
         """ Determine if an item is a valid string. """
         is_valid = False
+        try:
+            if EMAIL_REGEX.match(text):
+                is_valid = True
+        except Exception:
+            pass
         return is_valid
 
-    def is_valid_date(self, text, format="%Y%m%d"):
+    def is_valid_date(self, text, format=None):
         """ Determine if an item is a valid date. """
         is_valid = False
         try:
+            if format is None:
+                format = "%Y%m%d"
             date = datetime.strptime(str(text), format)
             is_valid = True
         except Exception:
-            pass
+            is_valid = False
         return is_valid
 
     def validate(self, dataset: dict):
@@ -99,36 +140,71 @@ class Validator(object):
 
             try:
                 for field in schema['schema']:
-                    if not self.field_exists(field['field'], dataset):
+                    current_field = field['field']
+                    if not self.field_exists(current_field, dataset):
                         if field['required'] == 'true':
                             errors.append(
                                 "Field '{0}' is required and cannot be blank."
-                                .format(field['field']))
+                                .format(current_field))
                     else:
                         field_type = field['type']
                         if field_type == 'string':
-                            print('string')
-                            if field['pattern']:
-                                print('...... has a pattern')
+                            if 'pattern' in field.keys():
+                                pattern = field['pattern']
+                            else:
+                                pattern = None
+
+                            if not self.is_valid_string(dataset[current_field],
+                                                        pattern):
+                                errors.append(
+                                    'Field {} is not a valid string'.format(
+                                        current_field))
                         elif field_type == 'integer':
-                            print('integer')
-                            if field['min']:
-                                print('...... has a minimum value')
-                            if field['max']:
-                                print('...... has a maximum value')
+                            if 'min' in field.keys():
+                                min = field['min']
+                            else:
+                                min = None
+                            if 'max' in field.keys():
+                                max = field['max']
+                            else:
+                                max = None
+                            if not self.is_valid_integer(
+                                    dataset[current_field], min, max):
+                                errors.append(
+                                    'Fiels {} is not a valid integer'.format(
+                                        current_field))
                         elif field_type == 'float':
-                            if field['min']:
-                                print('...... has a minimum value')
-                            if field['max']:
-                                print('...... has a maximum value')
+                            if 'min' in field.keys():
+                                min = field['min']
+                            else:
+                                min = None
+                            if 'max' in field.keys():
+                                max = field['max']
+                            else:
+                                max = None
+                            if not self.is_valid_float(
+                                    dataset[current_field], min, max):
+                                errors.append(
+                                    'Fiels {} is not a valid integer'.format(
+                                        current_field))
                         elif field_type == 'url':
-                            print('url')
+                            if not self.is_valid_url(dataset[current_field]):
+                                errors.append(
+                                    'Field {} is not a valid URL'.format(
+                                        current_field))
                         elif field_type == 'email':
-                            print('email')
+                            if not self.is_valid_date(dataset[current_field]):
+                                errors.append(
+                                    'Field {} is not a valid email address'
+                                    .format(current_field))
                         elif field_type == 'date':
-                            print('date')
-                            if field['format']:
-                                print('...... has a date format')
+                            if 'format' in field.keys():
+                                format = field['format']
+                            else:
+                                format = None
+                            if not self.is_valid_date(dataset[current_field],
+                                                      format):
+                                errors.append('Field {} is not a valid date.')
                 return errors
             except Exception as e:
                 raise(SchemaFormatError(

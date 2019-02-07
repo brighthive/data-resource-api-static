@@ -16,12 +16,12 @@
         },
         {
             "field": "entry_date",
-            "type": "string",
+            "type": "date",
             "required": "true"
         },
         {
             "field": "exit_date",
-            "type": "string",
+            "type": "date",
             "required": "true"
         },
         {
