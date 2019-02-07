@@ -3,7 +3,7 @@
 import os
 import json
 from pocha import describe, it, before
-from expects import expect, be, equal, raise_error
+from expects import expect, be, equal, raise_error, be_above
 from validator import Validator, ValidatorNotFoundError, SchemaFormatError
 
 TEST_SCHEMA_PATH = os.path.join(
@@ -18,6 +18,17 @@ TEST_DATA = {
     'exit_type': 'Withdrew',
     'exit_reason': 'Personal'
 }
+
+BAD_TEST_DATA = {
+    'participant_id': 123456789,
+    'program_code': 26.5,
+    'program_provider': '12345',
+    'entry_date': '2019-01-01',
+    'exit_date': '2019-01-01',
+    'exit_type': 1,
+    'exit_reason': 105.3
+}
+
 
 TEST_VALID_FIELDS = [
     {'good': 'I am a good string', 'bad': 123456, 'type': 'string'},
@@ -132,5 +143,24 @@ def _():
     def validate_document():
         schema = os.path.join(TEST_SCHEMA_PATH, 'schema.json')
         validator = Validator(schema)
+
+        # validate a known good document
         result = validator.validate(TEST_DATA)
         expect(len(result)).to(equal(0))
+
+        # validate a bad document
+        result = validator.validate(BAD_TEST_DATA)
+        expect(len(result)).to(be_above(0))
+
+    @it('Should successfully validate optional fields')
+    def validate_optiona_fields():
+        schema = os.path.join(TEST_SCHEMA_PATH, 'schema_optional.json')
+        validator = Validator(schema)
+
+        # validate a known good document
+        result = validator.validate(TEST_DATA)
+        expect(len(result)).to(equal(0))
+
+        # validate a bad document
+        result = validator.validate(BAD_TEST_DATA)
+        expect(len(result)).to(be_above(0))

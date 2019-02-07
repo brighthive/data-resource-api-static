@@ -185,7 +185,7 @@ class Validator(object):
                             if not self.is_valid_float(
                                     dataset[current_field], min, max):
                                 errors.append(
-                                    'Fiels {} is not a valid integer'.format(
+                                    'Field {} is not a valid integer'.format(
                                         current_field))
                         elif field_type == 'url':
                             if not self.is_valid_url(dataset[current_field]):
@@ -204,7 +204,9 @@ class Validator(object):
                                 format = None
                             if not self.is_valid_date(dataset[current_field],
                                                       format):
-                                errors.append('Field {} is not a valid date.')
+                                errors.append(
+                                    'Field {} is not a valid date.'.format(
+                                        current_field))
                 return errors
             except Exception as e:
                 raise(SchemaFormatError(
