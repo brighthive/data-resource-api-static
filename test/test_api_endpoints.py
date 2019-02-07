@@ -43,27 +43,40 @@ def _():
         expect(response.status_code).to(equal(201))
 
     @it('Should add a new credential if the data is valid')
-    def add_new_program():
+    def add_new_credential():
         response = client.post(
             '/credentials', headers={'x-api-version': 'v1.0'})
         expect(response.status_code).to(equal(400))
 
         content = {'message': 'a thing'}
         response = client.post(
-            '/programs',
+            '/credentials',
             headers={'content-type': 'application/json'},
             data=json.dumps(content))
         expect(response.status_code).to(equal(201))
 
     @it('Should add a new participant if the data is valid')
-    def add_new_program():
+    def add_new_participant():
         response = client.post(
-            '/programs', headers={'x-api-version': 'v1.0'})
+            '/participants', headers={'x-api-version': 'v1.0'})
         expect(response.status_code).to(equal(400))
 
         content = {'message': 'a thing'}
         response = client.post(
             '/participants',
+            headers={'content-type': 'application/json'},
+            data=json.dumps(content))
+        expect(response.status_code).to(equal(201))
+
+    @it('Should add a new provider if the data is valid')
+    def add_new_provider():
+        response = client.post(
+            '/providers', headers={'x-api-version': 'v1.0'})
+        expect(response.status_code).to(equal(400))
+
+        content = {'message': 'a thing'}
+        response = client.post(
+            '/providers',
             headers={'content-type': 'application/json'},
             data=json.dumps(content))
         expect(response.status_code).to(equal(201))

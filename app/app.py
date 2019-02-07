@@ -11,7 +11,9 @@ migrate = Migrate(app, db)
 api = Api(app)
 
 if db:
-    from api import ProgramsResource, ParticipantsResource, CredentialsResource
+    from api import ProgramsResource, ParticipantsResource,\
+        CredentialsResource, ProvidersResource
     api.add_resource(ProgramsResource, '/programs')
     api.add_resource(ParticipantsResource, '/participants')
     api.add_resource(CredentialsResource, '/credentials')
+    api.add_resource(ProvidersResource, '/providers')
