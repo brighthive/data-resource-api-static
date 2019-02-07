@@ -171,7 +171,7 @@ class Validator(object):
                             if not self.is_valid_integer(
                                     dataset[current_field], min, max):
                                 errors.append(
-                                    'Fiels {} is not a valid integer'.format(
+                                    'Field {} is not a valid integer'.format(
                                         current_field))
                         elif field_type == 'float':
                             if 'min' in field.keys():
