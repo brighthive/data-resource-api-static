@@ -1,8 +1,8 @@
-"""Create core database tables
+"""Create core database tables.
 
-Revision ID: 1206de320508
+Revision ID: eb1f610d138f
 Revises: 
-Create Date: 2019-02-08 17:21:51.683445
+Create Date: 2019-02-08 17:57:37.856905
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision = '1206de320508'
+revision = 'eb1f610d138f'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -100,6 +100,7 @@ def upgrade():
     sa.Column('program_description', sa.String(length=4096), nullable=False),
     sa.Column('program_status', sa.String(length=256), nullable=False),
     sa.Column('program_fees', sa.Float(), nullable=False),
+    sa.Column('provider_id', sa.Integer(), nullable=True),
     sa.Column('location_id', sa.Integer(), nullable=True),
     sa.Column('eligibility_criteria', sa.String(length=256), nullable=False),
     sa.Column('credential_earned', sa.Integer(), nullable=True),
@@ -123,6 +124,7 @@ def upgrade():
     sa.ForeignKeyConstraint(['location_id'], ['geographic_locations.location_id'], ondelete='CASCADE'),
     sa.ForeignKeyConstraint(['potential_outcome_id'], ['program_potential_outcome.potential_outcome_id'], ondelete='CASCADE'),
     sa.ForeignKeyConstraint(['prerequisite_id'], ['program_prerequisite.prerequisite_id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['provider_id'], ['providers.provider_id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('program_id')
     )
     op.create_table('participants',

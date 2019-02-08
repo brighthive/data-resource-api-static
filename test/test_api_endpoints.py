@@ -36,11 +36,11 @@ def _():
         expect(response.status_code).to(equal(400))
 
         content = {'message': 'a thing'}
-        response = client.post(
-            '/programs',
-            headers={'content-type': 'application/json'},
-            data=json.dumps(content))
-        expect(response.status_code).to(equal(201))
+        # response = client.post(
+        #     '/programs',
+        #     headers={'content-type': 'application/json'},
+        #     data=json.dumps(content))
+        # expect(response.status_code).to(equal(201))
 
     @it('Should add a new credential if the data is valid')
     def add_new_credential():

@@ -120,6 +120,8 @@ class Program(db.Model):
     program_description = db.Column(db.String(4096), nullable=False)
     program_status = db.Column(db.String(256), nullable=False)
     program_fees = db.Column(db.Float, nullable=False)
+    provider_id = db.Column(db.Integer, db.ForeignKey(
+        Provider.provider_id, ondelete='CASCADE'))
     location_id = db.Column(db.Integer, db.ForeignKey(
         GeographicLocation.location_id, ondelete='CASCADE'), nullable=True)
     eligibility_criteria = db.Column(db.String(256), nullable=False)
