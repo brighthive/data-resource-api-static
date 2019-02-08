@@ -2,136 +2,102 @@ from sqlalchemy.dialects.postgresql.json import JSONB
 from app.app import db
 
 
-class EntityType(db.Model):
-    __tablename__ = 'entity_type'
-    type_id = db.Column(db.Integer, primary_key=True)
-    type_name = db.Column(db.String(100), nullable=False)
-
-
-class Provider(db.Model):
-    __tablename__ = 'provider'
-    provider_id = db.Column(db.Integer, primary_key=True)
-    provider_name = db.Column(db.String(100), nullable=False)
-    provider_alternate_name = db.Column(db.String(100), nullable=True)
-    entity_type_id = db.Column(db.Integer, db.ForeignKey(
-        EntityType.type_id, ondelete='CASCADE'))
-    provider_full_address = db.Column(db.String(2048), nullable=True)
-    provider_description = db.Column(db.String(1024), nullable=True)
-    provider_contact_email = db.Column(db.String(256), nullable=True)
-    provider_url = db.Column(db.String(1024), nullable=True)
-    year_incorporated = db.Column(db.Integer, nullable=True)
-    programs = db.relationship(
-        'Program', backref='provider', lazy=True, passive_deletes=True)
-    locations = db.relationship(
-        'GeographicLocation', backref='provider', lazy=True,
-        passive_deletes=True)
-
-
-class GeographicLocation(db.Model):
-    __tablename__ = 'geographic_location'
-
-    location_id = db.Column(db.Integer, primary_key=True)
-    location_name = db.Column(db.String(100), nullable=False)
-    provider_id = db.Column(db.Integer, db.ForeignKey(
-        Provider.provider_id, ondelete='CASCADE'))
-    location_description = db.Column(db.String(256), nullable=True)
-    transportation = db.Column(db.String(256), nullable=True)
-    latitude = db.Column(db.Float, nullable=True)
-    longitude = db.Column(db.Float, nullable=True)
-    location_full_address = db.Column(db.String(650), nullable=True)
-    location_address = db.relationship(
-        'PhysicalAddress', backref='geographic_location',
-        lazy=True, uselist=False, passive_deletes=True)
-
-
-class PhysicalAddress(db.Model):
-    __tablename__ = 'physical_address'
-
-    address_id = db.Column(db.Integer, primary_key=True)
-    location_id = db.Column(db.Integer, db.ForeignKey(
-        GeographicLocation.location_id, ondelete='CASCADE'))
-    address = db.Column(db.String(100), nullable=False)
-    city = db.Column(db.String(100), nullable=False)
-    state = db.Column(db.String(20), nullable=False)
-    postal_code = db.Column(db.String(20), nullable=False)
-    country = db.Column(db.String(2), nullable=False)
-
-
-class ProgramCategory(db.Model):
-    __tablename__ = 'program_category'
-    category_cip = db.Column(db.String(12), primary_key=True)
-    category_name = db.Column(db.String(200))
-
-
 class Program(db.Model):
-    __tablename__ = 'program'
-    '''
-    Required Fields
-    ---------------
-    program_provider
-    program_name
-    program_code
-    program_description
-    program_status
-    program_fees
-    geographic_areas
-    program_address
-    eligibility_criteria
-    credential_earned
-    program_potential_outcome
-    program_url
-
-    Recommended Fields
-    ------------------
-    program_contact_phone
-    program_contact_email
-    languages
-    current_intake_capacity
-    program_offering_model
-    program_length_hours
-    program_length_weeks
-    prerequisites
-    program_soc
-    funding_sources
-    on_etpl
-    cost_of_books_and_supples
-    '''
+    __tablename__ = 'programs'
 
     # required fields
     program_id = db.Column(db.Integer, primary_key=True)
-    program_provider_id = db.Column(db.Integer, db.ForeignKey(
-        Provider.provider_id, ondelete='CASCADE'))
     program_name = db.Column(db.String(140), nullable=False)
-    program_code = db.Column(
-        db.String(12), db.ForeignKey(ProgramCategory.category_cip))
+    program_code = None
     program_description = db.Column(db.String(4096), nullable=False)
     program_status = db.Column(db.String(256), nullable=False)
     program_fees = db.Column(db.Float, nullable=False)
-
     # geographic_areas
     # program_address
-    # eligibility_criteria
+    eligibility_criteria = db.Column(db.String(256), nullable=False)
     # credential_earned
     # program_potential_outcome
-    # program_url
+    program_url = db.Column(db.String(256), nullable=False)
 
-    # fields that can be validated
+    # recommended fields
+    program_contact_phone = db.Column(db.String(64), nullable=True)
+    program_contact_email = db.Column(db.String(256), nullable=True)
+    languages = db.Column(db.String(256), nullable=True)
+    current_intake_capacity = db.Column(db.Integer, nullable=True)
+    # program_offering_model = None
+    program_length_hours = db.Column(db.Float, nullable=True)
+    program_length_weeks = db.Column(db.Float, nullable=True)
+    # prerequisites = None
+    # program_soc = None
+    funding_sources = db.Column(db.String(2048), nullable=True)
+    on_etpl = db.Column(db.Integer, nullable=True)
+    # cost_of_books_and_supplies = None
+
+    # extra data
     optional_fields = db.Column(JSONB)
+    user_provided_fields = db.Column(JSONB)
 
-    # fields provided by the user that have no validation criteria
+    def __repr__(self):
+        return '<Program: {}, {}, {}>'.format(self.program_id,
+                                              self.program_code,
+                                              self.program_name)
+
+
+class Provider(db.Model):
+    __tablename__ = 'providers'
+
+    # required fields
+    provider_id = db.Column(db.Integer, primary_key=True)
+
+    # recommended fields
+
+    # extra data
+    optional_fields = db.Column(JSONB)
     user_provided_fields = db.Column(JSONB)
 
 
 class Credential(db.Model):
-    __tablename__ = 'credential'
+    __tablename__ = 'credentials'
+
+    # required fields
     credential_id = db.Column(db.Integer, primary_key=True)
+    # program_provider = None
+    # program_code = None
+    credential_name = db.Column(db.String(1024), nullable=False)
+    credential_description = db.Column(db.String(4098), nullable=False)
+    # credential_type = None
+    credential_status_type = db.Column(db.String(256), nullable=False)
+    audience = db.Column(db.String(256), nullable=False)
+    # audience_level = None
+    language = db.Column(db.String(256), nullable=False)
+
+    # recommended fields
+    ctid = db.Column(db.String(50), nullable=True)
+    webpage = db.Column(db.String(1024), nullable=True)
+
+    # extra data
     optional_fields = db.Column(JSONB)
     user_provided_fields = db.Column(JSONB)
 
 
 class Participant(db.Model):
-    __tablename__ = 'participant'
+    __tablename__ = 'participants'
+
+    # required fields
     participant_id = db.Column(db.Integer, primary_key=True)
-    program_code = db.Column(db.Integer, nullable=False)
+    # program_code = db.Column()
+    # program_provider = db.Column()
+    # entry_date = db.Column()
+    # exit_date = db.Column()
+    # exit_type = db.Column()
+    # exit_reason = db.Column()
+
+    # recommended fields
+    # program_name = db.Column()
+    # service_location = db.Column()
+    # funding_sources = db.Column()
+    # wioa_participant = db.Column()
+
+    # extra data
     optional_fields = db.Column(JSONB)
     user_provided_fields = db.Column(JSONB)
