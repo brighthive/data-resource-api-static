@@ -1,18 +1,29 @@
 """ Unit tests for API Endpoints """
 
 import json
-from pocha import describe, it, before
+import os
+from pocha import describe, it, before, after
 from expects import expect, be, equal, be_above
 
 from outcomes_api import app, db, Program, Provider, Participant,\
     Credential, CredentialType
 
-import subprocess
+from test.utils.utilities import setup_database, teardown_database,\
+    populate_database
+
+
+@before
+def setup_test_database():
+    setup_database()
+
+
+@after
+def teardown_test_database():
+    teardown_database()
 
 
 @describe('Test Database Models')
 def _():
-    subprocess.call(['./scripts/test_environment.sh', 'start'])
     @it('Should perform CRUD operations on credential types')
     def _():
         credential_type = CredentialType()

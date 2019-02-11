@@ -16,6 +16,7 @@ pycodestyle = "*"
 expects = "*"
 "autopep8" = "*"
 pocha = "*"
+docker = "*"
 
 [requires]
 python_version = "3.7"
