@@ -7,9 +7,11 @@ from flask import request
 from flask_restful import Resource
 from outcomes_api.api import VersionedResource
 from outcomes_api.api.v1_0 import V1_0_ParticipantsHandler
+from outcomes_api.auth import login_required
 
 
 class ParticipantsResource(VersionedResource):
+    @login_required
     def get(self):
         headers = request.headers
         api_version = self.get_api_version(headers)
@@ -18,6 +20,7 @@ class ParticipantsResource(VersionedResource):
 
         return request_handler.get_all_participants(), 200
 
+    @login_required
     def post(self):
         headers = request.headers
         api_version = self.get_api_version(headers)
