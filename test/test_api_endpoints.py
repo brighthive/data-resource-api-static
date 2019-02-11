@@ -15,6 +15,11 @@ AUTHENTICATED_HEADER = {
     'Authorization': 'Bearer {}'.format(TOKEN)
 }
 
+UNAUTHENTICATED_HEADER = {
+    'X-Api-Version': 'v1.0',
+    'Content-Type': 'application/json'
+}
+
 
 @describe('Test API GET Endpoints')
 def _():
@@ -22,17 +27,27 @@ def _():
     def get_all_programs():
         response = client.get(
             '/programs', headers=AUTHENTICATED_HEADER)
-        expect(response.status_code).to(be(200))
+        expect(response.status_code).to(equal(200))
+
+        response = client.get(
+            '/programs', headers=UNAUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(401))
 
     @it('Should return all credentials')
     def get_all_credentials():
         response = client.get('/credentials', headers=AUTHENTICATED_HEADER)
-        expect(response.status_code).to(be(200))
+        expect(response.status_code).to(equal(200))
+
+        response = client.get('/credentials', headers=UNAUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(401))
 
     @it('Should return all participants')
     def get_all_participants():
         response = client.get('/participants', headers=AUTHENTICATED_HEADER)
-        expect(response.status_code).to(be(200))
+        expect(response.status_code).to(equal(200))
+
+        response = client.get('/participants', headers=UNAUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(401))
 
 
 @describe('Test API POST Endpoints')
