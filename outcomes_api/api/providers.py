@@ -6,8 +6,8 @@
 import os
 from flask import request
 from flask_restful import Resource
-from api import VersionedResource
-from api.v1_0 import V1_0_ProvidersHandler
+from outcomes_api.api import VersionedResource
+from outcomes_api.api.v1_0 import V1_0_ProvidersHandler
 
 
 class ProvidersResource(VersionedResource):

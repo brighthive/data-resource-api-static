@@ -4,7 +4,8 @@ import os
 import json
 from pocha import describe, it, before
 from expects import expect, be, equal, raise_error, be_above
-from validator import Validator, ValidatorNotFoundError, SchemaFormatError
+from outcomes_api.validator import Validator, ValidatorNotFoundError,\
+    SchemaFormatError
 
 TEST_SCHEMA_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), 'fixtures')

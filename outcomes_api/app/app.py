@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from config import Config
+from outcomes_api.config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -11,7 +11,7 @@ migrate = Migrate(app, db)
 api = Api(app)
 
 if db:
-    from api import ProgramsResource, ParticipantsResource,\
+    from outcomes_api.api import ProgramsResource, ParticipantsResource,\
         CredentialsResource, ProvidersResource
     api.add_resource(ProgramsResource, '/programs')
     api.add_resource(ParticipantsResource, '/participants')

@@ -9,9 +9,9 @@ import json
 import os
 import re
 from datetime import datetime
-from config import Config
-from validator.util import ValidatorNotFoundError, SchemaFormatError, \
-    EMAIL_REGEX, URL_REGEX
+from outcomes_api.config import Config
+from outcomes_api.validator.util import ValidatorNotFoundError,\
+    SchemaFormatError, EMAIL_REGEX, URL_REGEX
 
 
 class Validator(object):

@@ -1,1 +1,1 @@
-from config.config import Config
+from outcomes_api.config.config import Config

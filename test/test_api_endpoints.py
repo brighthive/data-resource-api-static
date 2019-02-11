@@ -3,7 +3,8 @@
 import json
 from pocha import describe, it, before
 from expects import expect, be, equal
-from app import app
+from outcomes_api.app import app
+from outcomes_api.config import Config
 
 
 client = app.test_client()

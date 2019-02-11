@@ -1,3 +1,4 @@
-from validator.validator import Validator, ProgramValidator, \
+from outcomes_api.validator.validator import Validator, ProgramValidator, \
     ProviderValidator, ParticipantValidator, CredentialValidator
-from validator.util import ValidatorNotFoundError, SchemaFormatError
+from outcomes_api.validator.util import ValidatorNotFoundError,\
+    SchemaFormatError

@@ -1,6 +1,6 @@
 """ API Version 1.0 Participants Handler """
 
-from db import Participant
+from outcomes_api.db import Participant
 
 
 class ParticipantsHandler(object):

@@ -1,5 +1,5 @@
 from sqlalchemy.dialects.postgresql.json import JSONB
-from app.app import db
+from outcomes_api.app.app import db
 
 
 class EntityType(db.Model):

@@ -6,7 +6,7 @@ up the API version number in a request header.
 """
 
 from flask_restful import Resource
-from config import Config
+from outcomes_api.config import Config
 
 
 class VersionedResource(Resource):

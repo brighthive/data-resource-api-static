@@ -3,8 +3,10 @@
 import json
 from pocha import describe, it, before
 from expects import expect, be, equal, be_above
-from app import app, db
-from db import Program, Provider, Participant, Credential, CredentialType
+
+from outcomes_api.app import app, db
+from outcomes_api.db import Program, Provider, Participant,\
+    Credential, CredentialType
 
 
 @describe('Test Database Models')
