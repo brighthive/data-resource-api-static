@@ -7,9 +7,12 @@ from expects import expect, be, equal, be_above
 from outcomes_api import app, db, Program, Provider, Participant,\
     Credential, CredentialType
 
+import subprocess
+
 
 @describe('Test Database Models')
 def _():
+    subprocess.call(['./scripts/test_environment.sh', 'start'])
     @it('Should perform CRUD operations on credential types')
     def _():
         credential_type = CredentialType()
