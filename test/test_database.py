@@ -4,8 +4,7 @@ import json
 from pocha import describe, it, before
 from expects import expect, be, equal, be_above
 
-from outcomes_api.app import app, db
-from outcomes_api.db import Program, Provider, Participant,\
+from outcomes_api import app, db, Program, Provider, Participant,\
     Credential, CredentialType
 
 

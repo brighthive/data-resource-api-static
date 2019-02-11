@@ -2,7 +2,7 @@
 
 from pocha import describe, it, before
 from expects import expect, equal
-from outcomes_api.config import Config
+from outcomes_api import Config
 
 
 @describe('Test Application Configuration')
