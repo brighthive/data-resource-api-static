@@ -2,24 +2,37 @@
 
 import json
 import os
+from time import sleep
 from pocha import describe, it, before, after
 from expects import expect, be, equal, be_above
 
 from outcomes_api import app, db, Program, Provider, Participant,\
     Credential, CredentialType
 
-from test.utils.utilities import setup_database, teardown_database,\
-    populate_database
+from test.utils.utilities import DatabaseContainerFixture
+
+database_fixture = DatabaseContainerFixture()
 
 
 @before
 def setup_test_database():
-    setup_database()
+    database_fixture.setup_database()
+    tables_loaded = False
+    retries = 0
+
+    while not tables_loaded and retries < 10:
+        try:
+            print('Setting up database...')
+            database_fixture.populate_database()
+            tables_loaded = True
+        except Exception:
+            retries += 1
+            sleep(2)
 
 
 @after
 def teardown_test_database():
-    teardown_database()
+    database_fixture.teardown_database()
 
 
 @describe('Test Database Models')

@@ -6,17 +6,17 @@ import json
 
 class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    USER = 'test_user'
-    PASSWORD = 'test_password'
-    DATABASE = 'tpot_programs'
-    HOSTNAME = 'localhost'
-    PORT = 5432
+    POSTGRES_USER = 'test_user'
+    POSTGRES_PASSWORD = 'test_password'
+    POSTGRES_DATABASE = 'tpot_programs'
+    POSTGRES_HOSTNAME = 'localhost'
+    POSTGRES_PORT = 5432
     SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@{}:{}/{}'.format(
-        USER,
-        PASSWORD,
-        HOSTNAME,
-        PORT,
-        DATABASE
+        POSTGRES_USER,
+        POSTGRES_PASSWORD,
+        POSTGRES_HOSTNAME,
+        POSTGRES_PORT,
+        POSTGRES_DATABASE
     )
     DEFAULT_VALIDATOR_HOME = os.path.join(
         os.path.dirname(os.path.abspath(__file__)), '../schema')
@@ -38,8 +38,18 @@ class TestConfig(Config):
     CONTAINER_NAME = 'postgres-test'
     IMAGE_NAME = 'postgres'
     IMAGE_VERSION = '11.1'
-    DATABASE = 'tpot_programs_test'
-    PORT = 5433
+    POSTGRES_DATABASE = 'tpot_programs_test'
+    POSTGRES_PORT = 5433
+    SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@{}:{}/{}'.format(
+        Config.POSTGRES_USER,
+        Config.POSTGRES_PASSWORD,
+        Config.POSTGRES_HOSTNAME,
+        POSTGRES_PORT,
+        POSTGRES_DATABASE
+    )
+
+    def get_postgresql_image(self):
+        return '{}:{}'.format(self.IMAGE_NAME, self.IMAGE_VERSION)
 
 
 class ConfigurationFactory(object):
