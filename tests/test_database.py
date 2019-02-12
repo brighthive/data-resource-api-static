@@ -9,7 +9,7 @@ from expects import expect, be, equal, be_above
 from outcomes_api import app, db, Program, Provider, Participant,\
     Credential, CredentialType
 
-from test.utils.utilities import DatabaseContainerFixture
+from tests.utils.utilities import DatabaseContainerFixture
 
 database_fixture = DatabaseContainerFixture()
 
