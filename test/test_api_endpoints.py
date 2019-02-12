@@ -1,10 +1,9 @@
 """ Unit tests for API Endpoints """
 
 import json
-from pocha import describe, it, before
+from pocha import describe, it, before, after
 from expects import expect, be, equal
 from outcomes_api import app, Config
-
 
 client = app.test_client()
 
