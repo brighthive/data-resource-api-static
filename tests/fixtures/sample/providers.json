@@ -1,0 +1,114 @@
+{
+    "providers": [
+        {
+            "provider_id": 1,
+            "provider_name": "Institute of Teachers Education, Kent",
+            "provider_alternate_name": "Institute of Teachers Education, Kent",
+            "entity_type_id": 1,
+            "provider_full_address": "4 Hayes Avenue",
+            "provider_description": "An education provider",
+            "provider_contact_email": "phlebotomy@phpbb.com",
+            "provider_url": "phpbb.com/phlebotomy",
+            "year_incorporated": 2019
+        },
+        {
+            "provider_id": 2,
+            "provider_name": "Doane College",
+            "provider_alternate_name": "Doane College",
+            "entity_type_id": 1,
+            "provider_full_address": "2 Anhalt Plaza",
+            "provider_description": "An education provider",
+            "provider_contact_email": NaN,
+            "provider_url": "phpbb.com/a.a.",
+            "year_incorporated": 2019
+        },
+        {
+            "provider_id": 3,
+            "provider_name": "Univesidade Agostinho Neto",
+            "provider_alternate_name": "Univesidade Agostinho Neto",
+            "entity_type_id": 1,
+            "provider_full_address": "95 Loomis Crossing",
+            "provider_description": "An education provider",
+            "provider_contact_email": "con@examiner.com",
+            "provider_url": "examiner.com/con",
+            "year_incorporated": 2019
+        },
+        {
+            "provider_id": 4,
+            "provider_name": "RMIT International University Vietnam",
+            "provider_alternate_name": "RMIT International University Vietnam",
+            "entity_type_id": 1,
+            "provider_full_address": "29 Barby Center",
+            "provider_description": "An education provider",
+            "provider_contact_email": "con@hibu.com",
+            "provider_url": "hibu.com/con",
+            "year_incorporated": 2019
+        },
+        {
+            "provider_id": 5,
+            "provider_name": "University of Mary Hardin-Baylor",
+            "provider_alternate_name": "University of Mary Hardin-Baylor",
+            "entity_type_id": 1,
+            "provider_full_address": "29693 Spenser Street",
+            "provider_description": "An education provider",
+            "provider_contact_email": "contracts@hibu.com",
+            "provider_url": "hibu.com/contracts",
+            "year_incorporated": 2019
+        },
+        {
+            "provider_id": 6,
+            "provider_name": "La Salle University",
+            "provider_alternate_name": "La Salle University",
+            "entity_type_id": 1,
+            "provider_full_address": "31226 Buell Plaza",
+            "provider_description": "An education provider",
+            "provider_contact_email": "phlebotomy@uiuc.edu",
+            "provider_url": "uiuc.edu/phlebotomy",
+            "year_incorporated": 2019
+        },
+        {
+            "provider_id": 7,
+            "provider_name": "Universidad de Puerto Rico",
+            "provider_alternate_name": "Universidad de Puerto Rico",
+            "entity_type_id": 1,
+            "provider_full_address": "36 Carpenter Hill",
+            "provider_description": "An education provider",
+            "provider_contact_email": "coaching@pen.io",
+            "provider_url": "pen.io/coaching",
+            "year_incorporated": 2019
+        },
+        {
+            "provider_id": 8,
+            "provider_name": "Milligan College",
+            "provider_alternate_name": "Milligan College",
+            "entity_type_id": 1,
+            "provider_full_address": "0753 Miller Place",
+            "provider_description": "An education provider",
+            "provider_contact_email": "phlebotomy@hibu.com",
+            "provider_url": "hibu.com/phlebotomy",
+            "year_incorporated": 2019
+        },
+        {
+            "provider_id": 9,
+            "provider_name": "Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven",
+            "provider_alternate_name": "Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven",
+            "entity_type_id": 1,
+            "provider_full_address": "90219 Coolidge Crossing",
+            "provider_description": "An education provider",
+            "provider_contact_email": "media@uiuc.edu",
+            "provider_url": "uiuc.edu/media",
+            "year_incorporated": 2019
+        },
+        {
+            "provider_id": 10,
+            "provider_name": "Al-Jabal Al-Gharbi University",
+            "provider_alternate_name": "Al-Jabal Al-Gharbi University",
+            "entity_type_id": 1,
+            "provider_full_address": "14 Blue Bill Park Street",
+            "provider_description": "An education provider",
+            "provider_contact_email": "certificate@hibu.com",
+            "provider_url": "hibu.com/certificate",
+            "year_incorporated": 2019
+        }
+    ]
+}

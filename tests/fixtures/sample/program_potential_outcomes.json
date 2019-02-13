@@ -1,0 +1,44 @@
+{
+    "program_potential_outcomes": [
+        {
+            "id": 1,
+            "name": "A program of study leading to an industry-recognized certificate or certification"
+        },
+        {
+            "id": 2,
+            "name": "A program of study leading to a certificate of completion of an apprenticeship"
+        },
+        {
+            "id": 3,
+            "name": "A program of study leading to a license recognized by the State involved or the Federal Government"
+        },
+        {
+            "id": 4,
+            "name": "A program of study leading to an associate degree"
+        },
+        {
+            "id": 5,
+            "name": "A program of study leading to a baccalaureate degree"
+        },
+        {
+            "id": 6,
+            "name": "A program of study leading to a community college certificate of completion"
+        },
+        {
+            "id": 7,
+            "name": "A program of study leading to a secondary school diploma or its equivalent"
+        },
+        {
+            "id": 8,
+            "name": "A program of study leading to employment"
+        },
+        {
+            "id": 9,
+            "name": "A program of study leading to a measureable skills gain leading to a credential"
+        },
+        {
+            "id": 0,
+            "name": "A program of study leading to a measureable skills gain leading to employment"
+        }
+    ]
+}

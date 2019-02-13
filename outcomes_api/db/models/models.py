@@ -43,6 +43,10 @@ class ProgramPotentialOutcome(db.Model):
         'Program', backref='program_potential_outcome', lazy=True,
         passive_deletes=True)
 
+    def __init__(self, outcome_id, outcome_name):
+        self.potential_outcome_id = outcome_id
+        self.potential_outcome_name = outcome_name
+
 
 class GeographicLocation(db.Model):
     __tablename__ = 'geographic_locations'

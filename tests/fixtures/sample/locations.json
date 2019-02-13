@@ -1,0 +1,1004 @@
+{
+    "locations": [
+        {
+            "location_id": 1,
+            "location_name": "Institute of Teachers Education, Kent",
+            "provider_id": 1,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "4 Hayes Avenue, Florida"
+        },
+        {
+            "location_id": 2,
+            "location_name": "Doane College",
+            "provider_id": 2,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "2 Anhalt Plaza, Pennsylvania"
+        },
+        {
+            "location_id": 3,
+            "location_name": "Univesidade Agostinho Neto",
+            "provider_id": 3,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "95 Loomis Crossing, New Mexico"
+        },
+        {
+            "location_id": 4,
+            "location_name": "RMIT International University Vietnam",
+            "provider_id": 4,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "29 Barby Center, Illinois"
+        },
+        {
+            "location_id": 5,
+            "location_name": "Doane College",
+            "provider_id": 2,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "8 Golf View Hill, Pennsylvania"
+        },
+        {
+            "location_id": 6,
+            "location_name": "Univesidade Agostinho Neto",
+            "provider_id": 3,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "1 Sage Street, Missouri"
+        },
+        {
+            "location_id": 7,
+            "location_name": "Institute of Teachers Education, Kent",
+            "provider_id": 1,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "70 Carioca Drive, Connecticut"
+        },
+        {
+            "location_id": 8,
+            "location_name": "University of Mary Hardin-Baylor",
+            "provider_id": 5,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "29693 Spenser Street, Texas"
+        },
+        {
+            "location_id": 9,
+            "location_name": "La Salle University",
+            "provider_id": 6,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "31226 Buell Plaza, Missouri"
+        },
+        {
+            "location_id": 10,
+            "location_name": "Doane College",
+            "provider_id": 2,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "99 Algoma Plaza, Pennsylvania"
+        },
+        {
+            "location_id": 11,
+            "location_name": "Doane College",
+            "provider_id": 2,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "21 Charing Cross Lane, Texas"
+        },
+        {
+            "location_id": 12,
+            "location_name": "Institute of Teachers Education, Kent",
+            "provider_id": 1,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "8 Butterfield Circle, Florida"
+        },
+        {
+            "location_id": 13,
+            "location_name": "La Salle University",
+            "provider_id": 6,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "3495 Carpenter Road, Michigan"
+        },
+        {
+            "location_id": 14,
+            "location_name": "Universidad de Puerto Rico",
+            "provider_id": 7,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "36 Carpenter Hill, New York"
+        },
+        {
+            "location_id": 15,
+            "location_name": "Milligan College",
+            "provider_id": 8,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "0753 Miller Place, Minnesota"
+        },
+        {
+            "location_id": 16,
+            "location_name": "Milligan College",
+            "provider_id": 8,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "74 Golden Leaf Lane, Louisiana"
+        },
+        {
+            "location_id": 17,
+            "location_name": "Universidad de Puerto Rico",
+            "provider_id": 7,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "70101 New Castle Place, Ohio"
+        },
+        {
+            "location_id": 18,
+            "location_name": "University of Mary Hardin-Baylor",
+            "provider_id": 5,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "9 Hoard Hill, Colorado"
+        },
+        {
+            "location_id": 19,
+            "location_name": "Univesidade Agostinho Neto",
+            "provider_id": 3,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "0436 Briar Crest Pass, California"
+        },
+        {
+            "location_id": 20,
+            "location_name": "RMIT International University Vietnam",
+            "provider_id": 4,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "62 Butternut Pass, Indiana"
+        },
+        {
+            "location_id": 21,
+            "location_name": "Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven",
+            "provider_id": 9,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "90219 Coolidge Crossing, New York"
+        },
+        {
+            "location_id": 22,
+            "location_name": "Al-Jabal Al-Gharbi University",
+            "provider_id": 10,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "14 Blue Bill Park Street, Virginia"
+        },
+        {
+            "location_id": 23,
+            "location_name": "La Salle University",
+            "provider_id": 6,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "98063 Colorado Hill, Pennsylvania"
+        },
+        {
+            "location_id": 24,
+            "location_name": "University of Mary Hardin-Baylor",
+            "provider_id": 5,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "821 Ridgeway Drive, Florida"
+        },
+        {
+            "location_id": 25,
+            "location_name": "Doane College",
+            "provider_id": 2,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "0487 Milwaukee Lane, Arizona"
+        },
+        {
+            "location_id": 26,
+            "location_name": "Doane College",
+            "provider_id": 2,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "2 Texas Terrace, Texas"
+        },
+        {
+            "location_id": 27,
+            "location_name": "Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven",
+            "provider_id": 9,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "558 Derek Road, Pennsylvania"
+        },
+        {
+            "location_id": 28,
+            "location_name": "Milligan College",
+            "provider_id": 8,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "19 Beilfuss Drive, South Dakota"
+        },
+        {
+            "location_id": 29,
+            "location_name": "La Salle University",
+            "provider_id": 6,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "9962 Logan Crossing, Missouri"
+        },
+        {
+            "location_id": 30,
+            "location_name": "Milligan College",
+            "provider_id": 8,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "6046 Heath Hill, Indiana"
+        },
+        {
+            "location_id": 31,
+            "location_name": "Milligan College",
+            "provider_id": 8,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "52 Roth Junction, District of Columbia"
+        },
+        {
+            "location_id": 32,
+            "location_name": "Doane College",
+            "provider_id": 2,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "414 Mockingbird Road, Indiana"
+        },
+        {
+            "location_id": 33,
+            "location_name": "Al-Jabal Al-Gharbi University",
+            "provider_id": 10,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "6 Valley Edge Hill, Nevada"
+        },
+        {
+            "location_id": 34,
+            "location_name": "Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven",
+            "provider_id": 9,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "143 Almo Alley, South Carolina"
+        },
+        {
+            "location_id": 35,
+            "location_name": "University of Mary Hardin-Baylor",
+            "provider_id": 5,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "48 Utah Park, California"
+        },
+        {
+            "location_id": 36,
+            "location_name": "Milligan College",
+            "provider_id": 8,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "5 Nancy Crossing, Michigan"
+        },
+        {
+            "location_id": 37,
+            "location_name": "Al-Jabal Al-Gharbi University",
+            "provider_id": 10,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "47 Tennessee Alley, North Carolina"
+        },
+        {
+            "location_id": 38,
+            "location_name": "Al-Jabal Al-Gharbi University",
+            "provider_id": 10,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "2 Reinke Alley, North Carolina"
+        },
+        {
+            "location_id": 39,
+            "location_name": "Institute of Teachers Education, Kent",
+            "provider_id": 1,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "54 Oak Junction, Arkansas"
+        },
+        {
+            "location_id": 40,
+            "location_name": "Doane College",
+            "provider_id": 2,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "0592 Mesta Lane, Nevada"
+        },
+        {
+            "location_id": 41,
+            "location_name": "Al-Jabal Al-Gharbi University",
+            "provider_id": 10,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "9 Katie Parkway, Ohio"
+        },
+        {
+            "location_id": 42,
+            "location_name": "Al-Jabal Al-Gharbi University",
+            "provider_id": 10,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "373 Nelson Center, Pennsylvania"
+        },
+        {
+            "location_id": 43,
+            "location_name": "University of Mary Hardin-Baylor",
+            "provider_id": 5,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "4090 Cambridge Circle, Maryland"
+        },
+        {
+            "location_id": 44,
+            "location_name": "Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven",
+            "provider_id": 9,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "9054 Colorado Park, Michigan"
+        },
+        {
+            "location_id": 45,
+            "location_name": "Univesidade Agostinho Neto",
+            "provider_id": 3,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "5116 Raven Hill, Florida"
+        },
+        {
+            "location_id": 46,
+            "location_name": "La Salle University",
+            "provider_id": 6,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "2 Maywood Lane, Texas"
+        },
+        {
+            "location_id": 47,
+            "location_name": "Al-Jabal Al-Gharbi University",
+            "provider_id": 10,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "44648 Orin Lane, District of Columbia"
+        },
+        {
+            "location_id": 48,
+            "location_name": "Milligan College",
+            "provider_id": 8,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "4 Cascade Drive, California"
+        },
+        {
+            "location_id": 49,
+            "location_name": "Milligan College",
+            "provider_id": 8,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "8010 Oxford Terrace, Georgia"
+        },
+        {
+            "location_id": 50,
+            "location_name": "Univesidade Agostinho Neto",
+            "provider_id": 3,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "5 Garrison Trail, New Jersey"
+        },
+        {
+            "location_id": 51,
+            "location_name": "Institute of Teachers Education, Kent",
+            "provider_id": 1,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "9665 Forster Parkway, Alabama"
+        },
+        {
+            "location_id": 52,
+            "location_name": "Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven",
+            "provider_id": 9,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "19 Maple Way, Georgia"
+        },
+        {
+            "location_id": 53,
+            "location_name": "Universidad de Puerto Rico",
+            "provider_id": 7,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "653 Eastwood Court, Michigan"
+        },
+        {
+            "location_id": 54,
+            "location_name": "Universidad de Puerto Rico",
+            "provider_id": 7,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "9 Hintze Way, Maryland"
+        },
+        {
+            "location_id": 55,
+            "location_name": "Universidad de Puerto Rico",
+            "provider_id": 7,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "1586 Petterle Parkway, Texas"
+        },
+        {
+            "location_id": 56,
+            "location_name": "Universidad de Puerto Rico",
+            "provider_id": 7,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "23 Village Center, Ohio"
+        },
+        {
+            "location_id": 57,
+            "location_name": "Univesidade Agostinho Neto",
+            "provider_id": 3,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "23557 Hintze Junction, Tennessee"
+        },
+        {
+            "location_id": 58,
+            "location_name": "University of Mary Hardin-Baylor",
+            "provider_id": 5,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "68266 Myrtle Junction, Texas"
+        },
+        {
+            "location_id": 59,
+            "location_name": "Universidad de Puerto Rico",
+            "provider_id": 7,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "83779 Arrowood Hill, Washington"
+        },
+        {
+            "location_id": 60,
+            "location_name": "Milligan College",
+            "provider_id": 8,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "83 Fulton Center, Florida"
+        },
+        {
+            "location_id": 61,
+            "location_name": "La Salle University",
+            "provider_id": 6,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "044 Westerfield Park, California"
+        },
+        {
+            "location_id": 62,
+            "location_name": "Institute of Teachers Education, Kent",
+            "provider_id": 1,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "5833 Scott Place, California"
+        },
+        {
+            "location_id": 63,
+            "location_name": "University of Mary Hardin-Baylor",
+            "provider_id": 5,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "45 Moose Hill, California"
+        },
+        {
+            "location_id": 64,
+            "location_name": "Univesidade Agostinho Neto",
+            "provider_id": 3,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "0 Rutledge Lane, Kansas"
+        },
+        {
+            "location_id": 65,
+            "location_name": "RMIT International University Vietnam",
+            "provider_id": 4,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "72409 Clemons Plaza, North Carolina"
+        },
+        {
+            "location_id": 66,
+            "location_name": "Universidad de Puerto Rico",
+            "provider_id": 7,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "037 Dexter Junction, Texas"
+        },
+        {
+            "location_id": 67,
+            "location_name": "Institute of Teachers Education, Kent",
+            "provider_id": 1,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "6 Esker Court, Minnesota"
+        },
+        {
+            "location_id": 68,
+            "location_name": "Univesidade Agostinho Neto",
+            "provider_id": 3,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "9611 Delaware Way, California"
+        },
+        {
+            "location_id": 69,
+            "location_name": "RMIT International University Vietnam",
+            "provider_id": 4,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "1677 Knutson Hill, California"
+        },
+        {
+            "location_id": 70,
+            "location_name": "RMIT International University Vietnam",
+            "provider_id": 4,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "9 Gateway Alley, Kansas"
+        },
+        {
+            "location_id": 71,
+            "location_name": "Al-Jabal Al-Gharbi University",
+            "provider_id": 10,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "308 Briar Crest Point, Illinois"
+        },
+        {
+            "location_id": 72,
+            "location_name": "Universidad de Puerto Rico",
+            "provider_id": 7,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "32 Autumn Leaf Court, District of Columbia"
+        },
+        {
+            "location_id": 73,
+            "location_name": "Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven",
+            "provider_id": 9,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "2103 Golden Leaf Park, District of Columbia"
+        },
+        {
+            "location_id": 74,
+            "location_name": "Universidad de Puerto Rico",
+            "provider_id": 7,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "63 Golden Leaf Way, Nevada"
+        },
+        {
+            "location_id": 75,
+            "location_name": "Al-Jabal Al-Gharbi University",
+            "provider_id": 10,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "07155 Ridge Oak Pass, Texas"
+        },
+        {
+            "location_id": 76,
+            "location_name": "RMIT International University Vietnam",
+            "provider_id": 4,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "100 Sachtjen Street, Colorado"
+        },
+        {
+            "location_id": 77,
+            "location_name": "Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven",
+            "provider_id": 9,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "17116 Susan Crossing, Washington"
+        },
+        {
+            "location_id": 78,
+            "location_name": "Doane College",
+            "provider_id": 2,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "856 Packers Court, Illinois"
+        },
+        {
+            "location_id": 79,
+            "location_name": "Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven",
+            "provider_id": 9,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "072 Nova Junction, California"
+        },
+        {
+            "location_id": 80,
+            "location_name": "Doane College",
+            "provider_id": 2,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "05402 Hollow Ridge Court, Georgia"
+        },
+        {
+            "location_id": 81,
+            "location_name": "Universidad de Puerto Rico",
+            "provider_id": 7,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "1637 Thierer Pass, Utah"
+        },
+        {
+            "location_id": 82,
+            "location_name": "Milligan College",
+            "provider_id": 8,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "440 Northfield Street, New York"
+        },
+        {
+            "location_id": 83,
+            "location_name": "RMIT International University Vietnam",
+            "provider_id": 4,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "29 Bluejay Drive, California"
+        },
+        {
+            "location_id": 84,
+            "location_name": "Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven",
+            "provider_id": 9,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "813 Mariners Cove Center, Indiana"
+        },
+        {
+            "location_id": 85,
+            "location_name": "Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven",
+            "provider_id": 9,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "0976 Dixon Plaza, Arizona"
+        },
+        {
+            "location_id": 86,
+            "location_name": "Institute of Teachers Education, Kent",
+            "provider_id": 1,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "7 Shoshone Center, Kansas"
+        },
+        {
+            "location_id": 87,
+            "location_name": "Doane College",
+            "provider_id": 2,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "74 Lighthouse Bay Junction, California"
+        },
+        {
+            "location_id": 88,
+            "location_name": "Univesidade Agostinho Neto",
+            "provider_id": 3,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "8547 Larry Center, Indiana"
+        },
+        {
+            "location_id": 89,
+            "location_name": "Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven",
+            "provider_id": 9,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "8 Brown Alley, Florida"
+        },
+        {
+            "location_id": 90,
+            "location_name": "Institute of Teachers Education, Kent",
+            "provider_id": 1,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "5 Pierstorff Street, Florida"
+        },
+        {
+            "location_id": 91,
+            "location_name": "La Salle University",
+            "provider_id": 6,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "3748 Leroy Street, Indiana"
+        },
+        {
+            "location_id": 92,
+            "location_name": "Doane College",
+            "provider_id": 2,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "113 Barby Road, District of Columbia"
+        },
+        {
+            "location_id": 93,
+            "location_name": "La Salle University",
+            "provider_id": 6,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "32 Johnson Crossing, Georgia"
+        },
+        {
+            "location_id": 94,
+            "location_name": "Milligan College",
+            "provider_id": 8,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "347 Mayfield Drive, Missouri"
+        },
+        {
+            "location_id": 95,
+            "location_name": "Universidad de Puerto Rico",
+            "provider_id": 7,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "8 Ludington Street, District of Columbia"
+        },
+        {
+            "location_id": 96,
+            "location_name": "Institute of Teachers Education, Kent",
+            "provider_id": 1,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "32 Delladonna Parkway, Texas"
+        },
+        {
+            "location_id": 97,
+            "location_name": "RMIT International University Vietnam",
+            "provider_id": 4,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "4 Northview Parkway, Texas"
+        },
+        {
+            "location_id": 98,
+            "location_name": "Doane College",
+            "provider_id": 2,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "91 Ohio Hill, California"
+        },
+        {
+            "location_id": 99,
+            "location_name": "Institute of Teachers Education, Kent",
+            "provider_id": 1,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "20 Browning Drive, North Carolina"
+        },
+        {
+            "location_id": 100,
+            "location_name": "Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven",
+            "provider_id": 9,
+            "location_description": "A location in the United States",
+            "transportation": "Automobile, Bus, Walk",
+            "latitude": 39.629,
+            "longitude": -79.955,
+            "location_full_address": "5 Holmberg Lane, Idaho"
+        }
+    ]
+}

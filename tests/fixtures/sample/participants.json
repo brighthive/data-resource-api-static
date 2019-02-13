@@ -1,0 +1,404 @@
+{
+    "participants": [
+        {
+            "participant_id": "445-27-0425",
+            "program_id": 1,
+            "entry_date": "09/19/2016",
+            "exit_date": "03/19/2017",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "462-94-3500",
+            "program_id": 2,
+            "entry_date": "02/18/2011",
+            "exit_date": "06/18/2013",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        },
+        {
+            "participant_id": "105-30-3319",
+            "program_id": 22,
+            "entry_date": "04/09/2015",
+            "exit_date": "06/09/2015",
+            "exit_type": "Suspended",
+            "exit_reason": "Suspended"
+        },
+        {
+            "participant_id": "535-49-3914",
+            "program_id": 14,
+            "entry_date": "01/22/2011",
+            "exit_date": "06/22/2011",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        },
+        {
+            "participant_id": "576-45-5554",
+            "program_id": 9,
+            "entry_date": "10/07/2011",
+            "exit_date": "01/07/2012",
+            "exit_type": "Suspended",
+            "exit_reason": "Suspended"
+        },
+        {
+            "participant_id": "555-48-6089",
+            "program_id": 8,
+            "entry_date": "06/11/2016",
+            "exit_date": "07/11/2016",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        },
+        {
+            "participant_id": "838-42-6638",
+            "program_id": 9,
+            "entry_date": "05/01/2016",
+            "exit_date": "06/01/2016",
+            "exit_type": "Withdrew",
+            "exit_reason": "Withdrew"
+        },
+        {
+            "participant_id": "880-56-6377",
+            "program_id": 8,
+            "entry_date": "06/23/2017",
+            "exit_date": "07/18/2017",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "361-97-5665",
+            "program_id": 21,
+            "entry_date": "04/12/2016",
+            "exit_date": "09/12/2016",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "778-99-9036",
+            "program_id": 22,
+            "entry_date": "03/19/2017",
+            "exit_date": "03/19/2019",
+            "exit_type": "Withdrew",
+            "exit_reason": "Withdrew"
+        },
+        {
+            "participant_id": "791-56-7637",
+            "program_id": 21,
+            "entry_date": "05/10/2017",
+            "exit_date": "11/10/2017",
+            "exit_type": "Withdrew",
+            "exit_reason": "Withdrew"
+        },
+        {
+            "participant_id": "138-35-6887",
+            "program_id": 15,
+            "entry_date": "10/15/2012",
+            "exit_date": "01/15/2013",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "886-72-0594",
+            "program_id": 22,
+            "entry_date": "02/05/2015",
+            "exit_date": "04/05/2015",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        },
+        {
+            "participant_id": "826-08-0244",
+            "program_id": 15,
+            "entry_date": "05/28/2011",
+            "exit_date": "09/28/2011",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "604-16-5608",
+            "program_id": 21,
+            "entry_date": "02/08/2014",
+            "exit_date": "05/08/2016",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "653-06-7218",
+            "program_id": 15,
+            "entry_date": "02/27/2012",
+            "exit_date": "03/27/2012",
+            "exit_type": "Withdrew",
+            "exit_reason": "Withdrew"
+        },
+        {
+            "participant_id": "781-06-3761",
+            "program_id": 21,
+            "entry_date": "12/20/2013",
+            "exit_date": "03/20/2015",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        },
+        {
+            "participant_id": "242-05-3511",
+            "program_id": 14,
+            "entry_date": "06/23/2012",
+            "exit_date": "09/23/2012",
+            "exit_type": "Suspended",
+            "exit_reason": "Suspended"
+        },
+        {
+            "participant_id": "456-90-1807",
+            "program_id": 2,
+            "entry_date": "02/09/2011",
+            "exit_date": "06/09/2016",
+            "exit_type": "Withdrew",
+            "exit_reason": "Withdrew"
+        },
+        {
+            "participant_id": "688-96-4447",
+            "program_id": 9,
+            "entry_date": "07/28/2017",
+            "exit_date": "07/28/2019",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        },
+        {
+            "participant_id": "410-86-4721",
+            "program_id": 2,
+            "entry_date": "10/02/2015",
+            "exit_date": "10/02/2016",
+            "exit_type": "Withdrew",
+            "exit_reason": "Withdrew"
+        },
+        {
+            "participant_id": "421-58-9179",
+            "program_id": 8,
+            "entry_date": "11/08/2015",
+            "exit_date": "30/08/2015",
+            "exit_type": "Withdrew",
+            "exit_reason": "Withdrew"
+        },
+        {
+            "participant_id": "731-60-5417",
+            "program_id": 21,
+            "entry_date": "05/27/2010",
+            "exit_date": "05/27/2012",
+            "exit_type": "Suspended",
+            "exit_reason": "Suspended"
+        },
+        {
+            "participant_id": "851-73-9812",
+            "program_id": 1,
+            "entry_date": "10/10/2014",
+            "exit_date": "03/10/2015",
+            "exit_type": "Suspended",
+            "exit_reason": "Suspended"
+        },
+        {
+            "participant_id": "313-76-9896",
+            "program_id": 14,
+            "entry_date": "10/18/2016",
+            "exit_date": "10/18/2018",
+            "exit_type": "Suspended",
+            "exit_reason": "Suspended"
+        },
+        {
+            "participant_id": "354-47-4170",
+            "program_id": 3,
+            "entry_date": "05/12/2014",
+            "exit_date": "09/12/2014",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "744-79-2573",
+            "program_id": 15,
+            "entry_date": "08/12/2010",
+            "exit_date": "12/12/2010",
+            "exit_type": "Withdrew",
+            "exit_reason": "Withdrew"
+        },
+        {
+            "participant_id": "393-08-1147",
+            "program_id": 9,
+            "entry_date": "06/25/2011",
+            "exit_date": "12/25/2011",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "417-18-6485",
+            "program_id": 1,
+            "entry_date": "08/04/2013",
+            "exit_date": "11/04/2017",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        },
+        {
+            "participant_id": "243-06-4146",
+            "program_id": 22,
+            "entry_date": "02/01/2015",
+            "exit_date": "05/01/2017",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        },
+        {
+            "participant_id": "531-51-3302",
+            "program_id": 21,
+            "entry_date": "11/24/2014",
+            "exit_date": "02/24/2015",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "741-27-4005",
+            "program_id": 22,
+            "entry_date": "04/18/2013",
+            "exit_date": "05/18/2013",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        },
+        {
+            "participant_id": "551-81-6144",
+            "program_id": 1,
+            "entry_date": "09/09/2016",
+            "exit_date": "10/09/2017",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        },
+        {
+            "participant_id": "810-48-1514",
+            "program_id": 21,
+            "entry_date": "09/17/2013",
+            "exit_date": "10/17/2017",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "239-37-6711",
+            "program_id": 22,
+            "entry_date": "12/18/2012",
+            "exit_date": "04/18/2013",
+            "exit_type": "Withdrew",
+            "exit_reason": "Withdrew"
+        },
+        {
+            "participant_id": "638-54-4918",
+            "program_id": 21,
+            "entry_date": "05/11/2010",
+            "exit_date": "07/11/2014",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        },
+        {
+            "participant_id": "839-07-8499",
+            "program_id": 2,
+            "entry_date": "08/17/2016",
+            "exit_date": "08/17/2018",
+            "exit_type": "Suspended",
+            "exit_reason": "Suspended"
+        },
+        {
+            "participant_id": "818-94-0769",
+            "program_id": 15,
+            "entry_date": "11/07/2013",
+            "exit_date": "01/07/2014",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "116-58-0685",
+            "program_id": 1,
+            "entry_date": "10/18/2013",
+            "exit_date": "11/18/2013",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        },
+        {
+            "participant_id": "265-80-1277",
+            "program_id": 8,
+            "entry_date": "11/06/2010",
+            "exit_date": "11/06/2012",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        },
+        {
+            "participant_id": "883-66-9870",
+            "program_id": 14,
+            "entry_date": "05/20/2011",
+            "exit_date": "08/20/2013",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "326-08-9521",
+            "program_id": 2,
+            "entry_date": "06/29/2017",
+            "exit_date": "08/29/2017",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "499-26-9057",
+            "program_id": 3,
+            "entry_date": "02/25/2011",
+            "exit_date": "07/25/2012",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        },
+        {
+            "participant_id": "781-35-9960",
+            "program_id": 9,
+            "entry_date": "05/26/2010",
+            "exit_date": "09/26/2010",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "829-96-3945",
+            "program_id": 15,
+            "entry_date": "09/03/2014",
+            "exit_date": "03/03/2015",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "369-47-3257",
+            "program_id": 8,
+            "entry_date": "03/02/2015",
+            "exit_date": "08/02/2015",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        },
+        {
+            "participant_id": "327-23-4165",
+            "program_id": 9,
+            "entry_date": "01/20/2015",
+            "exit_date": "01/20/2017",
+            "exit_type": "Suspended",
+            "exit_reason": "Suspended"
+        },
+        {
+            "participant_id": "792-51-0844",
+            "program_id": 14,
+            "entry_date": "10/05/2011",
+            "exit_date": "02/05/2012",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "473-23-4577",
+            "program_id": 1,
+            "entry_date": "03/14/2017",
+            "exit_date": "09/14/2017",
+            "exit_type": "Transferred",
+            "exit_reason": "Transferred"
+        },
+        {
+            "participant_id": "776-91-9889",
+            "program_id": 4,
+            "entry_date": "09/14/2012",
+            "exit_date": "01/14/2013",
+            "exit_type": "Completed",
+            "exit_reason": "Completed"
+        }
+    ]
+}
