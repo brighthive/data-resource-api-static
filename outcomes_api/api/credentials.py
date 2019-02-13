@@ -11,24 +11,22 @@ from outcomes_api.auth import login_required
 
 
 class CredentialsResource(VersionedResource):
-    @login_required
-    def get(self):
-        headers = request.headers
+    def get_request_handler(self, headers):
         api_version = self.get_api_version(headers)
         if api_version == 'v1.0':
             request_handler = V1_0_CredentialsHandler()
+        else:
+            request_handler = V1_0_CredentialsHandler()
+        return request_handler
 
-        return request_handler.get_all_credentials(), 200
+    @login_required
+    def get(self):
+        return self.get_request_handler(request.headers).get_all_credentials()
 
     @login_required
     def post(self):
-        headers = request.headers
-        api_version = self.get_api_version(headers)
-        if api_version == 'v1.0':
-            request_handler = V1_0_CredentialsHandler()
-
-        result, status = request_handler.add_new_credential(request.get_json())
-        return result, status
+        return self.get_request_handler(request.headers).add_new_credential(
+            request.get_json())
 
 
 class CredentialResource(VersionedResource):
