@@ -18,6 +18,7 @@ expects = "*"
 "autopep8" = "*"
 pocha = "*"
 docker = "*"
+sphinx = "*"
 
 [requires]
 python_version = "3.7"

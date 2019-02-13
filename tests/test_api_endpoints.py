@@ -2,7 +2,7 @@
 
 import json
 from pocha import describe, it, before, after
-from expects import expect, be, equal
+from expects import expect, be, equal, be_above
 from outcomes_api import app, Config
 
 client = app.test_client()
@@ -36,6 +36,8 @@ def _():
     def get_all_credentials():
         response = client.get('/credentials', headers=AUTHENTICATED_HEADER)
         expect(response.status_code).to(equal(200))
+        data = json.loads(response.data)
+        expect(len(data)).to(be_above(0))
 
         response = client.get('/credentials', headers=UNAUTHENTICATED_HEADER)
         expect(response.status_code).to(equal(401))

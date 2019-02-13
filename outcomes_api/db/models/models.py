@@ -166,6 +166,19 @@ class Credential(db.Model):
         self.webpage = webpage
         self.credential_id = id
 
+    def to_dict(self):
+        return {
+            'credential_id': self.credential_id,
+            'provider_id': self.provider_id,
+            'credential_name': self.credential_name,
+            'credential_description': self.credential_description,
+            'credential_status_type': self.credential_status_type,
+            'audience': self.audience,
+            'language': self.language,
+            'ctid': self.ce_ctid,
+            'webpage': self.webpage
+        }
+
 
 class ProgramPrerequisite(db.Model):
     prerequisite_id = db.Column(db.Integer, primary_key=True)

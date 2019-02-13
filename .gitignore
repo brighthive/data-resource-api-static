@@ -7,3 +7,8 @@
 
 # Sandbox
 sandbox.py
+
+# Sphinx Artifacts
+build
+_static
+_templates

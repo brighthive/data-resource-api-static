@@ -1,11 +1,16 @@
 """ API Version 1.0 Credentials Handler """
 
+import json
 from outcomes_api.db import Credential
 
 
 class CredentialsHandler(object):
     def get_all_credentials(self):
-        return {'message': 'credentials api version 1.0'}
+        all_results = Credential.query.all()
+        credentials = {'credentials': []}
+        for result in all_results:
+            credentials['credentials'].append(result.to_dict())
+        return credentials
 
     def add_new_credential(self, credential):
         if credential is not None:
