@@ -35,11 +35,18 @@ class ProgramsResource(VersionedResource):
 class ProgramResource(VersionedResource):
     @login_required
     def get(self, id):
-        pass
+        api_version = self.get_api_version(request.headers)
+        if api_version == 'v1.0':
+            request_handler = V1_0_ProgramsHandler()
+        return request_handler.get_program_by_id(id)
 
     @login_required
     def put(self, id):
         pass
+        # api_version = self.get_api_version(request.headers)
+        # if api_version == 'v1.0':
+        #     request_handler = V1_0_ProgramsHandler()
+        # return request_handler.update_program_by_id(id)
 
     @login_required
     def delete(self, id):

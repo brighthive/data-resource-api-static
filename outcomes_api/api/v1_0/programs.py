@@ -12,7 +12,7 @@ class ProgramsHandler(object):
         programs = {'programs': []}
         for program in results:
             programs['programs'].append(program.to_dict())
-        return programs
+        return programs, 200
 
     def add_new_program(self, program):
         validator = ProgramValidator()
@@ -24,3 +24,14 @@ class ProgramsHandler(object):
                 return {'message': 'Successfuly sent valid data!'}, 200
         else:
             return {'message': 'request body cannot be empty'}, 400
+
+    def get_program_by_id(self, id):
+        try:
+            program = Program.query.filter_by(program_id=id).first()
+            if program is not None:
+                return {'program': program.to_dict()}, 200
+            else:
+                return {'message': 'Program with id {} does not exist'.format(
+                    id)}
+        except Exception:
+            return {'error': 'Invalid request'}, 400

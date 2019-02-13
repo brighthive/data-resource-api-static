@@ -21,7 +21,7 @@ if db:
     api.add_resource(ProgramResource, '/programs/<int:id>',
                      endpoint='program')
 
-    # participans
+    # participants
     api.add_resource(ParticipantsResource, '/participants',
                      endpoint='participants')
     api.add_resource(ParticipantResource, '/participants/<int:id>',
@@ -46,3 +46,8 @@ if db:
     api.add_resource(ProgramCredentialResource,
                      '/programs/<int:id>/credentials',
                      endpoint='program_credentials')
+
+    # locations
+    # /locations
+    # /locations/{id}
+    # /locations/{id}/address
