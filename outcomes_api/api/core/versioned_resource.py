@@ -19,3 +19,7 @@ class VersionedResource(Resource):
         except Exception:
             api_version = Config.get_api_version()
         return api_version
+
+    def get_request_handler(self, headers):
+        """ Override this method to provide the request handler. """
+        pass

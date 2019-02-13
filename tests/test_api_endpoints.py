@@ -40,13 +40,13 @@ def _():
         response = client.get('/programs', headers=AUTHENTICATED_HEADER)
         expect(response.status_code).to(equal(200))
         data = json.loads(response.data)
-        expect(len(data[0]['programs'])).to(be_above(1))
+        expect(len(data['programs'])).to(be_above(1))
 
     @it('Should return a program by its identifer')
     def test_get_program_by_id():
         response = client.get('/programs', headers=AUTHENTICATED_HEADER)
         expect(response.status_code).to(equal(200))
-        selected_program = json.loads(response.data)[0]['programs'][0]
+        selected_program = json.loads(response.data)['programs'][0]
 
         # should return a not found status code
         response = client.get(

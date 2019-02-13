@@ -12,41 +12,32 @@ from outcomes_api.auth import login_required
 
 
 class ProgramsResource(VersionedResource):
-    @login_required
-    def get(self):
-        headers = request.headers
+    def get_request_handler(self, headers):
         api_version = self.get_api_version(headers)
         if api_version == 'v1.0':
             request_handler = V1_0_ProgramsHandler()
+        else:
+            request_handler = V1_0_ProgramsHandler()
+        return request_handler
 
-        return request_handler.get_all_programs(), 200
+    @login_required
+    def get(self):
+        return self.get_request_handler(request.headers).get_all_programs()
 
     @login_required
     def post(self):
-        headers = request.headers
-        api_version = self.get_api_version(headers)
-        if api_version == 'v1.0':
-            request_handler = V1_0_ProgramsHandler()
-
-        result, status = request_handler.add_new_program(request.get_json())
-        return result, status
+        return self.get_request_handler(request.headers).add_new_program(
+            request.get_json())
 
 
-class ProgramResource(VersionedResource):
+class ProgramResource(ProgramsResource):
     @login_required
     def get(self, id):
-        api_version = self.get_api_version(request.headers)
-        if api_version == 'v1.0':
-            request_handler = V1_0_ProgramsHandler()
-        return request_handler.get_program_by_id(id)
+        return self.get_request_handler(request.headers).get_program_by_id(id)
 
     @login_required
     def put(self, id):
         pass
-        # api_version = self.get_api_version(request.headers)
-        # if api_version == 'v1.0':
-        #     request_handler = V1_0_ProgramsHandler()
-        # return request_handler.update_program_by_id(id)
 
     @login_required
     def delete(self, id):
