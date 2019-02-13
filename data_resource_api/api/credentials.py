@@ -5,9 +5,9 @@
 
 from flask import request
 from flask_restful import Resource
-from outcomes_api.api import VersionedResource
-from outcomes_api.api.v1_0 import V1_0_CredentialsHandler
-from outcomes_api.auth import login_required
+from data_resource_api.api import VersionedResource
+from data_resource_api.api.v1_0 import V1_0_CredentialsHandler
+from data_resource_api.auth import login_required
 
 
 class CredentialsResource(VersionedResource):

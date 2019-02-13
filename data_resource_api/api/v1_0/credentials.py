@@ -1,7 +1,7 @@
 """ API Version 1.0 Credentials Handler """
 
 import json
-from outcomes_api.db import Credential
+from data_resource_api.db import Credential
 
 
 class CredentialsHandler(object):

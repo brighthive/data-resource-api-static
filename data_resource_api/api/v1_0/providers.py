@@ -1,6 +1,6 @@
 """ API Version 1.0 Providers Handler """
 
-from outcomes_api.db import Provider
+from data_resource_api.db import Provider
 
 
 class ProvidersHandler(object):

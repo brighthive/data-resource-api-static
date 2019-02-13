@@ -2,8 +2,8 @@
 
 import os
 import json
-from outcomes_api.db import Program
-from outcomes_api.validator import ProgramValidator
+from data_resource_api.db import Program
+from data_resource_api.validator import ProgramValidator
 
 
 class ProgramsHandler(object):

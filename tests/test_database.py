@@ -7,7 +7,7 @@ from time import sleep
 from pocha import describe, it, before, after
 from expects import expect, be, equal, be_above
 
-from outcomes_api import app, db, Program, Provider, Participant,\
+from data_resource_api import app, db, Program, Provider, Participant,\
     Credential, CredentialType, ProgramPotentialOutcome,\
     ProgramPrerequisite, EntityType, GeographicLocation,\
     PhysicalAddress

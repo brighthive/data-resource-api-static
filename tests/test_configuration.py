@@ -2,7 +2,7 @@
 
 from pocha import describe, it, before
 from expects import expect, equal
-from outcomes_api import ConfigurationFactory
+from data_resource_api import ConfigurationFactory
 
 
 @describe('Test Application Configuration')

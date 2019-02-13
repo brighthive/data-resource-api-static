@@ -4,7 +4,7 @@ import docker
 import os
 import sys
 from flask_migrate import upgrade
-from outcomes_api import app, ConfigurationFactory
+from data_resource_api import app, ConfigurationFactory
 
 
 class DatabaseContainerFixture(object):
@@ -43,7 +43,7 @@ class DatabaseContainerFixture(object):
             absolute_path = os.path.dirname(os.path.abspath(__file__))
             root_path = absolute_path.split(relative_path)[0]
             migrations_dir = os.path.join(
-                root_path, 'outcomes_api', 'db', 'migrations')
+                root_path, 'data_resource_api', 'db', 'migrations')
             upgrade(directory=migrations_dir)
 
     def teardown_database(self):

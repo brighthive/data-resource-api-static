@@ -1,4 +1,4 @@
-# TPOT Programs API
+# BrightHive Data Resource API
 
 [![Coverage Status](https://coveralls.io/repos/github/brighthive/programs-api/badge.svg?branch=master)](https://coveralls.io/github/brighthive/programs-api?branch=master)
 

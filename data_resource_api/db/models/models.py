@@ -1,6 +1,6 @@
 from datetime import datetime
 from sqlalchemy.dialects.postgresql.json import JSONB
-from outcomes_api.app.app import db
+from data_resource_api.app.app import db
 
 
 class EntityType(db.Model):
