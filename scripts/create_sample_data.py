@@ -39,6 +39,10 @@ def create_datasets(csv_file_path, skip_first_row=True):
     participants_df = pd.read_csv(participants_ds)
     credentials_df = pd.read_csv(credentials_ds)
 
+    programs_df = programs_df.where(pd.notnull(programs_df), None)
+    participants_df = participants_df.where(pd.notnull(participants_df), None)
+    credentials_df = credentials_df.where(pd.notnull(credentials_df), None)
+
     # ***** Program Prerequisites (from Datasheet) *****
     program_prerequisites['program_prerequisites'] = [
         {
@@ -293,7 +297,7 @@ def create_datasets(csv_file_path, skip_first_row=True):
             'provider_id': '',
             'location_id': '',
             'eligibility_criteria': program_detail['eligibility_criteria'],
-            'credential_earned': program_detail['credential_earned'],
+            'credential_earned': '',
             'potential_outcome_id': program_detail[
                 'program_potential_outcome'],
             'program_url': program_detail['program_url'],
@@ -313,6 +317,11 @@ def create_datasets(csv_file_path, skip_first_row=True):
             'cost_of_books_and_supplies': 0.00
         }
 
+        if program['on_etpl'] == 'YES':
+            program['on_etpl'] = 1
+        else:
+            program['on_etpl'] = 0
+
         # find provider id
         for provider in providers['providers']:
             if provider['provider_name'] == program_detail['program_provider']:
@@ -327,8 +336,17 @@ def create_datasets(csv_file_path, skip_first_row=True):
                 program['location_id'] = address['location_id']
                 break
 
+        # find credential earned
+        for credential in credentials['credentials']:
+            if program['provider_id'] == credential['provider_id']:
+                for credential_type in credential_types['credential_types']:
+                    if credential_type['credential_type'] == program_detail[
+                            'credential_earned']:
+                        program['credential_earned'] = credential[
+                            'credential_id']
+                        break
+
         programs['programs'].append(program)
-    # print(programs)
 
     # ***** Participants *****
     participant_details = participants_df.to_dict('records')
@@ -351,20 +369,11 @@ def create_datasets(csv_file_path, skip_first_row=True):
                     if program['provider_id'] == provider_id:
                         participant['program_id'] = program['program_id']
                         break
+        participant['participant_id'] = participant['participant_id'].replace(
+            '-', '')
         participants['participants'].append(participant)
 
     # Write out datasets to JSON files
-    # program_prerequisites = {'program_prerequisites': []}
-    # program_potential_outcomes = {'program_potential_outcomes': []}
-    # entity_types = {'entity_types': []}
-    # credential_types = {'credential_types': []}
-    # providers = {'providers': []}
-    # locations = {'locations': []}
-    # addresses = {'addresses': []}
-    # credentials = {'credentials': []}
-    # programs = {'programs': []}
-    # participants = {'participants': []}
-
     # output files
     program_prerequisites_outfile = os.path.join(
         csv_file_path, 'program_prerequisites.json')

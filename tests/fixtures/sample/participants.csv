@@ -20,7 +20,7 @@ participant_id,wioa_participant,program_code,entry_date,exit_date,exit_type,fund
 456-90-1807,NO,922116,02/09/2011,06/09/2016,Withdrew,State,"Doane College"
 688-96-4447,NO,762015,07/28/2017,07/28/2019,Completed,State,"La Salle University"
 410-86-4721,NO,297627,10/02/2015,10/02/2016,Withdrew,Federal,"Doane College"
-421-58-9179,YES,190972,11/08/2015,30/08/2015,Withdrew,Self,"University of Mary Hardin-Baylor"
+421-58-9179,YES,190972,08/11/2015,08/30/2015,Withdrew,Self,"University of Mary Hardin-Baylor"
 731-60-5417,NO,867621,05/27/2010,05/27/2012,Suspended,Federal,"Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven"
 851-73-9812,NO,478209,10/10/2014,03/10/2015,Suspended,State,"Institute of Teachers Education, Kent"
 313-76-9896,NO,364944,10/18/2016,10/18/2018,Suspended,State,"Universidad de Puerto Rico"

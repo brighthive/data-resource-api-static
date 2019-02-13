@@ -1,8 +1,8 @@
-"""Create core database tables.
+"""empty message
 
-Revision ID: eb1f610d138f
+Revision ID: 1f222371088e
 Revises: 
-Create Date: 2019-02-08 17:57:37.856905
+Create Date: 2019-02-13 00:37:07.372972
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision = 'eb1f610d138f'
+revision = '1f222371088e'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -97,6 +97,7 @@ def upgrade():
     op.create_table('programs',
     sa.Column('program_id', sa.Integer(), nullable=False),
     sa.Column('program_name', sa.String(length=140), nullable=False),
+    sa.Column('program_code', sa.String(length=32), nullable=False),
     sa.Column('program_description', sa.String(length=4096), nullable=False),
     sa.Column('program_status', sa.String(length=256), nullable=False),
     sa.Column('program_fees', sa.Float(), nullable=False),
@@ -132,7 +133,7 @@ def upgrade():
     sa.Column('program_id', sa.Integer(), nullable=False),
     sa.Column('entry_date', sa.Date(), nullable=False),
     sa.Column('exit_date', sa.Date(), nullable=False),
-    sa.Column('exit_type', sa.Date(), nullable=False),
+    sa.Column('exit_type', sa.String(length=32), nullable=False),
     sa.Column('exit_reason', sa.String(length=256), nullable=False),
     sa.Column('optional_fields', postgresql.JSONB(astext_type=sa.Text()), nullable=True),
     sa.Column('user_provided_fields', postgresql.JSONB(astext_type=sa.Text()), nullable=True),

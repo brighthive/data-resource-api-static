@@ -18,7 +18,7 @@
             "entity_type_id": 1,
             "provider_full_address": "2 Anhalt Plaza",
             "provider_description": "An education provider",
-            "provider_contact_email": NaN,
+            "provider_contact_email": null,
             "provider_url": "phpbb.com/a.a.",
             "year_incorporated": 2019
         },

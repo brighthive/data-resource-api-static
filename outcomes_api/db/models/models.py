@@ -9,6 +9,10 @@ class EntityType(db.Model):
     providers = db.relationship(
         'Provider', backref='entity_type', lazy=True, passive_deletes=True)
 
+    def __init__(self, name, id=None):
+        self.type_id = id
+        self.type_name = name
+
 
 class Provider(db.Model):
     __tablename__ = 'providers'
@@ -34,6 +38,19 @@ class Provider(db.Model):
     optional_fields = db.Column(JSONB)
     user_provided_fields = db.Column(JSONB)
 
+    def __init__(self, name, entity_type_id, alternate_name=None,
+                 full_address=None, description=None, contact_email=None,
+                 url=None, incorporated=None, id=None):
+        self.provider_name = name
+        self.entity_type_id = entity_type_id
+        self.provider_alternate_name = alternate_name
+        self.provider_full_address = full_address
+        self.provider_description = description
+        self.provider_contact_email = contact_email
+        self.provider_url = url
+        self.year_incorporated = incorporated
+        self.provider_id = id
+
 
 class ProgramPotentialOutcome(db.Model):
     potential_outcome_id = db.Column(db.Integer, primary_key=True)
@@ -43,7 +60,7 @@ class ProgramPotentialOutcome(db.Model):
         'Program', backref='program_potential_outcome', lazy=True,
         passive_deletes=True)
 
-    def __init__(self, outcome_id, outcome_name):
+    def __init__(self, outcome_name, outcome_id=None):
         self.potential_outcome_id = outcome_id
         self.potential_outcome_name = outcome_name
 
@@ -63,6 +80,18 @@ class GeographicLocation(db.Model):
         'PhysicalAddress', backref='geographic_location', lazy=True,
         uselist=False, passive_deletes=True)
 
+    def __init__(self, name, provider_id, description=None,
+                 transportation=None, latitude=None, longitude=None,
+                 full_address=None, id=None):
+        self.location_name = name
+        self.provider_id = provider_id
+        self.location_description = description
+        self.transportation = transportation
+        self.latitude = latitude
+        self.longitude = longitude
+        self.location_full_address = full_address,
+        self.location_id = id
+
 
 class PhysicalAddress(db.Model):
     __tablename__ = 'physical_addresses'
@@ -76,11 +105,26 @@ class PhysicalAddress(db.Model):
     postal_code = db.Column(db.String(20), nullable=False)
     country = db.Column(db.String(2), nullable=False)
 
+    def __init__(self, location_id, address, city, state,
+                 postal_code, country, address_id=None):
+        self.location_id = location_id
+        self.address = address
+        self.city = city
+        self.state = state
+        self.postal_code = postal_code
+        self.country = country
+        self.address_id = address_id
+
 
 class CredentialType(db.Model):
     type_id = db.Column(db.Integer, primary_key=True)
     type_name = db.Column(db.String(1024), nullable=False)
     audience_level = db.Column(db.String(256), nullable=False)
+
+    def __init__(self, name, level, id=None):
+        self.type_id = id
+        self.type_name = name
+        self.audience_level = level
 
 
 class Credential(db.Model):
@@ -108,10 +152,28 @@ class Credential(db.Model):
     optional_fields = db.Column(JSONB)
     user_provided_fields = db.Column(JSONB)
 
+    def __init__(self, provider_id, name, description, credential_type_id,
+                 credential_status_type, audience, language, ce_ctid=None,
+                 webpage=None, id=None):
+        self.provider_id = provider_id
+        self.credential_name = name
+        self.credential_description = description
+        self.credential_type_id = credential_type_id
+        self.credential_status_type = credential_status_type
+        self.audience = audience
+        self.language = language
+        self.ce_ctid = ce_ctid
+        self.webpage = webpage
+        self.credential_id = id
+
 
 class ProgramPrerequisite(db.Model):
     prerequisite_id = db.Column(db.Integer, primary_key=True)
     prerequisite_name = db.Column(db.String(100), nullable=False)
+
+    def __init__(self, name, id=None):
+        self.prerequisite_id = id
+        self.prerequisite_name = name
 
 
 class Program(db.Model):
@@ -120,7 +182,7 @@ class Program(db.Model):
     # required fields
     program_id = db.Column(db.Integer, primary_key=True)
     program_name = db.Column(db.String(140), nullable=False)
-    program_code = None
+    program_code = db.Column(db.String(32), nullable=False)
     program_description = db.Column(db.String(4096), nullable=False)
     program_status = db.Column(db.String(256), nullable=False)
     program_fees = db.Column(db.Float, nullable=False)
@@ -155,6 +217,38 @@ class Program(db.Model):
     optional_fields = db.Column(JSONB)
     user_provided_fields = db.Column(JSONB)
 
+    def __init__(self, name, code, description, status, fees, provider_id,
+                 location_id, eligibility_criteria, potential_outcome_id,
+                 program_url,  credential_earned=None, contact_phone=None,
+                 contact_email=None, languages=None, intake=None,
+                 offering_model=None, length_hours=None, length_weeks=None,
+                 prereq_id=None, program_soc=None, funding=None, on_etpl=None,
+                 cost_of_books=None, id=None):
+        self.program_name = name
+        self.program_code = code
+        self.program_description = description
+        self.program_status = status
+        self.program_fees = fees
+        self.provider_id = provider_id
+        self.location_id = location_id
+        self.eligibility_criteria = eligibility_criteria
+        self.potential_outcome_id = potential_outcome_id
+        self.program_url = program_url
+        self.credential_earned = credential_earned
+        self.program_contact_phone = contact_phone
+        self.program_contact_email = contact_email
+        self.languages = languages
+        self.current_intake_capacity = intake
+        self.program_offering_model = offering_model
+        self.program_length_hours = length_hours
+        self.program_length_weeks = length_weeks
+        self.prerequisite_id = prereq_id
+        self.program_soc = program_soc
+        self.funding_sources = funding
+        self.on_etpl = on_etpl
+        self.cost_of_books_and_supplies = cost_of_books
+        self.program_id = id
+
     def __repr__(self):
         return '<Program: {}, {}, {}>'.format(self.program_id,
                                               self.program_code,
@@ -171,9 +265,18 @@ class Participant(db.Model):
         primary_key=True)
     entry_date = db.Column(db.Date, nullable=False)
     exit_date = db.Column(db.Date, nullable=False)
-    exit_type = db.Column(db.Date, nullable=False)
+    exit_type = db.Column(db.String(32), nullable=False)
     exit_reason = db.Column(db.String(256), nullable=False)
 
     # extra data
     optional_fields = db.Column(JSONB)
     user_provided_fields = db.Column(JSONB)
+
+    def __init__(self, program_id, entry_date, exit_date, exit_type,
+                 exit_reason, id=None):
+        self.program_id = program_id
+        self.entry_date = entry_date
+        self.exit_date = exit_date
+        self.exit_type = exit_type
+        self.exit_reason = exit_reason
+        self.participant_id = id
