@@ -32,6 +32,6 @@ class ProgramsHandler(object):
                 return {'program': program.to_dict()}, 200
             else:
                 return {'message': 'Program with id {} does not exist'.format(
-                    id)}
+                    id)}, 404
         except Exception:
             return {'error': 'Invalid request'}, 400

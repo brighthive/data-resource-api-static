@@ -38,10 +38,13 @@ class DatabaseContainerFixture(object):
 
     def populate_database(self):
         app.config.from_object(self.config)
-        print(os.path.dirname(sys.modules['__main__'].__file__))
         with app.app_context():
-            upgrade(
-                directory='/Users/gmundy/Work/program-outcomes-api/outcomes_api/db/migrations')
+            relative_path = os.path.dirname(os.path.relpath(__file__))
+            absolute_path = os.path.dirname(os.path.abspath(__file__))
+            root_path = absolute_path.split(relative_path)[0]
+            migrations_dir = os.path.join(
+                root_path, 'outcomes_api', 'db', 'migrations')
+            upgrade(directory=migrations_dir)
 
     def teardown_database(self):
         self.container.stop()

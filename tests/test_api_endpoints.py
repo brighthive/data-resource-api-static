@@ -20,87 +20,46 @@ UNAUTHENTICATED_HEADER = {
 }
 
 
-@describe('Test API GET Endpoints')
+@describe('Test API Auth Mechanism')
 def _():
-    @it('Should return all programs')
-    def get_all_programs():
+    @it('Should allow only authenticated users to access secured resources')
+    def test_api_auth_header():
         response = client.get(
             '/programs', headers=AUTHENTICATED_HEADER)
         expect(response.status_code).to(equal(200))
-
         response = client.get(
             '/programs', headers=UNAUTHENTICATED_HEADER)
         expect(response.status_code).to(equal(401))
 
-    @it('Should return all credentials')
-    def get_all_credentials():
-        response = client.get('/credentials', headers=AUTHENTICATED_HEADER)
+
+@describe('Test Programs Resource')
+def _():
+
+    @it('Should return all programs')
+    def test_get_all_programs():
+        response = client.get('/programs', headers=AUTHENTICATED_HEADER)
         expect(response.status_code).to(equal(200))
         data = json.loads(response.data)
-        expect(len(data)).to(be_above(0))
+        expect(len(data[0]['programs'])).to(be_above(1))
 
-        response = client.get('/credentials', headers=UNAUTHENTICATED_HEADER)
-        expect(response.status_code).to(equal(401))
-
-    @it('Should return all participants')
-    def get_all_participants():
-        response = client.get('/participants', headers=AUTHENTICATED_HEADER)
+    @it('Should return a program by its identifer')
+    def test_get_program_by_id():
+        response = client.get('/programs', headers=AUTHENTICATED_HEADER)
         expect(response.status_code).to(equal(200))
+        selected_program = json.loads(response.data)[0]['programs'][0]
 
-        response = client.get('/participants', headers=UNAUTHENTICATED_HEADER)
-        expect(response.status_code).to(equal(401))
+        # should return a not found status code
+        response = client.get(
+            '/programs/{}'.format(selected_program['program_id'] * 1000),
+            headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(404))
 
-
-@describe('Test API POST Endpoints')
-def _():
-    @it('Should add a new program if the data is valid')
-    def add_new_program():
-        response = client.post(
-            '/programs', headers=AUTHENTICATED_HEADER)
-        expect(response.status_code).to(equal(400))
-
-        content = {'message': 'a thing'}
-        # response = client.post(
-        #     '/programs',
-        #     headers={'content-type': 'application/json'},
-        #     data=json.dumps(content))
-        # expect(response.status_code).to(equal(201))
-
-    @it('Should add a new credential if the data is valid')
-    def add_new_credential():
-        response = client.post(
-            '/credentials', headers=AUTHENTICATED_HEADER)
-        expect(response.status_code).to(equal(400))
-
-        content = {'message': 'a thing'}
-        response = client.post(
-            '/credentials',
-            headers=AUTHENTICATED_HEADER,
-            data=json.dumps(content))
-        expect(response.status_code).to(equal(201))
-
-    @it('Should add a new participant if the data is valid')
-    def add_new_participant():
-        response = client.post(
-            '/participants', headers=AUTHENTICATED_HEADER)
-        expect(response.status_code).to(equal(400))
-
-        content = {'message': 'a thing'}
-        response = client.post(
-            '/participants',
-            headers=AUTHENTICATED_HEADER,
-            data=json.dumps(content))
-        expect(response.status_code).to(equal(201))
-
-    @it('Should add a new provider if the data is valid')
-    def add_new_provider():
-        response = client.post(
-            '/providers', headers=AUTHENTICATED_HEADER)
-        expect(response.status_code).to(equal(400))
-
-        content = {'message': 'a thing'}
-        response = client.post(
-            '/providers',
-            headers=AUTHENTICATED_HEADER,
-            data=json.dumps(content))
-        expect(response.status_code).to(equal(201))
+        # should return a 200 status code
+        response = client.get(
+            '/programs/{}'.format(selected_program['program_id']),
+            headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(200))
+        program = json.loads(response.data)['program']
+        expect(program['program_id']).to(equal(selected_program['program_id']))
+        expect(program['program_name']).to(
+            equal(selected_program['program_name']))

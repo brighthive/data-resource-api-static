@@ -45,17 +45,15 @@ def setup_test_database():
 
     while not tables_loaded and retries < 10:
         try:
-            print('Setting up database container...')
             database_fixture.populate_database()
             tables_loaded = True
         except Exception:
             retries += 1
-            sleep(2)
+            sleep(1)
 
 
 @after
 def teardown_test_database():
-    print('Tearing down database container...')
     database_fixture.teardown_database()
 
 
