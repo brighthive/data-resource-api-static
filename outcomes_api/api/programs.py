@@ -30,3 +30,29 @@ class ProgramsResource(VersionedResource):
 
         result, status = request_handler.add_new_program(request.get_json())
         return result, status
+
+
+class ProgramResource(VersionedResource):
+    @login_required
+    def get(self, id):
+        pass
+
+    @login_required
+    def put(self, id):
+        pass
+
+    @login_required
+    def delete(self, id):
+        pass
+
+
+class ProviderProgramResource(VersionedResource):
+    @login_required
+    def get(self, id):
+        pass
+
+
+class ProgramCredentialResource(VersionedResource):
+    @login_required
+    def get(self, id):
+        pass

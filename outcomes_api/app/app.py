@@ -12,8 +12,37 @@ api = Api(app)
 
 if db:
     from outcomes_api.api import ProgramsResource, ParticipantsResource,\
-        CredentialsResource, ProvidersResource
-    api.add_resource(ProgramsResource, '/programs')
-    api.add_resource(ParticipantsResource, '/participants')
-    api.add_resource(CredentialsResource, '/credentials')
-    api.add_resource(ProvidersResource, '/providers')
+        CredentialsResource, ProvidersResource, ProgramResource,\
+        ParticipantResource, CredentialResource, ProviderResource,\
+        ProviderProgramResource, ProgramCredentialResource
+
+    # programs
+    api.add_resource(ProgramsResource, '/programs', endpoint='programs')
+    api.add_resource(ProgramResource, '/programs/<int:id>',
+                     endpoint='program')
+
+    # participans
+    api.add_resource(ParticipantsResource, '/participants',
+                     endpoint='participants')
+    api.add_resource(ParticipantResource, '/participants/<int:id>',
+                     endpoint='participant')
+
+    # credentials
+    api.add_resource(CredentialsResource, '/credentials',
+                     endpoint='credentials')
+    api.add_resource(CredentialResource, '/credentials/<int:id>',
+                     endpoint='credential')
+
+    # providers
+    api.add_resource(ProvidersResource, '/providers', endpoint='providers')
+    api.add_resource(ProviderResource, '/providers/<int:id>',
+                     endpoint='provider')
+
+    # provider programs
+    api.add_resource(ProviderProgramResource, '/providers/<int:id>/programs',
+                     endpoint='provider_programs')
+
+    # program credentials
+    api.add_resource(ProgramCredentialResource,
+                     '/programs/<int:id>/credentials',
+                     endpoint='program_credentials')

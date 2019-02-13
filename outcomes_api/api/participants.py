@@ -30,3 +30,17 @@ class ParticipantsResource(VersionedResource):
         result, status = request_handler.add_new_participant(
             request.get_json())
         return result, status
+
+
+class ParticipantResource(VersionedResource):
+    @login_required
+    def get(self, id):
+        pass
+
+    @login_required
+    def put(self, id):
+        pass
+
+    @login_required
+    def delete(self, id):
+        pass

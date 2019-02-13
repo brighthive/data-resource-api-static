@@ -29,3 +29,17 @@ class CredentialsResource(VersionedResource):
 
         result, status = request_handler.add_new_credential(request.get_json())
         return result, status
+
+
+class CredentialResource(VersionedResource):
+    @login_required
+    def get(self, id):
+        pass
+
+    @login_required
+    def put(self, id):
+        pass
+
+    @login_required
+    def delete(self, id):
+        pass

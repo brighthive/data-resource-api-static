@@ -30,3 +30,17 @@ class ProvidersResource(VersionedResource):
 
         result, status = request_handler.add_new_provider(request.get_json())
         return result, status
+
+
+class ProviderResource(VersionedResource):
+    @login_required
+    def get(self, id):
+        pass
+
+    @login_required
+    def put(self, id):
+        pass
+
+    @login_required
+    def delete(self, id):
+        pass
