@@ -1,11 +1,15 @@
 """ API Version 1.0 Providers Handler """
 
-from outcomes_api.db import Program
+from outcomes_api.db import Provider
 
 
 class ProvidersHandler(object):
     def get_all_providers(self):
-        return {'message': 'providers api version 1.0'}
+        results = Provider.query.all()
+        providers = {'providers': []}
+        for provider in results:
+            providers['providers'].append(provider.to_dict())
+        return providers
 
     def add_new_provider(self, provider):
         if provider is not None:

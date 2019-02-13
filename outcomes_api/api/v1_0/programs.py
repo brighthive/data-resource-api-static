@@ -8,7 +8,11 @@ from outcomes_api.validator import ProgramValidator
 
 class ProgramsHandler(object):
     def get_all_programs(self):
-        return {'message': 'programs api version 1.0'}
+        results = Program.query.all()
+        programs = {'programs': []}
+        for program in results:
+            programs['programs'].append(program.to_dict())
+        return programs
 
     def add_new_program(self, program):
         validator = ProgramValidator()

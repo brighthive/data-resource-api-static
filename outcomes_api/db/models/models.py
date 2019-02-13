@@ -1,3 +1,4 @@
+from datetime import datetime
 from sqlalchemy.dialects.postgresql.json import JSONB
 from outcomes_api.app.app import db
 
@@ -50,6 +51,19 @@ class Provider(db.Model):
         self.provider_url = url
         self.year_incorporated = incorporated
         self.provider_id = id
+
+    def to_dict(self):
+        return {
+            'provider_id': self.provider_id,
+            'entity_type_id': self.entity_type_id,
+            'provider_name': self.provider_name,
+            'provider_alternate_name': self.provider_alternate_name,
+            'provider_full_address': self.provider_full_address,
+            'provider_description': self.provider_description,
+            'provider_contact_email': self.provider_contact_email,
+            'provider_url': self.provider_url,
+            'year_incorporated': self.year_incorporated
+        }
 
 
 class ProgramPotentialOutcome(db.Model):
@@ -267,6 +281,33 @@ class Program(db.Model):
                                               self.program_code,
                                               self.program_name)
 
+    def to_dict(self):
+        return {
+            'program_id': self.program_id,
+            'program_name': self.program_name,
+            'program_code': self.program_code,
+            'program_description': self.program_description,
+            'program_status': self.program_status,
+            'program_fees': self.program_fees,
+            'provider_id': self.provider_id,
+            'location_id': self.location_id,
+            'eligibility_criteria': self.eligibility_criteria,
+            'credential_earned_id': self.credential_earned,
+            'potential_outcome_id': self.potential_outcome_id,
+            'program_url': self.program_url,
+            'program_contact_phone': self.program_contact_phone,
+            'program_contact_email': self.program_contact_email,
+            'languages': self.languages,
+            'current_intake_capacity': self.current_intake_capacity,
+            'program_length_hours': self.program_length_hours,
+            'program_length_weeks': self.program_length_weeks,
+            'prerequisite_id': self.prerequisite_id,
+            'program_soc': self.program_soc,
+            'funding_sources': self.funding_sources,
+            'on_etpl': self.on_etpl,
+            'cost_of_books_and_supplies': self.cost_of_books_and_supplies
+        }
+
 
 class Participant(db.Model):
     __tablename__ = 'participants'
@@ -293,3 +334,12 @@ class Participant(db.Model):
         self.exit_type = exit_type
         self.exit_reason = exit_reason
         self.participant_id = id
+
+    def to_dict(self):
+        return {
+            'participant_id': self.participant_id,
+            'program_id': self.program_id,
+            'entry_date': self.entry_date.strftime('%Y/%m/%d'),
+            'exit_date': self.exit_date.strftime('%Y/%m/%d'),
+            'exit_type': self.exit_type
+        }

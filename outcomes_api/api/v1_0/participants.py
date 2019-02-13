@@ -5,7 +5,11 @@ from outcomes_api.db import Participant
 
 class ParticipantsHandler(object):
     def get_all_participants(self):
-        return {'message': 'participants api version 1.0'}
+        results = Participant.query.all()
+        participants = {'participants': []}
+        for participant in results:
+            participants['participants'].append(participant.to_dict())
+        return participants
 
     def add_new_participant(self, participant):
         if participant is not None:
