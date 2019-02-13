@@ -10,5 +10,6 @@ sandbox.py
 
 # Sphinx Artifacts
 build
+_build
 _static
 _templates

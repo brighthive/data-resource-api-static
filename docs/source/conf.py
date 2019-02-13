@@ -19,8 +19,8 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'data-resource-api'
-copyright = '2019, Gregory Mundy'
+project = 'program-outcomes-api'
+copyright = '2019, BrightHive'
 author = 'Gregory Mundy'
 
 # The short X.Y version
