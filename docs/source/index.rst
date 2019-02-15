@@ -1,8 +1,3 @@
-.. data-resource-api documentation master file, created by
-   sphinx-quickstart on Wed Feb 13 10:53:47 2019.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 BrightHive Data Resource API
 ============================
 
@@ -10,11 +5,7 @@ BrightHive Data Resource API
    :maxdepth: 2
    :caption: Contents:
 
+Introduction
+^^^^^^^^^^^^
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+This document provides an overview of the BrightHive Data Access API.
