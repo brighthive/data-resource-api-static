@@ -14,7 +14,10 @@ if db:
     from data_resource_api.api import ProgramsResource, ParticipantsResource,\
         CredentialsResource, ProvidersResource, ProgramResource,\
         ParticipantResource, CredentialResource, ProviderResource,\
-        ProviderProgramResource, ProgramCredentialResource
+        ProviderProgramResource, ProgramCredentialResource, HealthCheckResource
+
+    # health check
+    api.add_resource(HealthCheckResource, '/health', endpoint='healthcheck')
 
     # programs
     api.add_resource(ProgramsResource, '/programs', endpoint='programs')

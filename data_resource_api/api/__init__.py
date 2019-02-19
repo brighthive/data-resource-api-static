@@ -6,3 +6,4 @@ from data_resource_api.api.participants import ParticipantsResource, \
 from data_resource_api.api.credentials import CredentialsResource, \
     CredentialResource
 from data_resource_api.api.providers import ProvidersResource, ProviderResource
+from data_resource_api.api.healthcheck import HealthCheckResource
