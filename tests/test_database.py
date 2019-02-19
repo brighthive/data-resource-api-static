@@ -240,3 +240,8 @@ def _():
             db.session.commit()
             result = Participant.query.all()
             expect(len(result)).to(equal(len(data['participants'])))
+
+        # find programs provided by a provider
+        provider = Provider.query.first()
+        program = Program.query.first()
+        credential = Credential.query.first()
