@@ -7,4 +7,5 @@ RUN pip install pipenv && pipenv install --system
 ADD data_resource_api data_resource_api
 ADD cmd.sh cmd.sh
 RUN chmod a+x cmd.sh
+EXPOSE 8000
 CMD [ "/data-resource-api/cmd.sh" ]
