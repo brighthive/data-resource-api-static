@@ -85,6 +85,10 @@ class SandboxConfig(Config):
     def __init__(self):
         super().__init__()
         os.environ['FLASK_ENV'] = 'production'
+    POSTGRES_USER = os.getenv('POSTGRES_USER')
+    POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
+    POSTGRES_DATABASE = os.getenv('POSTGRES_DATABASE')
+    POSTGRES_HOSTNAME = os.getenv('POSTGRES_HOSTNAME')
 
 
 class ProductionConfig(Config):
