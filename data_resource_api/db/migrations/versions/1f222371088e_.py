@@ -1,4 +1,5 @@
-"""empty message
+"""Create database structure for programs, providers, credentials,
+participants.
 
 Revision ID: 1f222371088e
 Revises: 

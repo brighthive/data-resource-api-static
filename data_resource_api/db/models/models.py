@@ -3,6 +3,12 @@ from sqlalchemy.dialects.postgresql.json import JSONB
 from data_resource_api.app.app import db
 
 
+class Token(db.Model):
+    token = db.Column(db.String(100), primary_key=True)
+    date_created = db.Column(
+        db.DateTime, server_default=db.func.now(), nullable=False)
+
+
 class EntityType(db.Model):
     type_id = db.Column(db.Integer, primary_key=True)
     type_name = db.Column(db.String(100), nullable=False)
