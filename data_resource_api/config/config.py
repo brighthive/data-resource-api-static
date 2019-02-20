@@ -42,6 +42,22 @@ class DevelopmentConfig(Config):
         super().__init__()
         os.environ['FLASK_ENV'] = 'development'
 
+    CONTAINER_NAME = 'postgres-dev'
+    IMAGE_NAME = 'postgres'
+    IMAGE_VERSION = '11.1'
+    POSTGRES_DATABASE = 'tpot_programs_dev'
+    POSTGRES_PORT = 5432
+    SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@{}:{}/{}'.format(
+        Config.POSTGRES_USER,
+        Config.POSTGRES_PASSWORD,
+        Config.POSTGRES_HOSTNAME,
+        POSTGRES_PORT,
+        POSTGRES_DATABASE
+    )
+
+    def get_postgresql_image(self):
+        return '{}:{}'.format(self.IMAGE_NAME, self.IMAGE_VERSION)
+
 
 class TestConfig(Config):
     def __init__(self):

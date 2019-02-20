@@ -1,54 +1,73 @@
-""" Unit tests for API Endpoints """
-
-import json
 import os
-import random
+import sys
+import docker
+import json
 from time import sleep
-from pocha import describe, it, before, after
-from expects import expect, be, equal, be_above
-
-from data_resource_api import app, db, Program, Provider, Participant,\
-    Credential, CredentialType, ProgramPotentialOutcome,\
-    ProgramPrerequisite, EntityType, GeographicLocation,\
-    PhysicalAddress, DatabaseConfigurationUtility
-
-database_fixture = DatabaseConfigurationUtility('TEST', False)
-
-# Test Directory Home
-TEST_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# Sample data in JSON format
-JSON_FIXTURES = os.path.join(TEST_DIR, 'fixtures', 'sample')
-
-# Sample data files
-PROGRAM_PREREQUISITES = os.path.join(
-    JSON_FIXTURES, 'program_prerequisites.json')
-PROGRAM_POTENTIAL_OUTCOMES = os.path.join(
-    JSON_FIXTURES, 'program_potential_outcomes.json')
-ENTITY_TYPES = os.path.join(JSON_FIXTURES, 'entity_types.json')
-CREDENTIAL_TYPES = os.path.join(JSON_FIXTURES, 'credential_types.json')
-PROVIDERS = os.path.join(JSON_FIXTURES, 'providers.json')
-LOCATIONS = os.path.join(JSON_FIXTURES, 'locations.json')
-ADDRESSES = os.path.join(JSON_FIXTURES, 'addresses.json')
-CREDENTIALS = os.path.join(JSON_FIXTURES, 'credentials.json')
-PROGRAMS = os.path.join(JSON_FIXTURES, 'programs.json')
-PARTICIPANTS = os.path.join(JSON_FIXTURES, 'participants.json')
+from flask_migrate import upgrade
+from data_resource_api import app, db, ConfigurationFactory,\
+    ProgramPrerequisite, ProgramPotentialOutcome, EntityType,\
+    CredentialType, Provider, GeographicLocation, PhysicalAddress,\
+    Credential, Program, Participant
 
 
-@before
-def setup_test_database():
-    database_fixture.start_database()
+class DatabaseConfigurationUtility(object):
+    def __init__(self, configuration='DEVELOPMENT', verbose=False):
+        relative_path = os.path.dirname(os.path.relpath(__file__))
+        absolute_path = os.path.dirname(os.path.abspath(__file__))
+        self.root_path = absolute_path.split(relative_path)[0]
+        self.docker_client = docker.from_env()
+        self.config = ConfigurationFactory.get_config(
+            str(configuration).upper())
+        self.container = None
+        self.db_environment = [
+            'POSTGRES_USER={}'.format(self.config.POSTGRES_USER),
+            'POSTGRES_PASSWORD={}'.format(self.config.POSTGRES_PASSWORD),
+            'POSTGRES_DB={}'.format(self.config.POSTGRES_DATABASE)
+        ]
+        self.db_ports = {'5432/tcp': self.config.POSTGRES_PORT}
+        self.sample_data_root = os.path.join(
+            self.root_path, 'tests', 'fixtures', 'sample')
+        self.verbose = verbose
 
+    def setup_database(self):
+        # pull the postgresql image from repo if it doesn't exist
+        try:
+            self.docker_client.images.pull(self.config.get_postgresql_image())
+        except Exception:
+            if self.verbose:
+                print('Failed to pull image {} from repository.'.format(
+                    self.config.get_postgresql_image()))
+            else:
+                pass
 
-@after
-def teardown_test_database():
-    database_fixture.stop_database()
+        # launch the container
+        self.container = self.docker_client.containers.run(
+            self.config.get_postgresql_image(),
+            detach=True,
+            auto_remove=True,
+            name=self.config.CONTAINER_NAME,
+            environment=self.db_environment,
+            ports=self.db_ports)
 
+    def add_datasets(self):
+        # location of sample datasets
+        PROGRAM_PREREQUISITES = os.path.join(
+            self.sample_data_root, 'program_prerequisites.json')
+        PROGRAM_POTENTIAL_OUTCOMES = os.path.join(
+            self.sample_data_root, 'program_potential_outcomes.json')
+        ENTITY_TYPES = os.path.join(self.sample_data_root, 'entity_types.json')
+        CREDENTIAL_TYPES = os.path.join(
+            self.sample_data_root, 'credential_types.json')
+        PROVIDERS = os.path.join(self.sample_data_root, 'providers.json')
+        LOCATIONS = os.path.join(self.sample_data_root, 'locations.json')
+        ADDRESSES = os.path.join(self.sample_data_root, 'addresses.json')
+        CREDENTIALS = os.path.join(self.sample_data_root, 'credentials.json')
+        PROGRAMS = os.path.join(self.sample_data_root, 'programs.json')
+        PARTICIPANTS = os.path.join(self.sample_data_root, 'participants.json')
 
-@describe('Test Database Models')
-def _():
-    @it('Should perform CRUD operations on database tables')
-    def _():
+        # manually load datasets
+        if self.verbose:
+            print('Creating Sample Datasets...')
         # load program prerequisites:
         with open(PROGRAM_PREREQUISITES, 'r') as f:
             data = json.load(f)
@@ -57,8 +76,6 @@ def _():
             prereq = ProgramPrerequisite(item['name'], item['id'])
             db.session.add(prereq)
         db.session.commit()
-        result = ProgramPrerequisite.query.all()
-        expect(len(result)).to(equal(len(data['program_prerequisites'])))
 
         # load program potential outcomes
         with open(PROGRAM_POTENTIAL_OUTCOMES, 'r') as f:
@@ -68,8 +85,6 @@ def _():
             outcome = ProgramPotentialOutcome(item['name'], item['id'])
             db.session.add(outcome)
         db.session.commit()
-        result = ProgramPotentialOutcome.query.all()
-        expect(len(result)).to(equal(len(data['program_potential_outcomes'])))
 
         # load entity types
         with open(ENTITY_TYPES, 'r') as f:
@@ -79,8 +94,6 @@ def _():
             entity = EntityType(item['name'], item['id'])
             db.session.add(entity)
         db.session.commit()
-        result = EntityType.query.all()
-        expect(len(result)).to(equal(len(data['entity_types'])))
 
         # load credential types
         with open(CREDENTIAL_TYPES, 'r') as f:
@@ -92,8 +105,6 @@ def _():
                 item['credential_type_id'])
             db.session.add(credential_type)
         db.session.commit()
-        result = CredentialType.query.all()
-        expect(len(result)).to(equal(len(data['credential_types'])))
 
         # load providers
         with open(PROVIDERS, 'r') as f:
@@ -113,8 +124,6 @@ def _():
             )
             db.session.add(provider)
         db.session.commit()
-        result = Provider.query.all()
-        expect(len(result)).to(equal(len(data['providers'])))
 
         # load locations
         with open(LOCATIONS, 'r') as f:
@@ -133,8 +142,6 @@ def _():
             )
             db.session.add(location)
         db.session.commit()
-        result = GeographicLocation.query.all()
-        expect(len(result)).to(equal(len(data['locations'])))
 
         # load addresses
         with open(ADDRESSES, 'r') as f:
@@ -152,8 +159,6 @@ def _():
             )
             db.session.add(address)
         db.session.commit()
-        result = PhysicalAddress.query.all()
-        expect(len(result)).to(equal(len(data['addresses'])))
 
         # load credentials
         with open(CREDENTIALS, 'r') as f:
@@ -174,8 +179,6 @@ def _():
             )
             db.session.add(credential)
         db.session.commit()
-        result = Credential.query.all()
-        expect(len(result)).to(equal(len(data['credentials'])))
 
         # load programs
         with open(PROGRAMS, 'r') as f:
@@ -209,8 +212,6 @@ def _():
                 )
                 db.session.add(program)
             db.session.commit()
-            result = Program.query.all()
-            expect(len(result)).to(equal(len(data['programs'])))
 
         # load participants
         with open(PARTICIPANTS, 'r') as f:
@@ -226,10 +227,69 @@ def _():
                 )
                 db.session.add(participant)
             db.session.commit()
-            result = Participant.query.all()
-            expect(len(result)).to(equal(len(data['participants'])))
 
-        # find programs provided by a provider
-        provider = Provider.query.first()
-        program = Program.query.first()
-        credential = Credential.query.first()
+    def apply_migrations(self):
+        app.config.from_object(self.config)
+        with app.app_context():
+            relative_path = os.path.dirname(os.path.relpath(__file__))
+            absolute_path = os.path.dirname(os.path.abspath(__file__))
+            self.root_path = absolute_path.split(relative_path)[0]
+            migrations_dir = os.path.join(
+                self.root_path, 'data_resource_api', 'db', 'migrations')
+            upgrade(directory=migrations_dir)
+
+    def start_database(self, populate_sample_data=False):
+        tables_loaded = False
+        retries = 0
+        max_retries = 10
+        try:
+            if self.verbose:
+                print('Launching Database Container {}...'.format(
+                    self.config.CONTAINER_NAME))
+            self.setup_database()
+        except Exception:
+            if self.verbose:
+                print('Database Container {} is already running.'.format(
+                    self.config.CONTAINER_NAME))
+                sys.exit(1)
+            else:
+                pass
+        while not tables_loaded and retries < max_retries:
+            try:
+                if self.verbose:
+                    print('Applying Migrations, Attempt {} of {}...'.format(
+                        retries + 1, max_retries))
+                self.apply_migrations()
+                tables_loaded = True
+            except Exception:
+                tables_loaded = False
+                retries += 1
+                sleep(1)
+
+        if tables_loaded and populate_sample_data:
+            try:
+                if self.verbose:
+                    print('Populating Database With Sample Datasets...')
+                self.add_datasets()
+            except Exception:
+                if self.verbose:
+                    print('Failed to add sample datasets.')
+                else:
+                    pass
+
+    def stop_database(self):
+        if self.verbose:
+            print('Stopping Database Container {}...'.format(
+                self.config.CONTAINER_NAME))
+
+        try:
+            if self.container is None:
+                self.container = self.docker_client.containers.get(
+                    self.config.CONTAINER_NAME)
+            self.container.stop()
+        except Exception:
+            if self.verbose:
+                print('Database Container {} is not running.'.format(
+                    self.config.CONTAINER_NAME))
+            else:
+                pass
