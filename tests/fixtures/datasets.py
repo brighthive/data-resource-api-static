@@ -1,1 +1,0 @@
-""" General Test Data Assets. """

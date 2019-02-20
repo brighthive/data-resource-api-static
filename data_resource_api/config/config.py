@@ -5,6 +5,10 @@ import json
 
 
 class Config(object):
+    relative_path = os.path.dirname(os.path.relpath(__file__))
+    absolute_path = os.path.dirname(os.path.abspath(__file__))
+    ROOT_PATH = absolute_path.split(relative_path)[0]
+
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     POSTGRES_USER = 'test_user'
     POSTGRES_PASSWORD = 'test_password'
@@ -18,8 +22,7 @@ class Config(object):
         POSTGRES_PORT,
         POSTGRES_DATABASE
     )
-    DEFAULT_VALIDATOR_HOME = os.path.join(
-        os.path.dirname(os.path.abspath(__file__)), '../schema')
+    DEFAULT_VALIDATOR_HOME = os.path.join(ROOT_PATH, 'schema')
     VALIDATOR_HOME = os.getenv('VALIDATOR_HOME', DEFAULT_VALIDATOR_HOME)
 
     @staticmethod
