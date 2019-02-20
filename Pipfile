@@ -11,13 +11,13 @@ flask-migrate = "*"
 gunicorn = "*"
 "psycopg2-binary" = "*"
 pandas = "*"
+docker = "*"
 
 [dev-packages]
 pycodestyle = "*"
 expects = "*"
 "autopep8" = "*"
 pocha = "*"
-docker = "*"
 sphinx = "*"
 "doc8" = "*"
 
