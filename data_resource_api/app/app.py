@@ -2,10 +2,11 @@ from flask import Flask
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from data_resource_api.config import Config
+from data_resource_api.config import ConfigurationFactory
+import os
 
 app = Flask(__name__)
-app.config.from_object(Config)
+app.config.from_object(ConfigurationFactory.from_env())
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 api = Api(app)

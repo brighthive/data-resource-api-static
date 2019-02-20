@@ -34,7 +34,17 @@ class Config(object):
         return str(api_version).strip()
 
 
+class DevelopmentConfig(Config):
+    def __init__(self):
+        super().__init__()
+        os.environ['FLASK_ENV'] = 'development'
+
+
 class TestConfig(Config):
+    def __init__(self):
+        super().__init__()
+        os.environ['FLASK_ENV'] = 'testing'
+
     CONTAINER_NAME = 'postgres-test'
     IMAGE_NAME = 'postgres'
     IMAGE_VERSION = '11.1'
@@ -52,15 +62,31 @@ class TestConfig(Config):
         return '{}:{}'.format(self.IMAGE_NAME, self.IMAGE_VERSION)
 
 
+class SandboxConfig(Config):
+    def __init__(self):
+        super().__init__()
+        os.environ['FLASK_ENV'] = 'production'
+
+
+class ProductionConfig(Config):
+    def __init__(self):
+        super().__init__()
+        os.environ['FLASK_ENV'] = 'production'
+
+
 class ConfigurationFactory(object):
     @staticmethod
     def get_config(config_type: str):
         if config_type.upper() == 'TEST':
             return TestConfig()
-        else:
-            return Config()
+        elif config_type.upper() == 'DEVELOPMENT':
+            return DevelopmentConfig()
+        elif config_type.upper() == 'SANDBOX':
+            return SandboxConfig()
+        elif config_type.upper() == 'PRODUCTION':
+            return ProductionConfig()
 
     @staticmethod
     def from_env():
         environment = os.getenv('APP_ENV', 'DEVELOPMENT')
-        ConfigurationFactory.get_config(environment)
+        return ConfigurationFactory.get_config(environment)
