@@ -89,6 +89,14 @@ class SandboxConfig(Config):
     POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
     POSTGRES_DATABASE = os.getenv('POSTGRES_DATABASE')
     POSTGRES_HOSTNAME = os.getenv('POSTGRES_HOSTNAME')
+    POSTGRES_PORT = os.getenv('POSTGRES_PORT', 5432)
+    SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@{}:{}/{}'.format(
+        POSTGRES_USER,
+        POSTGRES_PASSWORD,
+        POSTGRES_HOSTNAME,
+        POSTGRES_PORT,
+        POSTGRES_DATABASE
+    )
 
 
 class ProductionConfig(Config):
