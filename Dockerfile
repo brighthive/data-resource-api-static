@@ -6,6 +6,7 @@ ADD Pipfile.lock Pipfile.lock
 RUN pip install pipenv && pipenv install --system
 ADD data_resource_api data_resource_api
 ADD scripts scripts
+ADD tests tests
 ADD cmd.sh cmd.sh
 RUN chmod a+x cmd.sh
 EXPOSE 8000
