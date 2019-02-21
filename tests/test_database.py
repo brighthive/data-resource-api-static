@@ -10,7 +10,7 @@ from expects import expect, be, equal, be_above
 from data_resource_api import app, db, Program, Provider, Participant,\
     Credential, CredentialType, ProgramPotentialOutcome,\
     ProgramPrerequisite, EntityType, GeographicLocation,\
-    PhysicalAddress, DatabaseConfigurationUtility
+    PhysicalAddress, DatabaseConfigurationUtility, Token
 
 database_fixture = DatabaseConfigurationUtility('TEST', False)
 
@@ -38,6 +38,9 @@ PARTICIPANTS = os.path.join(JSON_FIXTURES, 'participants.json')
 @before
 def setup_test_database():
     database_fixture.start_database()
+    token = Token('269952015c751bcd64428e6e77c355a7')
+    db.session.add(token)
+    db.session.commit()
 
 
 @after

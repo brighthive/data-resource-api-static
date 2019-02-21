@@ -8,6 +8,9 @@ class Token(db.Model):
     date_created = db.Column(
         db.DateTime, server_default=db.func.now(), nullable=False)
 
+    def __init__(self, token=None):
+        self.token = token
+
 
 class EntityType(db.Model):
     type_id = db.Column(db.Integer, primary_key=True)
