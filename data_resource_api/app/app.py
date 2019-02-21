@@ -15,7 +15,8 @@ if db:
     from data_resource_api.api import ProgramsResource, ParticipantsResource,\
         CredentialsResource, ProvidersResource, ProgramResource,\
         ParticipantResource, CredentialResource, ProviderResource,\
-        ProviderProgramResource, ProgramCredentialResource, HealthCheckResource
+        ProviderProgramResource, ProgramCredentialResource,\
+        HealthCheckResource, CredentialProgramResource
 
     # health check
     api.add_resource(HealthCheckResource, '/health', endpoint='healthcheck')
@@ -50,6 +51,11 @@ if db:
     api.add_resource(ProgramCredentialResource,
                      '/programs/<int:id>/credentials',
                      endpoint='program_credentials')
+
+    # credential programs
+    api.add_resource(CredentialProgramResource,
+                     '/credentials/<int:id>/programs',
+                     endpoint='credential_programs')
 
     # locations
     # /locations

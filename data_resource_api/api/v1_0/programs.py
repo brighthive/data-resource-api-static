@@ -2,7 +2,7 @@
 
 import os
 import json
-from data_resource_api.db import Program
+from data_resource_api.db import Program, Credential, Provider
 from data_resource_api.validator import ProgramValidator
 from data_resource_api.app.app import db
 
@@ -287,6 +287,58 @@ class ProgramsHandler(object):
                 return {'program': program_data}, 200
 
         except Exception:
+            return {
+                'status': 404,
+                'error': 'Program with id {} does not exist'.format(id)}, 404
+
+    def get_credential_programs(self, id):
+        try:
+            credential = Credential.query.filter_by(credential_id=id).first()
+            if credential is not None:
+                credential_data = {}
+                credential_data['credential_id'] = credential.credential_id
+                credential_data['credential_name'] = credential.credential_name
+                credential_data['programs'] = []
+                for program in credential.programs:
+                    credential_data['programs'].append(program.to_dict())
+                return credential_data, 200
+            else:
+                return {'status': 404,
+                        'error': 'Cannot find credential with id {}'.format(id)
+                        }
+        except Exception:
+            return {'status': 404,
+                    'error': 'Cannot find credential with id {}'.format(id)}
+
+    def get_program_credentials(self, id):
+        try:
+            program = Program.query.filter_by(program_id=id).first()
+            if program is not None:
+                program_data = {}
+                program_data['program_id'] = id
+                program_data['program_name'] = program.program_name
+
+                # get the provider
+                provider = Provider.query.filter_by(
+                    provider_id=program.provider_id).first()
+
+                if provider is not None:
+                    program_data['provider_name'] = provider.provider_name
+
+                # get the credentials
+                credentials = Credential.query.filter_by(
+                    credential_id=program.credential_earned).all()
+                program_data['credentials'] = []
+                for credential in credentials:
+                    program_data['credentials'].append(credential.to_dict())
+                return program_data, 200
+            else:
+                return {
+                    'status': 404,
+                    'error': 'Program with id {} does not exist'.format(id)
+                }, 404
+        except Exception as e:
+            print(e)
             return {
                 'status': 404,
                 'error': 'Program with id {} does not exist'.format(id)}, 404

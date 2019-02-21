@@ -52,7 +52,15 @@ class ProviderProgramResource(VersionedResource):
         pass
 
 
-class ProgramCredentialResource(VersionedResource):
+class ProgramCredentialResource(ProgramsResource):
     @login_required
     def get(self, id):
-        pass
+        return self.get_request_handler(
+            request.headers).get_program_credentials(id)
+
+
+class CredentialProgramResource(ProgramsResource):
+    @login_required
+    def get(self, id):
+        return self.get_request_handler(
+            request.headers).get_credential_programs(id)
