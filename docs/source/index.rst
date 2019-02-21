@@ -27,7 +27,7 @@ is shown in the code snippet below.
 
 .. code-block: bash
 
-curl -X GET https://sandbox.brighthive.net/data-resource-api/programs -H 'Authorization: Bearer 1qaz2wsx3edc'
+    curl -X GET https://sandbox.brighthive.net/data-resource-api/programs -H 'Authorization: Bearer 1qaz2wsx3edc'
 
 API Versioning
 ^^^^^^^^^^^^^^
