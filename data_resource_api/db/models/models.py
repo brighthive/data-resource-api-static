@@ -252,7 +252,7 @@ class Program(db.Model):
 
     def __init__(self, name, code, description, status, fees, provider_id,
                  location_id, eligibility_criteria, potential_outcome_id,
-                 program_url,  credential_earned=None, contact_phone=None,
+                 program_url,  credential_earned, contact_phone=None,
                  contact_email=None, languages=None, intake=None,
                  offering_model=None, length_hours=None, length_weeks=None,
                  prereq_id=None, program_soc=None, funding=None, on_etpl=None,

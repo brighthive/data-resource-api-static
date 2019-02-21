@@ -208,7 +208,8 @@ class DatabaseConfigurationUtility(object):
                     funding=item['funding_sources'],
                     on_etpl=item['on_etpl'],
                     cost_of_books=item['cost_of_books_and_supplies'],
-                    id=item['program_id']
+                    # id=item['program_id']
+                    id=None
                 )
                 db.session.add(program)
             db.session.commit()

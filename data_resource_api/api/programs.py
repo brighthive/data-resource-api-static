@@ -37,11 +37,13 @@ class ProgramResource(ProgramsResource):
 
     @login_required
     def put(self, id):
-        pass
+        return self.get_request_handler(request.headers).update_program(
+            request.get_json(), id)
 
     @login_required
     def delete(self, id):
-        pass
+        return self.get_request_handler(request.headers).delete_program_by_id(
+            id)
 
 
 class ProviderProgramResource(VersionedResource):

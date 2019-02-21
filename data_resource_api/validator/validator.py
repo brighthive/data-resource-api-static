@@ -9,7 +9,7 @@ import json
 import os
 import re
 from datetime import datetime
-from data_resource_api.config import Config
+from data_resource_api.config import ConfigurationFactory
 from data_resource_api.validator.util import ValidatorNotFoundError,\
     SchemaFormatError, EMAIL_REGEX, URL_REGEX
 
@@ -186,7 +186,7 @@ class Validator(object):
                             if not self.is_valid_float(
                                     dataset[current_field], min, max):
                                 errors.append(
-                                    'Field {} is not a valid integer'.format(
+                                    'Field {} is not a valid float'.format(
                                         current_field))
                         elif field_type == 'url':
                             if not self.is_valid_url(dataset[current_field]):
@@ -217,31 +217,31 @@ class Validator(object):
 
 class CredentialValidator(Validator):
     def __init__(self):
-        config = Config()
+        config = ConfigurationFactory.from_env()
         validator_file = os.path.join(
             config.VALIDATOR_HOME, 'credentials.json')
-        super(CredentialValidator, self).__init__(validator_file)
+        super().__init__(validator_file)
 
 
 class ParticipantValidator(Validator):
     def __init__(self):
-        config = Config()
+        config = ConfigurationFactory.from_env()
         validator_file = os.path.join(
             config.VALIDATOR_HOME, 'participants.json')
-        super(ParticipantValidator, self).__init__(validator_file)
+        super().__init__(validator_file)
 
 
 class ProgramValidator(Validator):
     def __init__(self):
-        config = Config()
+        config = ConfigurationFactory.from_env()
         validator_file = os.path.join(
             config.VALIDATOR_HOME, 'programs.json')
-        super(ProgramValidator, self).__init__(validator_file)
+        super().__init__(validator_file)
 
 
 class ProviderValidator(Validator):
     def __init__(self):
-        config = Config()
+        config = ConfigurationFactory.from_env()
         validator_file = os.path.join(
             config.VALIDATOR_HOME, 'providers.json')
-        super(ProviderValidator, self).__init__(validator_file)
+        super().__init__(validator_file)
