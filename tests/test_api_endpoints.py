@@ -16,7 +16,7 @@ AUTHENTICATED_HEADER = {
 }
 
 UNAUTHENTICATED_HEADER = {
-    'X-Api-Version': 'v1.0',
+    'X-Api-Version': '1.0.0',
     'Content-Type': 'application/json'
 }
 

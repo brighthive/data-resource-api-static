@@ -272,10 +272,10 @@ class ProgramsHandler(object):
             if program is not None:
                 return {'program': program.to_dict()}, 200
             else:
-                return {'message': 'Program with id {} does not exist'.format(
+                return {'error': 'Program with id {} does not exist.'.format(
                     id)}, 404
         except Exception:
-            return {'error': 'Invalid request'}, 400
+            return {'error': 'Invalid request.'}, 400
 
     def delete_program_by_id(self, id):
         try:
@@ -287,11 +287,11 @@ class ProgramsHandler(object):
                 return {'program': program_data}, 200
             else:
                 return {
-                    'error': 'Program with id {} does not exist'.format(id)
+                    'error': 'Program with id {} does not exist.'.format(id)
                 }, 404
         except Exception:
             return {
-                'error': 'Program with id {} does not exist'.format(id)}, 404
+                'error': 'Program with id {} does not exist.'.format(id)}, 404
 
     def get_credential_programs(self, id):
         try:
