@@ -25,7 +25,7 @@ are provided with an access token that gets passed with all API requests.
 more rigorous mechanism in operational use. An example of providing the token
 is shown in the code snippet below.
 
-.. code-block: bash
+.. code-block:: bash
 
     curl -X GET https://sandbox.brighthive.net/data-resource-api/programs -H 'Authorization: Bearer 1qaz2wsx3edc'
 
