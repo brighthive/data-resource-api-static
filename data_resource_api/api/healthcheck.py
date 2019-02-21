@@ -3,6 +3,7 @@
 from flask import request
 from data_resource_api.api import VersionedResource
 from data_resource_api.api.v1_0_0 import V1_0_0_HealthCheckHandler
+from data_resource_api.auth import login_required
 
 
 class HealthCheckResource(VersionedResource):
@@ -14,5 +15,6 @@ class HealthCheckResource(VersionedResource):
             request_handler = V1_0_0_HealthCheckHandler()
         return request_handler
 
+    @login_required
     def get(self):
         return self.get_request_handler(request.headers).get_health()

@@ -262,7 +262,7 @@ class ProgramsHandler(object):
                     db.session.commit()
                     return new_program.to_dict(), 201
                 except Exception:
-                    return {'message': 'Failed to create new program'}, 400
+                    return {'error': 'Failed to create new program.'}, 400
         else:
             return {'message': 'request body cannot be empty'}, 400
 
@@ -285,10 +285,12 @@ class ProgramsHandler(object):
                 db.session.delete(program)
                 db.session.commit()
                 return {'program': program_data}, 200
-
+            else:
+                return {
+                    'error': 'Program with id {} does not exist'.format(id)
+                }, 404
         except Exception:
             return {
-                'status': 404,
                 'error': 'Program with id {} does not exist'.format(id)}, 404
 
     def get_credential_programs(self, id):
