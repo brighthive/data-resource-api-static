@@ -9,7 +9,7 @@ client = app.test_client()
 
 TOKEN = '269952015c751bcd64428e6e77c355a7'
 AUTHENTICATED_HEADER = {
-    'X-Api-Version': 'v1.0',
+    'X-Api-Version': '1.0.0',
     'Content-Type': 'application/json',
     'Authorization': 'Bearer {}'.format(TOKEN)
 }
