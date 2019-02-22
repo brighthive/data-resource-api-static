@@ -37,7 +37,10 @@ PARTICIPANTS = os.path.join(JSON_FIXTURES, 'participants.json')
 
 @before
 def setup_test_database():
-    database_fixture.start_database()
+    try:
+        database_fixture.start_database()
+    except Exception:
+        print('I am in an integration testing environment')
     token = Token('269952015c751bcd64428e6e77c355a7')
     db.session.add(token)
     db.session.commit()
