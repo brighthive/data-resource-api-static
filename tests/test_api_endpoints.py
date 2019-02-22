@@ -313,3 +313,82 @@ def _():
             '/credentials/{}'.format(updated_credential['credential_id']),
             headers=AUTHENTICATED_HEADER)
         expect(response.status_code).to(equal(200))
+
+
+@describe('Test Participants Resource')
+def _():
+    @it('Should return all participants')
+    def test_get_all_participants():
+        response = client.get('/participants', headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(200))
+        data = json.loads(response.data)
+        expect(len(data['participants'])).to(be_above(1))
+
+    @it('Should return a participant by its identifer')
+    def test_get_credential_by_id():
+        response = client.get('/participants', headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(200))
+        selected_participant = json.loads(response.data)['participants'][0]
+
+        # should return a not found status code
+        response = client.get(
+            '/participants/{}'.format(
+                selected_participant['participant_id'] * 1000),
+            headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(404))
+
+        # should return a 200 status code
+        response = client.get(
+            '/participants/{}'.format(selected_participant['participant_id']),
+            headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(200))
+        participant = json.loads(response.data)
+        expect(participant['participant_id']).to(
+            equal(selected_participant['participant_id']))
+        expect(participant['program_id']).to(
+            equal(selected_participant['program_id']))
+
+    @it('Should perform CRUD operations on participant endpoints')
+    def test_participant_crud_ops():
+        # get an existing participant
+        response = client.get('/participants', headers=AUTHENTICATED_HEADER)
+        participants = json.loads(response.data)['participants']
+        expect(len(participants)).to(be_above(1))
+        selected_participant = participants[0]
+        selected_participant['participant_id'] = 20000
+
+        # attempt to post the data
+        response = client.post(
+            '/participants', headers=AUTHENTICATED_HEADER, data=json.dumps(
+                selected_participant))
+        expect(response.status_code).to(equal(201))
+
+        # get the participant by their id
+        expected_participant = json.loads(response.data)
+        response = client.get(
+            '/participants/{}'.format(expected_participant['participant_id']),
+            headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(200))
+        actual_participant = json.loads(response.data)
+        expect(expected_participant['participant_id']).to(equal(
+            actual_participant['participant_id']))
+
+        # update the participant
+        updated_participant = copy.deepcopy(expected_participant)
+        del(updated_participant['participant_id'])
+        updated_participant['exit_type'] = 'A New Exit Type'
+        updated_participant['exit_date'] = '2019/01/10'
+        response = client.put('/participants/{}'.format(expected_participant[
+            'participant_id']), headers=AUTHENTICATED_HEADER, data=json.dumps(
+            updated_participant))
+        expect(response.status_code).to(equal(201))
+        updated_participant = json.loads(response.data)
+        expect(updated_participant['exit_type']).to(equal(
+            'A New Exit Type'))
+        expect(updated_participant['exit_date']).to(equal('2019/01/10'))
+
+        # delete the participant
+        response = client.delete(
+            '/participants/{}'.format(updated_participant['participant_id']),
+            headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(200))
