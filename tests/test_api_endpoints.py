@@ -75,6 +75,20 @@ def _():
         expect(program['program_name']).to(
             equal(selected_program['program_name']))
 
+    @it('Should list the credentials that a program provides')
+    def test_program_credential():
+        # get an existing program
+        response = client.get('/programs', headers=AUTHENTICATED_HEADER)
+        programs = json.loads(response.data)['programs']
+        expect(len(programs)).to(be_above(1))
+        selected_program = programs[0]
+        response = client.get('/programs/{}/credentials'.format(
+            selected_program['program_id']), headers=AUTHENTICATED_HEADER)
+        program_credential = json.loads(response.data)
+        expect(program_credential['program_id']).to(
+            equal(selected_program['program_id']))
+        expect(len(program_credential['credentials'])).to(be_above(0))
+
     @it('Should perform CRUD operations on program endpoints')
     def test_program_crud_ops():
         # get an existing program
@@ -209,6 +223,17 @@ def _():
             '/providers/{}'.format(updated_provider['provider_id']),
             headers=AUTHENTICATED_HEADER)
         expect(response.status_code).to(equal(200))
+
+    @it('Should list the programs provided by providers')
+    def test_get_program_by_provider():
+        response = client.get('/providers', headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(200))
+        selected_provider = json.loads(response.data)['providers'][0]
+        response = client.get('/providers/{}/programs'.format(
+            selected_provider['provider_id']), headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(200))
+        provider = json.loads(response.data)
+        expect(len(provider['programs'])).to(be_above(0))
 
 
 @describe('Test Credentials Resource')
