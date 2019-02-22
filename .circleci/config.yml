@@ -30,17 +30,18 @@ jobs:
             pipenv install
             pipenv install --dev
 
-      - run:
-          name: Set Appliction Environment to Integration
-          command: |
-            echo 'export APP_ENV="INTEGRATION"' >> $BASH_ENV
-      
       - save_cache:
           key: v1-dependencies-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
             - "/usr/local/bin"
             - "/usr/local/lib/python3.7/site-packages"
+
+
+      - run:
+          name: Set Appliction Environment to Integration
+          command: |
+            echo 'export APP_ENV="INTEGRATION"' >> $BASH_ENV
 
       - run:
           name: Run Tests
