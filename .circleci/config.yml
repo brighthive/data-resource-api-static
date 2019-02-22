@@ -46,7 +46,8 @@ jobs:
       - run:
           name: Run Tests
           command: |
-            pipenv run pocha tests --reporter xunit > test-reports/results.xml
+            ls
+            pipenv run pocha tests --reporter xunit
 
       - store_artifacts:
           path: test-reports
