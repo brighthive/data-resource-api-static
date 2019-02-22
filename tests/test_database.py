@@ -12,6 +12,7 @@ from data_resource_api import app, db, Program, Provider, Participant,\
     ProgramPrerequisite, EntityType, GeographicLocation,\
     PhysicalAddress, DatabaseConfigurationUtility, Token
 
+print(os.getenv('APP_ENV'))
 if str(os.getenv('APP_ENV')).upper() == 'INTEGRATION':
     database_fixture = DatabaseConfigurationUtility('INTEGRATION', False)
 else:
