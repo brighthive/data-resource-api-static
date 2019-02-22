@@ -19,7 +19,7 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "Pipfile" }}
+            - v1-dependencies-{{ checksum "Pipfile.lock" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
@@ -34,11 +34,18 @@ jobs:
           name: Set Appliction Environment to Integration
           command: |
             echo 'export APP_ENV="INTEGRATION"' >> $BASH_ENV
+      
+      - save_cache:
+          key: v1-dependencies-{{ checksum "Pipfile.lock" }}
+          paths:
+            - ".venv"
+            - "/usr/local/bin"
+            - "/usr/local/lib/python3.7/site-packages"
 
       - run:
           name: Run Tests
           command: |
-            pipenv run pocha tests --reporter xunit >> test-reports/results.xml
+            pipenv run pocha tests --reporter xunit
 
       - store_artifacts:
           path: test-reports
