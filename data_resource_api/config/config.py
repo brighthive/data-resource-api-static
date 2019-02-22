@@ -105,6 +105,22 @@ class ProductionConfig(Config):
         os.environ['FLASK_ENV'] = 'production'
 
 
+class IntegrationTestConfig(Config):
+    def __init__(self):
+        super().__init__()
+        os.environ['FLASK_ENV'] = 'testing'
+
+    POSTGRES_DATABASE = 'tpot_programs_integration'
+    POSTGRES_PORT = 5432
+    SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@{}:{}/{}'.format(
+        Config.POSTGRES_USER,
+        Config.POSTGRES_PASSWORD,
+        Config.POSTGRES_HOSTNAME,
+        POSTGRES_PORT,
+        POSTGRES_DATABASE
+    )
+
+
 class ConfigurationFactory(object):
     @staticmethod
     def get_config(config_type: str):
@@ -114,6 +130,8 @@ class ConfigurationFactory(object):
             return DevelopmentConfig()
         elif config_type.upper() == 'SANDBOX':
             return SandboxConfig()
+        elif config_type.upper() == 'INTEGRATION':
+            return IntegrationTestConfig()
         elif config_type.upper() == 'PRODUCTION':
             return ProductionConfig()
 

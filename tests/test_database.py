@@ -12,7 +12,10 @@ from data_resource_api import app, db, Program, Provider, Participant,\
     ProgramPrerequisite, EntityType, GeographicLocation,\
     PhysicalAddress, DatabaseConfigurationUtility, Token
 
-database_fixture = DatabaseConfigurationUtility('TEST', False)
+if str(os.getenv('APP_ENV')).upper() == 'INTEGRATION':
+    database_fixture = DatabaseConfigurationUtility('INTEGRATION', False)
+else:
+    database_fixture = DatabaseConfigurationUtility('TEST', False)
 
 # Test Directory Home
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
