@@ -29,6 +29,7 @@ jobs:
             sudo pip install pipenv
             pipenv install
             pipenv install --dev
+            export APP_ENV=INTEGRATION
 
       - run:
           name: run tests
