@@ -16,7 +16,7 @@ these training programs.
 
 API Specification
 ^^^^^^^^^^^^^^^^^
-A detailed Swagger specification for this API can be found at `https://app.swaggerhub.com/apis-docs/BrightHive/data-resource-api/v1.0 <https://app.swaggerhub.com/apis-docs/BrightHive/data-resource-api/v1.0>`_.
+A detailed Swagger specification for this API can be found at `https://app.swaggerhub.com/apis-docs/BrightHive/data-resource-api/1.0.0 <https://app.swaggerhub.com/apis-docs/BrightHive/data-resource-api/1.0.0>`_.
 
 User Auth
 ^^^^^^^^^^
