@@ -19,20 +19,24 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "Pipfile.lock" }}
+            - v1-dependencies-{{ checksum "Pipfile" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
       - run:
-          name: install dependencies
+          name: Install Build Dependencies
           command: |
             sudo pip install pipenv
             pipenv install
             pipenv install --dev
-            export APP_ENV=INTEGRATION
 
       - run:
-          name: run tests
+          name: Set Appliction Environment to Integration
+          command: |
+            echo 'export APP_ENV="INTEGRATION"' >> $BASH_ENV
+
+      - run:
+          name: Run Tests
           command: |
             pipenv run pocha tests
 
