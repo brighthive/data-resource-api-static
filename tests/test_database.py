@@ -53,7 +53,8 @@ def teardown_test_database():
 
 @describe('Test Database Models')
 def _():
-    @it('Should perform CRUD operations on database tables')
+    @it('Should perform CRUD operations on database tables',
+        tags=['essential'])
     def _():
         # load program prerequisites:
         with open(PROGRAM_PREREQUISITES, 'r') as f:

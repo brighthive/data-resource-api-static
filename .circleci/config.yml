@@ -38,6 +38,7 @@ jobs:
       - run:
           name: Run Tests
           command: |
+            pipenv run pocha tests --filter essential
             pipenv run pocha tests
 
       - store_artifacts:
