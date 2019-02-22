@@ -30,15 +30,24 @@ class ProvidersResource(VersionedResource):
             request.get_json())
 
 
-class ProviderResource(VersionedResource):
+class ProviderResource(ProvidersResource):
     @login_required
     def get(self, id):
-        pass
+        return self.get_request_handler(request.headers).get_provider_by_id(id)
 
     @login_required
     def put(self, id):
-        pass
+        return self.get_request_handler(request.headers).update_provider(
+            request.get_json(), id)
 
     @login_required
     def delete(self, id):
-        pass
+        return self.get_request_handler(request.headers).delete_provider_by_id(
+            id)
+
+
+class ProviderProgramResource(ProviderResource):
+    @login_required
+    def get(self, id):
+        return self.get_request_handler(
+            request.headers).get_programs_by_provider(id)

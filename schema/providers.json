@@ -1,123 +1,43 @@
 {
     "schema": [{
-            "field": "provider_id",
+            "field": "entity_type_id",
             "type": "integer",
             "required": "true"
         },
         {
-            "field": "program_name",
+            "field": "provider_name",
             "type": "string",
             "required": "true"
         },
         {
-            "field": "program_code",
+            "field": "provider_alternate_name",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "provider_full_address",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "provider_description",
+            "type": "string",
+            "required": "true"
+        },
+        {
+            "field": "provider_contact_email",
+            "type": "email",
+            "required": "true"
+        },
+        {
+            "field": "provider_url",
+            "type": "url",
+            "required": "true"
+        },
+        {
+            "field": "year_incorporated",
             "type": "integer",
             "required": "true"
-        },
-        {
-            "field": "program_description",
-            "type": "string",
-            "required": "true"
-        },
-        {
-            "field": "program_status",
-            "type": "string",
-            "required": "true"
-        },
-        {
-            "field": "program_fees",
-            "type": "string",
-            "required": "true"
-        },
-        {
-            "field": "geographic_areas",
-            "type": "string",
-            "required": "true"
-        },
-        {
-            "field": "program_address",
-            "type": "string",
-            "required": "true"
-        },
-        {
-            "field": "eligibility_criteria",
-            "type": "string",
-            "required": "true"
-        },
-        {
-            "field": "credential_earned",
-            "type": "string",
-            "required": "true"
-        },
-        {
-            "field": "program_potential_outcome",
-            "type": "integer",
-            "required": "true"
-        },
-        {
-            "field": "program_url",
-            "type": "string",
-            "required": "true"
-        },
-        {
-            "field": "program_contact_phone",
-            "type": "string",
-            "required": "false"
-        },
-        {
-            "field": "program_contact_email",
-            "type": "string",
-            "required": "false"
-        },
-        {
-            "field": "languages",
-            "type": "string",
-            "required": "false"
-        },
-        {
-            "field": "current_intake_capacity",
-            "type": "integer",
-            "required": "false"
-        },
-        {
-            "field": "program_offering_model",
-            "type": "integer",
-            "required": "false"
-        },
-        {
-            "field": "program_length_hours",
-            "type": "integer",
-            "required": "false"
-        },
-        {
-            "field": "program_length_weeks",
-            "type": "integer",
-            "required": "false"
-        },
-        {
-            "field": "prerequisites",
-            "type": "integer",
-            "required": "false"
-        },
-        {
-            "field": "program_soc",
-            "type": "integer",
-            "required": "false"
-        },
-        {
-            "field": "funding_sources",
-            "type": "integer",
-            "required": "false"
-        },
-        {
-            "field": "on_etpl",
-            "type": "string",
-            "required": "false"
-        },
-        {
-            "field": "cost_of_books_and_supplies",
-            "type": "float",
-            "required": "false"
         }
     ]
 }

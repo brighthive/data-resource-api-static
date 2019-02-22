@@ -70,7 +70,7 @@ def _():
             '/programs/{}'.format(selected_program['program_id']),
             headers=AUTHENTICATED_HEADER)
         expect(response.status_code).to(equal(200))
-        program = json.loads(response.data)['program']
+        program = json.loads(response.data)
         expect(program['program_id']).to(equal(selected_program['program_id']))
         expect(program['program_name']).to(
             equal(selected_program['program_name']))
@@ -110,7 +110,7 @@ def _():
         expect(response.status_code).to(equal(200))
         actual_program = json.loads(response.data)
         expect(expected_program['program_id']).to(equal(actual_program[
-            'program']['program_id']))
+            'program_id']))
 
         # update the program
         updated_program = copy.deepcopy(expected_program)
@@ -128,5 +128,84 @@ def _():
         # delete the program
         response = client.delete(
             '/programs/{}'.format(updated_program['program_id']),
+            headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(200))
+
+
+@describe('Test Providers Resource')
+def _():
+    @it('Should return all providers')
+    def test_get_all_providers():
+        response = client.get('/providers', headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(200))
+        data = json.loads(response.data)
+        expect(len(data['providers'])).to(be_above(1))
+
+    @it('Should return a provider by its identifer')
+    def test_get_provider_by_id():
+        response = client.get('/providers', headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(200))
+        selected_provider = json.loads(response.data)['providers'][0]
+
+        # should return a not found status code
+        response = client.get(
+            '/providers/{}'.format(
+                selected_provider['provider_id'] * 1000),
+            headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(404))
+
+        # should return a 200 status code
+        response = client.get(
+            '/providers/{}'.format(selected_provider['provider_id']),
+            headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(200))
+        provider = json.loads(response.data)
+        expect(provider['provider_id']).to(
+            equal(selected_provider['provider_id']))
+        expect(provider['provider_name']).to(
+            equal(selected_provider['provider_name']))
+
+    @it('Should perform CRUD operations on provider endpoints')
+    def test_provider_crud_ops():
+        # get an existing provider
+        response = client.get('/providers', headers=AUTHENTICATED_HEADER)
+        providers = json.loads(response.data)['providers']
+        expect(len(providers)).to(be_above(1))
+        selected_provider = providers[0]
+        del(selected_provider['provider_id'])
+
+        # attempt to post the data
+        response = client.post(
+            '/providers', headers=AUTHENTICATED_HEADER, data=json.dumps(
+                selected_provider))
+        expect(response.status_code).to(equal(201))
+
+        # get the provider by it's id
+        expected_provider = json.loads(response.data)
+        response = client.get(
+            '/providers/{}'.format(expected_provider['provider_id']),
+            headers=AUTHENTICATED_HEADER)
+        expect(response.status_code).to(equal(200))
+        actual_provider = json.loads(response.data)
+        expect(expected_provider['provider_id']).to(equal(actual_provider[
+            'provider_id']))
+
+        # update the program
+        updated_provider = copy.deepcopy(expected_provider)
+        del(updated_provider['provider_id'])
+        updated_provider['provider_name'] = 'A Learning Institution'
+        updated_provider['year_incorporated'] = 1776
+        response = client.put('/providers/{}'.format(expected_provider[
+            'provider_id']), headers=AUTHENTICATED_HEADER, data=json.dumps(
+            updated_provider))
+        expect(response.status_code).to(equal(201))
+        updated_provider = json.loads(response.data)
+        expect(updated_provider['provider_name']).to(equal(
+            'A Learning Institution'))
+        expect(updated_provider['year_incorporated']).to(equal(1776))
+
+        # delete the provider
+        response = client.delete(
+            '/providers/{}'.format(updated_provider['provider_id']),
             headers=AUTHENTICATED_HEADER)
         expect(response.status_code).to(equal(200))

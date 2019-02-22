@@ -46,12 +46,6 @@ class ProgramResource(ProgramsResource):
             id)
 
 
-class ProviderProgramResource(VersionedResource):
-    @login_required
-    def get(self, id):
-        pass
-
-
 class ProgramCredentialResource(ProgramsResource):
     @login_required
     def get(self, id):

@@ -119,8 +119,7 @@ class DatabaseConfigurationUtility(object):
                 item['provider_description'],
                 item['provider_contact_email'],
                 item['provider_url'],
-                item['year_incorporated'],
-                item['provider_id']
+                item['year_incorporated']
             )
             db.session.add(provider)
         db.session.commit()
@@ -175,7 +174,7 @@ class DatabaseConfigurationUtility(object):
                 language=item['language'],
                 ce_ctid=item['ce_ctid'],
                 webpage=item['webpage'],
-                id=item['credential_id']
+                id=None
             )
             db.session.add(credential)
         db.session.commit()
@@ -208,7 +207,6 @@ class DatabaseConfigurationUtility(object):
                     funding=item['funding_sources'],
                     on_etpl=item['on_etpl'],
                     cost_of_books=item['cost_of_books_and_supplies'],
-                    # id=item['program_id']
                     id=None
                 )
                 db.session.add(program)

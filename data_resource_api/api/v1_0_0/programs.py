@@ -21,8 +21,8 @@ class ProgramsHandler(object):
             return {'message': 'Program with id {} does not exist'.format(
                 id)}, 404
 
-        validator = ProgramValidator()
         if program is not None:
+            validator = ProgramValidator()
             result = validator.validate(program)
             if len(result) > 0:
                 return {'error': result}, 400
@@ -161,13 +161,13 @@ class ProgramsHandler(object):
                     db.session.commit()
                     return existing_program.to_dict(), 201
                 except Exception:
-                    return {'message': 'Failed to update program'}, 400
+                    return {'message': 'Failed to update program.'}, 400
         else:
-            return {'message': 'request body cannot be empty'}, 400
+            return {'error': 'Request body cannot be empty.'}, 400
 
     def add_new_program(self, program):
-        validator = ProgramValidator()
         if program is not None:
+            validator = ProgramValidator()
             result = validator.validate(program)
             if len(result) > 0:
                 return {'error': result}, 400
@@ -264,7 +264,7 @@ class ProgramsHandler(object):
                 except Exception:
                     return {'error': 'Failed to create new program.'}, 400
         else:
-            return {'message': 'request body cannot be empty'}, 400
+            return {'error': 'Request body cannot be empty.'}, 400
 
     def get_program_by_id(self, id):
         try:

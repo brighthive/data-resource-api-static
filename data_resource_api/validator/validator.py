@@ -194,7 +194,7 @@ class Validator(object):
                                     'Field {} is not a valid URL'.format(
                                         current_field))
                         elif field_type == 'email':
-                            if not self.is_valid_date(dataset[current_field]):
+                            if not self.is_valid_email(dataset[current_field]):
                                 errors.append(
                                     'Field {} is not a valid email address'
                                     .format(current_field))
