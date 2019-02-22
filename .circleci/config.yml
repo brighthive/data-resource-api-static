@@ -17,11 +17,11 @@ jobs:
       - checkout
 
       # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "Pipfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+      # - restore_cache:
+      #     keys:
+      #       - v1-dependencies-{{ checksum "Pipfile.lock" }}
+      #       # fallback to using the latest cache if no exact match is found
+      #       - v1-dependencies-
 
       - run:
           name: Install Build Dependencies
@@ -30,12 +30,12 @@ jobs:
             pipenv install
             pipenv install --dev
 
-      - save_cache:
-          key: v1-dependencies-{{ checksum "Pipfile.lock" }}
-          paths:
-            - ".venv"
-            - "/usr/local/bin"
-            - "/usr/local/lib/python3.7/site-packages"
+      # - save_cache:
+      #     key: v1-dependencies-{{ checksum "Pipfile.lock" }}
+      #     paths:
+      #       - ".venv"
+      #       - "/usr/local/bin"
+      #       - "/usr/local/lib/python3.7/site-packages"
 
 
       - run:
