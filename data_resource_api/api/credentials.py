@@ -29,15 +29,18 @@ class CredentialsResource(VersionedResource):
             request.get_json())
 
 
-class CredentialResource(VersionedResource):
+class CredentialResource(CredentialsResource):
     @login_required
     def get(self, id):
-        pass
+        return self.get_request_handler(request.headers).get_credential_by_id(
+            id)
 
     @login_required
     def put(self, id):
-        pass
+        return self.get_request_handler(request.headers).update_credential(
+            request.get_json(), id)
 
     @login_required
     def delete(self, id):
-        pass
+        return self.get_request_handler(
+            request.headers).delete_credential_by_id(id)

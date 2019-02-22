@@ -195,6 +195,7 @@ class Credential(db.Model):
             'provider_id': self.provider_id,
             'credential_name': self.credential_name,
             'credential_description': self.credential_description,
+            'credential_type_id': self.credential_type_id,
             'credential_status_type': self.credential_status_type,
             'audience': self.audience,
             'language': self.language,
