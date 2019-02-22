@@ -7,7 +7,7 @@ jobs:
           PIPENV_VENV_IN_PROJECT: true
       - image: circleci/postgres:11.1
         environment:
-          POSTGRES_USER: 'tpot_programs_test'
+          POSTGRES_USER: 'tpot_programs_integration'
           POSTGRES_DB: 'test_user'
           POSTGRES_PASSWORD: 'test_password'
 

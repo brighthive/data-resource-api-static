@@ -19,6 +19,7 @@ class DatabaseConfigurationUtility(object):
         self.config = ConfigurationFactory.get_config(
             str(configuration).upper())
         self.container = None
+        self.configuration = configuration
         self.db_environment = [
             'POSTGRES_USER={}'.format(self.config.POSTGRES_USER),
             'POSTGRES_PASSWORD={}'.format(self.config.POSTGRES_PASSWORD),
@@ -30,24 +31,26 @@ class DatabaseConfigurationUtility(object):
         self.verbose = verbose
 
     def setup_database(self):
-        # pull the postgresql image from repo if it doesn't exist
-        try:
-            self.docker_client.images.pull(self.config.get_postgresql_image())
-        except Exception:
-            if self.verbose:
-                print('Failed to pull image {} from repository.'.format(
-                    self.config.get_postgresql_image()))
-            else:
-                pass
+        if str(self.configuration).upper() != 'INTEGRATION':
+            # pull the postgresql image from repo if it doesn't exist
+            try:
+                self.docker_client.images.pull(
+                    self.config.get_postgresql_image())
+            except Exception:
+                if self.verbose:
+                    print('Failed to pull image {} from repository.'.format(
+                        self.config.get_postgresql_image()))
+                else:
+                    pass
 
-        # launch the container
-        self.container = self.docker_client.containers.run(
-            self.config.get_postgresql_image(),
-            detach=True,
-            auto_remove=True,
-            name=self.config.CONTAINER_NAME,
-            environment=self.db_environment,
-            ports=self.db_ports)
+            # launch the container
+            self.container = self.docker_client.containers.run(
+                self.config.get_postgresql_image(),
+                detach=True,
+                auto_remove=True,
+                name=self.config.CONTAINER_NAME,
+                environment=self.db_environment,
+                ports=self.db_ports)
 
     def add_datasets(self):
         # location of sample datasets
