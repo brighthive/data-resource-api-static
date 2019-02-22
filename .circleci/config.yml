@@ -25,6 +25,7 @@ jobs:
           name: install dependencies
           command: |
             pip install pipenv
+            pipenv install --dev --system
             pipenv install --system
             # python3 -m venv venv
             # . venv/bin/activate
