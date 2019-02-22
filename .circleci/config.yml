@@ -28,7 +28,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            pocha tests
+            pipenv run pocha tests
 
       - store_artifacts:
           path: test-reports
