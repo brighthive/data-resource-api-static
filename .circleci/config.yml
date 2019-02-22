@@ -28,7 +28,7 @@ jobs:
           command: |
             sudo pip install pipenv
             pipenv install
-            pipenv install --dev
+            pipenv install --dev]
 
       - run:
           name: Set Appliction Environment to Integration
@@ -38,7 +38,6 @@ jobs:
       - run:
           name: Run Tests
           command: |
-            pipenv run pocha tests --filter essential
             pipenv run pocha tests
 
       - store_artifacts:
