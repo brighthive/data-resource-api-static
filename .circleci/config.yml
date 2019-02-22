@@ -5,6 +5,11 @@ jobs:
       - image: circleci/python:3.7.2
         environment:
           PIPENV_VENV_IN_PROJECT: true
+      - image: circleci/postgres:11.1
+        environment:
+          POSTGRES_USER: 'tpot_programs_test'
+          POSTGRES_DB: 'test_user'
+          POSTGRES_PASSWORD: 'test_password'
 
     working_directory: ~/repo
 
@@ -14,7 +19,7 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "requirements.txt" }}
+            - v1-dependencies-{{ checksum "Pipfile.lock" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
