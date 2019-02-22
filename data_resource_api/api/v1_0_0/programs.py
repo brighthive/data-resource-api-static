@@ -270,7 +270,7 @@ class ProgramsHandler(object):
         try:
             program = Program.query.filter_by(program_id=id).first()
             if program is not None:
-                return {'program': program.to_dict()}, 200
+                return program.to_dict(), 200
             else:
                 return {'error': 'Program with id {} does not exist.'.format(
                     id)}, 404
@@ -284,7 +284,7 @@ class ProgramsHandler(object):
                 program_data = program.to_dict()
                 db.session.delete(program)
                 db.session.commit()
-                return {'program': program_data}, 200
+                return program_data, 200
             else:
                 return {
                     'error': 'Program with id {} does not exist.'.format(id)
