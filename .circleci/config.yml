@@ -28,7 +28,7 @@ jobs:
           command: |
             sudo pip install pipenv
             pipenv install
-            pipenv install --dev]
+            pipenv install --dev
 
       - run:
           name: Set Appliction Environment to Integration
