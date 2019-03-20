@@ -16,7 +16,7 @@ if db:
         CredentialsResource, ProvidersResource, ProgramResource,\
         ParticipantResource, CredentialResource, ProviderResource,\
         ProviderProgramResource, ProgramCredentialResource,\
-        HealthCheckResource, CredentialProgramResource
+        HealthCheckResource, CredentialProgramResource, PathwaysProgramsResource
 
     # health check
     api.add_resource(HealthCheckResource, '/health', endpoint='healthcheck')
@@ -25,6 +25,11 @@ if db:
     api.add_resource(ProgramsResource, '/programs', endpoint='programs')
     api.add_resource(ProgramResource, '/programs/<int:id>',
                      endpoint='program')
+
+    # pathways programs
+    api.add_resource(ProgramsResource, '/pathways_programs', endpoint='programs')
+    api.add_resource(ProgramResource, '/pathways_programs/<int:id>',
+                     endpoint='pathways_program')
 
     # participants
     api.add_resource(ParticipantsResource, '/participants',

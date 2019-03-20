@@ -1,5 +1,7 @@
 from data_resource_api.api.v1_0_0.programs import ProgramsHandler as \
     V1_0_0_ProgramsHandler
+from data_resource_api.api.v1_0_0.pathways_programs import PathwaysProgramsHandler as \
+    V1_0_0_PathwaysProgramsHandler
 from data_resource_api.api.v1_0_0.participants import ParticipantsHandler as \
     V1_0_0_ParticipantsHandler
 from data_resource_api.api.v1_0_0.credentials import CredentialsHandler as \

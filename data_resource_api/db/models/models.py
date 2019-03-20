@@ -353,3 +353,132 @@ class Participant(db.Model):
             'exit_date': self.exit_date.strftime('%Y/%m/%d'),
             'exit_type': self.exit_type
         }
+
+
+class PathwaysProgram(db.Model):
+    __tablename__ = 'pathways_programs'
+
+    # required fields
+    program_id = db.Column(db.Integer, primary_key=True)
+    program_provider = db.Column(db.String(140), nullable=False)
+    provider_url = db.Column(db.String(256), nullable=False)
+    provider_address = db.Column(db.String(1024), nullable=False)
+    major = db.Column(db.String(256), nullable=False)
+    program_name = db.Column(db.String(256), nullable=False)
+    program_url = db.Column(db.String(256), nullable=False)
+    program_description = db.Column(db.String(4096), nullable=False)
+    program_potential_outcome = db.Column(db.String(256), nullable=False)
+    program_fees = db.Column(db.Integer, nullable=False)
+    salary_paid = db.Column(db.Integer, nullable=False)
+    program_length = db.Column(db.String(256), nullable=False)
+    cost_of_books_and_supplies = db.Column(db.Integer, nullable=False)
+    credential_earned = db.Column(db.String(256), nullable=False)
+    accreditation_name = db.Column(db.String(256), nullable=False)
+
+    # recommended fields
+    provider_id = db.Column(db.String(140), nullable=True)
+    provider_latitude = db.Column(db.Integer, nullable=True)
+    provider_longitude = db.Column(db.Integer, nullable=True)
+    program_address = db.Column(db.String(1024), nullable=True)
+    total_units = db.Column(db.Integer, nullable=True)
+    unit_cost = db.Column(db.Integer, nullable=True)
+    is_preparation = db.Column(db.Boolean, nullable=True)
+    is_occupational_requirement = db.Column(db.Boolean, nullable=True)
+    start_date = db.Column(db.DateTime, nullable=True)
+    is_diploma_required = db.Column(db.Boolean, nullable=True)
+    prerequisites = db.Column(db.String(4096), nullable=True)
+    financial_aid5 = db.Column(db.Integer, nullable=True)
+    financial_aid4 = db.Column(db.Integer, nullable=True)
+    financial_aid3 = db.Column(db.Integer, nullable=True)
+    financial_aid2 = db.Column(db.Integer, nullable=True)
+    financial_aid1 = db.Column(db.Integer, nullable=True)
+
+    # extra data
+    optional_fields = db.Column(JSONB)
+    user_provided_fields = db.Column(JSONB)
+
+    def __init__(self, program_provider, provider_url,
+                 provider_address, major, program_name, program_url,
+                 program_description, program_potential_outcome,
+                 program_fees, salary_paid, program_length,
+                 cost_of_books_and_supplies, credential_earned,
+                 accreditation_name,
+                 provider_id=None, provider_latitude=None,
+                 provider_longitude=None, program_address=None,
+                 total_units=None, unit_cost=None,
+                 is_preparation=None, is_occupational_requirement=None,
+                 start_date=None, is_diploma_required=None,
+                 prerequisites=None, financial_aid5=None,
+                 financial_aid4=None, financial_aid3=None,
+                 financial_aid2=None, financial_aid1=None,
+                 id=None):
+        self.program_id = id
+        self.program_provider = program_provider
+        self.provider_url = provider_url
+        self.provider_address = provider_address
+        self.major = major
+        self.program_name = program_name
+        self.program_url = program_url
+        self.program_description = program_description
+        self.program_potential_outcome = program_potential_outcome
+        self.program_fees = program_fees
+        self.salary_paid = salary_paid
+        self.program_length = program_length
+        self.cost_of_books_and_supplies = cost_of_books_and_supplies
+        self.credential_earned = credential_earned
+        self.accreditation_name = accreditation_name
+        self.provider_id = provider_id
+        self.provider_latitude = provider_latitude
+        self.provider_longitude = provider_longitude
+        self.program_address = program_address
+        self.total_units = total_units
+        self.unit_cost = unit_cost
+        self.is_preparation = is_preparation
+        self.is_occupational_requirement = is_occupational_requirement
+        self.start_date = start_date
+        self.is_diploma_required = is_diploma_required
+        self.prerequisites = prerequisites
+        self.financial_aid5 = financial_aid5
+        self.financial_aid4 = financial_aid4
+        self.financial_aid3 = financial_aid3
+        self.financial_aid2 = financial_aid2
+        self.financial_aid1 = financial_aid1
+
+    def __repr__(self):
+        return '<Pathways Program: {}, {}>'.format(self.program_name,
+                                                self.program_provider)
+
+    def to_dict(self):
+        return {
+            "ProgramId" : self.program_id,
+            "ProgramProvider" : self.program_provider,
+            "ProviderUrl" : self.provider_url,
+            "ProviderAddress" : self.provider_address,
+            "Major" : self.major,
+            "ProgramName" : self.program_name,
+            "ProgramUrl" : self.program_url,
+            "ProgramDescription" : self.program_description,
+            "ProgramPotentialOutcome" : self.program_potential_outcome,
+            "ProgramFees" : self.program_fees,
+            "SalaryPaid" : self.salary_paid,
+            "ProgramLength" : self.program_length,
+            "CostOfBooksAndSupplies" : self.cost_of_books_and_supplies,
+            "CredentialEarned" : self.credential_earned,
+            "AccreditationName" : self.accreditation_name,
+            "ProviderId" : self.provider_id,
+            "ProviderLatitude" : self.provider_latitude,
+            "ProviderLongitude" : self.provider_longitude,
+            "ProgramAddress" : self.program_address,
+            "TotalUnits" : self.total_units,
+            "UnitCost" : self.unit_cost,
+            "IsPreparation" : self.is_preparation,
+            "IsOccupationalRequirement" : self.is_occupational_requirement,
+            "StartDate" : self.start_date,
+            "IsDiplomaRequired" : self.is_diploma_required,
+            "Prerequisites" : self.prerequisites,
+            "FinancialAid5" : self.financial_aid5,
+            "FinancialAid4" : self.financial_aid4,
+            "FinancialAid3" : self.financial_aid3,
+            "FinancialAid2" : self.financial_aid2,
+            "FinancialAid1" : self.financial_aid1
+        }
