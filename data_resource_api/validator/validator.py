@@ -239,6 +239,14 @@ class ProgramValidator(Validator):
         super().__init__(validator_file)
 
 
+class PathwaysProgramValidator(Validator):
+    def __init__(self):
+        config = ConfigurationFactory.from_env()
+        validator_file = os.path.join(
+            config.VALIDATOR_HOME, 'pathways_programs.json')
+        super().__init__(validator_file)
+
+
 class ProviderValidator(Validator):
     def __init__(self):
         config = ConfigurationFactory.from_env()

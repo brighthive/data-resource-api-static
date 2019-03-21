@@ -1,4 +1,4 @@
 from data_resource_api.validator.validator import Validator, ProgramValidator,\
-    ProviderValidator, ParticipantValidator, CredentialValidator
+    ProviderValidator, ParticipantValidator, CredentialValidator, PathwaysProgramValidator
 from data_resource_api.validator.util import ValidatorNotFoundError,\
     SchemaFormatError

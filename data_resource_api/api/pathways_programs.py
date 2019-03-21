@@ -11,7 +11,7 @@ from data_resource_api.api.v1_0_0 import V1_0_0_PathwaysProgramsHandler
 from data_resource_api.auth import login_required
 
 
-class PathywaysProgramsResource(VersionedResource):
+class PathwaysProgramsResource(VersionedResource):
     def get_request_handler(self, headers):
         api_version = self.get_api_version(headers)
         if api_version == '1.0,0':
@@ -30,7 +30,7 @@ class PathywaysProgramsResource(VersionedResource):
             request.get_json())
 
 
-class PathwaysProgramResource(ProgramsResource):
+class PathwaysProgramResource(PathwaysProgramsResource):
     @login_required
     def get(self, id):
         return self.get_request_handler(request.headers).get_program_by_id(id)
