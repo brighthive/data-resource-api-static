@@ -28,173 +28,115 @@ class PathwaysProgramsHandler(object):
                 return {'error': result}, 400
             else:
                 try:
-                    existing_program.program_name = program['ProgramName']
-                except Exception:
-                    pass
-
-                try:
-                    existing_program.program_provider = program['ProgramProvider']
-                except Exception:
-                    pass
-
-                try:
-                    existing_program.program_description = program[
-                        'ProgramDescription']
-                except Exception:
-                    pass
-
-                try:
-                    existing_program.provider_url = program['ProviderUrl']
-                except Exception:
-                    pass
-
-                try:
-                    existing_program.provider_address = program['ProviderAddress']
-                except Exception:
-                    pass
-
-                try:
-                    existing_program.major = program['Major']
-                except Exception:
-                    pass
-
-                try:
-                    existing_program.program_url = program['ProgramUrl']
-                except Exception:
-                    pass
-
-                try:
-                    existing_program.program_potential_outcome = program[
-                        'ProgramPotentialOutcome']
-                except Exception:
-                    pass
-
-                try:
-                    existing_program.program_fees = program[
-                        'ProgramFees']
+                    existing_program.program_provider = program["OrganizationName"]
                 except Exception:
                     pass
                 try:
-                    existing_program.salary_paid = program['SalaryPaid']
+                    existing_program.program_name = program["ProgramName"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.program_length = program[
-                        'ProgramLength']
+                    existing_program.program_address = program["ProgramAddress"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.cost_of_books_and_supplies = program[
-                        'CostOfBooksAndSupplies']
+                    existing_program.program_city = program["ProgramCity"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.credential_earned = program[
-                        'CredentialEarned']
+                    existing_program.program_url = program["UrlOfProgram"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.accreditation_name = program['AccreditationName']
+                    existing_program.phone_number = program["PhoneNumber"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.provider_id = program[
-                        'ProviderId']
+                    existing_program.program_potential_outcome = program["CredentialLevelEarned"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.provider_latitude = program[
-                        'ProviderLatitude']
+                    existing_program.program_fees = program["InStateTuition"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.provider_longitude = program[
-                        'ProviderLongitude']
+                    existing_program.apprenticeship_paid_training = program["ApprenticeshipOrPaidTrainingAvailable"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.program_address = program[
-                        'ProgramAddress']
+                    existing_program.provider_id = program["OrganizationIpedsId"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.total_units = program[
-                        'TotalUnits']
+                    existing_program.provider_url = program["OrganizationUrl"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.unit_cost = program[
-                        'UnitCost']
+                    existing_program.program_code = program["CipCode"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.is_preparation = program[
-                        'IsPreparation']
+                    existing_program.major = program["MajorCluster"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.is_occupational_requirement = program[
-                        'IsOccupationalRequirement']
+                    existing_program.program_description = program["ProgramDescription"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.start_date = program[
-                        'StartDate']
+                    existing_program.regional_accredition_body = program["RegionalAccreditionBody"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.is_diploma_required = program[
-                        'IsDiplomaRequired']
+                    existing_program.program_accredition_body = program["ProgrammaticAccreditionBody"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.prerequisites = program[
-                        'Prerequisites']
+                    existing_program.program_length = program["Duration"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.financial_aid5 = program[
-                        'FinancialAid5']
+                    existing_program.total_units = program["TotalUnits"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.financial_aid4 = program[
-                        'FinancialAid4']
+                    existing_program.unit_cost = program["UnitCost"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.financial_aid3 = program[
-                        'FinancialAid3']
+                    existing_program.salary_paid = program["AverageWagePaidToStudent"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.financial_aid2 = program[
-                        'FinancialAid2']
+                    existing_program.program_format = program["Format"]
                 except Exception:
                     pass
-
                 try:
-                    existing_program.financial_aid1 = program[
-                        'FinancialAid1']
+                    existing_program.program_timing = program["Timing"]
+                except Exception:
+                    pass
+                try:
+                    existing_program.cost_of_books_and_supplies = program["ProgramFeesBooksMaterialsSupplies"]
+                except Exception:
+                    pass
+                try:
+                    existing_program.credential_earned = program["Certification"]
+                except Exception:
+                    pass
+                try:
+                    existing_program.prerequisites = program["OtherPrerequisites"]
+                except Exception:
+                    pass
+                try:
+                    existing_program.start_date = program["StartDate"]
+                except Exception:
+                    pass
+                try:
+                    existing_program.is_diploma_required = program["HsDiplomaRequired"]
+                except Exception:
+                    pass
+                try:
+                    existing_program.salary_post_graduation = program["SalaryPostGraduation"]
                 except Exception:
                     pass
 
@@ -214,83 +156,91 @@ class PathwaysProgramsHandler(object):
                 return {'error': result}, 400
             else:
                 new_program = PathwaysProgram(
-                    program_provider = program['ProgramProvider'],
-                    provider_url = program['ProviderUrl'],
-                    provider_address = program['ProviderAddress'],
-                    major = program['Major'],
-                    program_name = program['ProgramName'],
-                    program_url = program['ProgramUrl'],
-                    program_description = program['ProgramDescription'],
-                    program_potential_outcome = program['ProgramPotentialOutcome'],
-                    program_fees = program['ProgramFees'],
-                    salary_paid = program['SalaryPaid'],
-                    program_length = program['ProgramLength'],
-                    cost_of_books_and_supplies = program['CostOfBooksAndSupplies'],
-                    credential_earned = program['CredentialEarned'],
-                    accreditation_name = program['AccreditationName'])
+                    program_provider = program["OrganizationName"],
+                    program_name = program["ProgramName"],
+                    program_address = program["ProgramAddress"],
+                    program_city = program["ProgramCity"],
+                    program_url = program["UrlOfProgram"],
+                    phone_number = program["PhoneNumber"],
+                    program_potential_outcome = program["CredentialLevelEarned"],
+                    program_fees = program["InStateTuition"],
+                    apprenticeship_paid_training = \
+                        program["ApprenticeshipOrPaidTrainingAvailable"])
 
                 try:
-                    new_program.provider_id = program['ProviderId']
+                    new_program.provider_id = program["OrganizationIpedsId"]
                 except Exception:
                     pass
                 try:
-                    new_program.provider_latitude = program['ProviderLatitude']
+                    new_program.provider_url = program["OrganizationUrl"]
                 except Exception:
                     pass
                 try:
-                    new_program.provider_longitude = program['ProviderLongitude']
+                    new_program.program_code = program["CipCode"]
                 except Exception:
                     pass
                 try:
-                    new_program.program_address = program['ProgramAddress']
+                    new_program.major = program["MajorCluster"]
                 except Exception:
                     pass
                 try:
-                    new_program.total_units = program['TotalUnits']
+                    new_program.program_description = program["ProgramDescription"]
                 except Exception:
                     pass
                 try:
-                    new_program.unit_cost = program['UnitCost']
+                    new_program.regional_accredition_body = program["RegionalAccreditionBody"]
                 except Exception:
                     pass
                 try:
-                    new_program.is_preparation = program['IsPreparation']
+                    new_program.program_accredition_body = program["ProgrammaticAccreditionBody"]
                 except Exception:
                     pass
                 try:
-                    new_program.is_occupational_requirement = program['IsOccupationalRequirement']
+                    new_program.program_length = program["Duration"]
                 except Exception:
                     pass
                 try:
-                    new_program.start_date = program['StartDate']
+                    new_program.total_units = program["TotalUnits"]
                 except Exception:
                     pass
                 try:
-                    new_program.is_diploma_required = program['IsDiplomaRequired']
+                    new_program.unit_cost = program["UnitCost"]
                 except Exception:
                     pass
                 try:
-                    new_program.prerequisites = program['Prerequisites']
+                    new_program.salary_paid = program["AverageWagePaidToStudent"]
                 except Exception:
                     pass
                 try:
-                    new_program.financial_aid5 = program['FinancialAid5']
+                    new_program.program_format = program["Format"]
                 except Exception:
                     pass
                 try:
-                    new_program.financial_aid4 = program['FinancialAid4']
+                    new_program.program_timing = program["Timing"]
                 except Exception:
                     pass
                 try:
-                    new_program.financial_aid3 = program['FinancialAid3']
+                    new_program.cost_of_books_and_supplies = program["ProgramFeesBooksMaterialsSupplies"]
                 except Exception:
                     pass
                 try:
-                    new_program.financial_aid2 = program['FinancialAid2']
+                    new_program.credential_earned = program["Certification"]
                 except Exception:
                     pass
                 try:
-                    new_program.financial_aid1 = program['FinancialAid1']
+                    new_program.prerequisites = program["OtherPrerequisites"]
+                except Exception:
+                    pass
+                try:
+                    new_program.start_date = program["StartDate"]
+                except Exception:
+                    pass
+                try:
+                    new_program.is_diploma_required = program["HsDiplomaRequired"]
+                except Exception:
+                    pass
+                try:
+                    new_program.salary_post_graduation = program["SalaryPostGraduation"]
                 except Exception:
                     pass
         

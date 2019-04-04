@@ -360,89 +360,99 @@ class PathwaysProgram(db.Model):
 
     # required fields
     program_id = db.Column(db.Integer, primary_key=True)
-    program_provider = db.Column(db.String(140), nullable=False)
-    provider_url = db.Column(db.String(256), nullable=False)
-    provider_address = db.Column(db.String(1024), nullable=False)
-    major = db.Column(db.String(256), nullable=False)
-    program_name = db.Column(db.String(256), nullable=False)
-    program_url = db.Column(db.String(256), nullable=False)
-    program_description = db.Column(db.String(4096), nullable=False)
-    program_potential_outcome = db.Column(db.String(256), nullable=False)
-    program_fees = db.Column(db.Integer, nullable=False)
-    salary_paid = db.Column(db.Integer, nullable=False)
-    program_length = db.Column(db.String(256), nullable=False)
-    cost_of_books_and_supplies = db.Column(db.Integer, nullable=False)
-    credential_earned = db.Column(db.String(256), nullable=False)
-    accreditation_name = db.Column(db.String(256), nullable=False)
+    program_provider = db.Column(db.String(140), nullable=False) # Organization Name
+    program_name = db.Column(db.String(256), nullable=False) # Program Name
+    program_address = db.Column(db.String(1024), nullable=False) # Program Address
+    program_city = db.Column(db.String(1024), nullable=False) # Program City
+    program_url = db.Column(db.String(256), nullable=False) # URL of Program
+    phone_number = db.Column(db.String(32), nullable=False) # Phone number
+    program_potential_outcome = db.Column(db.String(256), nullable=False) # Credential level earned
+    program_fees = db.Column(db.Float, nullable=False) # In State Tuition/Cost of Program
+    apprenticeship_paid_training = db.Column(db.Boolean, nullable=False) # Apprenticeship or Paid Training Available (y/n)
 
     # recommended fields
-    provider_id = db.Column(db.String(140), nullable=True)
-    provider_latitude = db.Column(db.Integer, nullable=True)
-    provider_longitude = db.Column(db.Integer, nullable=True)
-    program_address = db.Column(db.String(1024), nullable=True)
-    total_units = db.Column(db.Integer, nullable=True)
-    unit_cost = db.Column(db.Integer, nullable=True)
-    is_preparation = db.Column(db.Boolean, nullable=True)
-    is_occupational_requirement = db.Column(db.Boolean, nullable=True)
-    start_date = db.Column(db.DateTime, nullable=True)
-    is_diploma_required = db.Column(db.Boolean, nullable=True)
-    prerequisites = db.Column(db.String(4096), nullable=True)
-    financial_aid5 = db.Column(db.Integer, nullable=True)
-    financial_aid4 = db.Column(db.Integer, nullable=True)
-    financial_aid3 = db.Column(db.Integer, nullable=True)
-    financial_aid2 = db.Column(db.Integer, nullable=True)
-    financial_aid1 = db.Column(db.Integer, nullable=True)
+    provider_id = db.Column(db.String(140), nullable=True) # Organization IPEDS ID
+    provider_url = db.Column(db.String(256), nullable=True) # Organization URL
+    program_code = db.Column(db.String(32), nullable=True) # CIP Code
+    major = db.Column(db.String(256), nullable=True) # Major / Cluster (Parent Program)
+    program_description = db.Column(db.String(4096), nullable=True) # Program description
+    regional_accredition_body = db.Column(db.String(1024), nullable=True) # Regional accredition body name
+    program_accredition_body = db.Column(db.String(1024), nullable=True) # Programmatic accredition body name
+    program_length = db.Column(db.String(256), nullable=True) # Duration / Time to complete in weeks or semesters or years
+    total_units = db.Column(db.Float, nullable=True) # Total Units
+    unit_cost = db.Column(db.Float, nullable=True) # Unit Cost (not required if total cost is given)
+    salary_paid = db.Column(db.Float, nullable=True) # Average wage paid to student (ie $14/hr)
+    program_format = db.Column(db.String(256), nullable=True) # Format (in-person, online, both)
+    program_timing = db.Column(db.String(256), nullable=True) # Timing (evenings, weekends vs. full-time)
+    cost_of_books_and_supplies = db.Column(db.Float, nullable=True) # Program Fees: Books, materials, supplies
+    credential_earned = db.Column(db.String(256), nullable=True) # What certification (exam), license, or certificate (if any) does this program prepare you for or give you?
+    prerequisites = db.Column(db.String(4096), nullable=True) # Other prerequisites (please list)
+    start_date = db.Column(db.DateTime, nullable=True) # Start date
+    is_diploma_required = db.Column(db.Boolean, nullable=True) # HS diploma required?
+    salary_post_graduation = db.Column(db.Float, nullable=True) # Salary post-graduation
 
     # extra data
     optional_fields = db.Column(JSONB)
     user_provided_fields = db.Column(JSONB)
 
-    def __init__(self, program_provider, provider_url,
-                 provider_address, major, program_name, program_url,
-                 program_description, program_potential_outcome,
-                 program_fees, salary_paid, program_length,
-                 cost_of_books_and_supplies, credential_earned,
-                 accreditation_name,
-                 provider_id=None, provider_latitude=None,
-                 provider_longitude=None, program_address=None,
-                 total_units=None, unit_cost=None,
-                 is_preparation=None, is_occupational_requirement=None,
-                 start_date=None, is_diploma_required=None,
-                 prerequisites=None, financial_aid5=None,
-                 financial_aid4=None, financial_aid3=None,
-                 financial_aid2=None, financial_aid1=None,
-                 id=None):
-        self.program_id = id
+    def __init__(self,
+        program_provider,
+        program_name,
+        program_address,
+        program_city,
+        program_url,
+        phone_number,
+        program_potential_outcome,
+        program_fees,
+        apprenticeship_paid_training,
+        provider_id=None,
+        provider_url=None,
+        program_code=None,
+        major=None,
+        program_description=None,
+        regional_accredition_body=None,
+        program_accredition_body=None,
+        program_length=None,
+        total_units=None,
+        unit_cost=None,
+        salary_paid=None,
+        program_format=None,
+        program_timing=None,
+        cost_of_books_and_supplies=None,
+        credential_earned=None,
+        prerequisites=None,
+        start_date=None,
+        is_diploma_required=None,
+        salary_post_graduation=None,
+        id=None):
         self.program_provider = program_provider
-        self.provider_url = provider_url
-        self.provider_address = provider_address
-        self.major = major
         self.program_name = program_name
+        self.program_address = program_address
+        self.program_city = program_city
         self.program_url = program_url
-        self.program_description = program_description
+        self.phone_number = phone_number
         self.program_potential_outcome = program_potential_outcome
         self.program_fees = program_fees
-        self.salary_paid = salary_paid
-        self.program_length = program_length
-        self.cost_of_books_and_supplies = cost_of_books_and_supplies
-        self.credential_earned = credential_earned
-        self.accreditation_name = accreditation_name
+        self.apprenticeship_paid_training = apprenticeship_paid_training
         self.provider_id = provider_id
-        self.provider_latitude = provider_latitude
-        self.provider_longitude = provider_longitude
-        self.program_address = program_address
+        self.provider_url = provider_url
+        self.program_code = program_code
+        self.major = major
+        self.program_description = program_description
+        self.regional_accredition_body = regional_accredition_body
+        self.program_accredition_body = program_accredition_body
+        self.program_length = program_length
         self.total_units = total_units
         self.unit_cost = unit_cost
-        self.is_preparation = is_preparation
-        self.is_occupational_requirement = is_occupational_requirement
+        self.salary_paid = salary_paid
+        self.program_format = program_format
+        self.program_timing = program_timing
+        self.cost_of_books_and_supplies = cost_of_books_and_supplies
+        self.credential_earned = credential_earned
+        self.prerequisites = prerequisites
         self.start_date = start_date
         self.is_diploma_required = is_diploma_required
-        self.prerequisites = prerequisites
-        self.financial_aid5 = financial_aid5
-        self.financial_aid4 = financial_aid4
-        self.financial_aid3 = financial_aid3
-        self.financial_aid2 = financial_aid2
-        self.financial_aid1 = financial_aid1
+        self.salary_post_graduation = salary_post_graduation
 
     def __repr__(self):
         return '<Pathways Program: {}, {}>'.format(self.program_name,
@@ -450,35 +460,32 @@ class PathwaysProgram(db.Model):
 
     def to_dict(self):
         return {
-            "ProgramId" : self.program_id,
-            "ProgramProvider" : self.program_provider,
-            "ProviderUrl" : self.provider_url,
-            "ProviderAddress" : self.provider_address,
-            "Major" : self.major,
-            "ProgramName" : self.program_name,
-            "ProgramUrl" : self.program_url,
-            "ProgramDescription" : self.program_description,
-            "ProgramPotentialOutcome" : self.program_potential_outcome,
-            "ProgramFees" : self.program_fees,
-            "SalaryPaid" : self.salary_paid,
-            "ProgramLength" : self.program_length,
-            "CostOfBooksAndSupplies" : self.cost_of_books_and_supplies,
-            "CredentialEarned" : self.credential_earned,
-            "AccreditationName" : self.accreditation_name,
-            "ProviderId" : self.provider_id,
-            "ProviderLatitude" : self.provider_latitude,
-            "ProviderLongitude" : self.provider_longitude,
-            "ProgramAddress" : self.program_address,
-            "TotalUnits" : self.total_units,
-            "UnitCost" : self.unit_cost,
-            "IsPreparation" : self.is_preparation,
-            "IsOccupationalRequirement" : self.is_occupational_requirement,
-            "StartDate" : self.start_date,
-            "IsDiplomaRequired" : self.is_diploma_required,
-            "Prerequisites" : self.prerequisites,
-            "FinancialAid5" : self.financial_aid5,
-            "FinancialAid4" : self.financial_aid4,
-            "FinancialAid3" : self.financial_aid3,
-            "FinancialAid2" : self.financial_aid2,
-            "FinancialAid1" : self.financial_aid1
+            "OrganizationName": self.program_provider,
+            "ProgramName": self.program_name,
+            "ProgramAddress": self.program_address,
+            "ProgramCity": self.program_city,
+            "UrlOfProgram": self.program_url,
+            "PhoneNumber": self.phone_number,
+            "CredentialLevelEarned": self.program_potential_outcome,
+            "InStateTuition": self.program_fees,
+            "ApprenticeshipOrPaidTrainingAvailable": self.apprenticeship_paid_training,
+            "OrganizationIpedsId": self.provider_id,
+            "OrganizationUrl": self.provider_url,
+            "CipCode": self.program_code,
+            "MajorCluster": self.major,
+            "ProgramDescription": self.program_description,
+            "RegionalAccreditionBody": self.regional_accredition_body,
+            "ProgrammaticAccreditionBody": self.program_accredition_body,
+            "Duration": self.program_length,
+            "TotalUnits": self.total_units,
+            "UnitCost": self.unit_cost,
+            "AverageWagePaidToStudent": self.salary_paid,
+            "Format": self.program_format,
+            "Timing": self.program_timing,
+            "ProgramFeesBooksMaterialsSupplies": self.cost_of_books_and_supplies,
+            "Certification": self.credential_earned,
+            "OtherPrerequisites": self.prerequisites,
+            "StartDate": self.start_date,
+            "HsDiplomaRequired": self.is_diploma_required,
+            "SalaryPostGraduation": self.salary_post_graduation
         }

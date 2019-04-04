@@ -1,0 +1,144 @@
+{
+  "schema": [
+    {
+      "field": "OrganizationName",
+      "type": "string",
+      "required": "true"
+    },
+    {
+      "field": "ProgramName",
+      "type": "string",
+      "required": "true"
+    },
+    {
+      "field": "ProgramAddress",
+      "type": "string",
+      "required": "true"
+    },
+    {
+      "field": "ProgramCity",
+      "type": "string",
+      "required": "true"
+    },
+    {
+      "field": "UrlOfProgram",
+      "type": "string",
+      "required": "true"
+    },
+    {
+      "field": "PhoneNumber",
+      "type": "string",
+      "required": "true"
+    },
+    {
+      "field": "CredentialLevelEarned",
+      "type": "string",
+      "required": "true"
+    },
+    {
+      "field": "InStateTuition",
+      "type": "float",
+      "required": "true"
+    },
+    {
+      "field": "ApprenticeshipOrPaidTrainingAvailable",
+      "type": "boolean",
+      "required": "true"
+    },
+    {
+      "field": "OrganizationIpedsId",
+      "type": "string",
+      "required": "false"
+    },
+    {
+      "field": "OrganizationUrl",
+      "type": "string",
+      "required": "false"
+    },
+    {
+      "field": "CipCode",
+      "type": "string",
+      "required": "false"
+    },
+    {
+      "field": "MajorCluster",
+      "type": "string",
+      "required": "false"
+    },
+    {
+      "field": "ProgramDescription",
+      "type": "string",
+      "required": "false"
+    },
+    {
+      "field": "RegionalAccreditionBody",
+      "type": "string",
+      "required": "false"
+    },
+    {
+      "field": "ProgrammaticAccreditionBody",
+      "type": "string",
+      "required": "false"
+    },
+    {
+      "field": "Duration",
+      "type": "string",
+      "required": "false"
+    },
+    {
+      "field": "TotalUnits",
+      "type": "float",
+      "required": "false"
+    },
+    {
+      "field": "UnitCost",
+      "type": "float",
+      "required": "false"
+    },
+    {
+      "field": "AverageWagePaidToStudent",
+      "type": "float",
+      "required": "false"
+    },
+    {
+      "field": "Format",
+      "type": "string",
+      "required": "false"
+    },
+    {
+      "field": "Timing",
+      "type": "string",
+      "required": "false"
+    },
+    {
+      "field": "ProgramFeesBooksMaterialsSupplies",
+      "type": "string",
+      "required": "false"
+    },
+    {
+      "field": "Certification",
+      "type": "string",
+      "required": "false"
+    },
+    {
+      "field": "OtherPrerequisites",
+      "type": "string",
+      "required": "false"
+    },
+    {
+      "field": "StartDate",
+      "type": "date",
+      "required": "false"
+    },
+    {
+      "field": "HsDiplomaRequired",
+      "type": "boolean",
+      "required": "false"
+    },
+    {
+      "field": "SalaryPostGraduation",
+      "type": "float",
+      "required": "false"
+    }
+  ]
+}
